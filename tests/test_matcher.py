@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from soroban_wrapped.catalog import load_catalog
-from soroban_wrapped.config import ROOT
-from soroban_wrapped.extract.matcher import run_patterns
-from soroban_wrapped.extract.rust import parse_rust
-from soroban_wrapped.workflow import load_workflow
+from state_of_soroban.catalog import load_catalog
+from state_of_soroban.config import ROOT
+from state_of_soroban.extract.matcher import run_patterns
+from state_of_soroban.extract.rust import parse_rust
+from state_of_soroban.workflow import load_workflow
 
 FIXTURE = Path(__file__).parent / "fixtures" / "token.rs"
 

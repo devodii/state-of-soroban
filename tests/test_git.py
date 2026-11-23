@@ -1,4 +1,4 @@
-from soroban_wrapped.extract.git import login_of, parse_log, target_path
+from state_of_soroban.extract.git import login_of, parse_log, target_path
 
 RAW = (
     "\x1eabc123\x1fAda\x1f12+ada@users.noreply.github.com\x1f2026-03-01T10:00:00+00:00"

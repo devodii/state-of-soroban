@@ -46,7 +46,7 @@ jobs:
         env:
           GITHUB_TOKENS: ${{ github.token }}
         run: |
-          uv run soroban-wrapped extract-shard \
+          uv run state-of-soroban extract-shard \
             --targets queue/targets.txt --patterns queue/patterns.json \
             --index "${{ matrix.shard }}" --count "${{ inputs.shards }}" \
             --out out/shard-${{ matrix.shard }}.jsonl.gz \

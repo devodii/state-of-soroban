@@ -1,4 +1,8 @@
-# soroban-wrapped
+# state-of-soroban
+
+The research and indexing product. It is a separate codebase from soroban-wrapped (the public on-chain stats app) so the indexers can run on their own machine and be improved independently. It holds the GitHub scraping, discovery, extraction, ecosystem graph, tooling needs and gap analysis, with its own Postgres on port 5443 (copied from the original database, including copies of the chain tables used for linking).
+
+To resume on any machine: `cp .env.example .env`, `docker compose up -d --wait db`, `uv sync`, `uv run state-of-soroban drive`, and `uv run state-of-soroban serve` for the UI. Ports: db 5443, api 8788, web dev 5174, storybook 6007, so it runs beside soroban-wrapped.
 
 Indexes every public Soroban contract repo and the chain, stores analysis-grade data in its own Postgres, and lets the data propose what developers should not have to rewrite by hand.
 
@@ -10,12 +14,12 @@ The idea: mine the boilerplate everyone hand-writes (TTL bumps, auth guards, ini
 cp .env.example .env            # put your GitHub tokens in GITHUB_TOKENS, comma separated
 docker compose up -d --wait db
 uv sync
-uv run soroban-wrapped schema apply
-uv run soroban-wrapped drive    # autopilot, runs every stage and keeps going
-uv run soroban-wrapped serve    # live UI on http://localhost:8787
+uv run state-of-soroban schema apply
+uv run state-of-soroban drive    # autopilot, runs every stage and keeps going
+uv run state-of-soroban serve    # live UI on http://localhost:8788
 ```
 
-The public web app lives in `web/` (see `decisions.md`). Build it with `cd web && pnpm install && pnpm build`, then `serve` hosts it at http://localhost:8787/app. For development run `pnpm dev` in `web` (proxies `/api` to :8787) and `pnpm storybook` for the component workbench. After an API change run `pnpm types`.
+The public web app lives in `web/` (see `decisions.md`). Build it with `cd web && pnpm install && pnpm build`, then `serve` hosts it at http://localhost:8788/app. For development run `pnpm dev` in `web` (proxies `/api` to :8788) and `pnpm storybook` for the component workbench. After an API change run `pnpm types`.
 
 Add more tokens to `.env` at any time. Running jobs pick them up within 30 seconds.
 
@@ -41,7 +45,7 @@ Every unit of work is checkpointed, so a dropped connection or a crash resumes i
 
 ## On-chain history
 
-The year of ledger history is too big to download. `.github/workflows/lake.yml` reads the public AWS ledger archive on GitHub runners, keeps only call events and daily totals, and uploads small parquet files. `soroban-wrapped lake-import` (or the `lake` stage) loads them. See `decisions.md` for the measured speeds.
+The year of ledger history is too big to download. `.github/workflows/lake.yml` reads the public AWS ledger archive on GitHub runners, keeps only call events and daily totals, and uploads small parquet files. `state-of-soroban lake-import` (or the `lake` stage) loads them. See `decisions.md` for the measured speeds.
 
 ```sh
 gh workflow run lake.yml -f network=mainnet -f start=2026-01-01 -f end=2026-04-30
@@ -52,7 +56,7 @@ gh workflow run lake.yml -f network=mainnet -f start=2026-01-01 -f end=2026-04-3
 ```
 workflow/            the YAML workflow and the catalog (seeds, bug classes, libraries)
 db/schema, db/migrations   pgschema schema files and numbered migrations
-src/soroban_wrapped/
+src/state_of_soroban/
   extract/           rust parser, pattern matcher, cargo, git, networks
   chain/             rpc, wasm spec reader, ledger archive summariser
   stages/            one module per workflow stage

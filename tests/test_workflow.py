@@ -1,9 +1,9 @@
 import pytest
 
-from soroban_wrapped.catalog import load_catalog
-from soroban_wrapped.config import ROOT
-from soroban_wrapped.runner import order, select
-from soroban_wrapped.workflow import Stage, load_workflow
+from state_of_soroban.catalog import load_catalog
+from state_of_soroban.config import ROOT
+from state_of_soroban.runner import order, select
+from state_of_soroban.workflow import Stage, load_workflow
 
 WORKFLOW = ROOT / "workflow" / "workflow.yaml"
 

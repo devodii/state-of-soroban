@@ -1,8 +1,8 @@
-from soroban_wrapped.config import ROOT
-from soroban_wrapped.extract.manifest import parse_cargo, parse_lock
-from soroban_wrapped.extract.networks import network_hits, network_of_ref
-from soroban_wrapped.extract.strkey import find_contract_ids, is_contract_id
-from soroban_wrapped.workflow import load_workflow
+from state_of_soroban.config import ROOT
+from state_of_soroban.extract.manifest import parse_cargo, parse_lock
+from state_of_soroban.extract.networks import network_hits, network_of_ref
+from state_of_soroban.extract.strkey import find_contract_ids, is_contract_id
+from state_of_soroban.workflow import load_workflow
 
 USDC = "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75"
 

@@ -1,4 +1,4 @@
-from soroban_wrapped.stages.needs import coverage, percentile, tokenise
+from state_of_soroban.stages.needs import coverage, percentile, tokenise
 
 
 def test_percentile_spreads_values_and_orders_them():

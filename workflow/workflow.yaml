@@ -1,4 +1,4 @@
-name: soroban-wrapped
+name: state-of-soroban
 summary: Every public soroban contract repo and what it ships, to find what devs rewrite by hand.
 
 window:
@@ -123,16 +123,9 @@ chain:
       - https://mainnet.sorobanrpc.com
       - https://soroban-rpc.mainnet.stellar.gateway.fm
       - https://rpc.lightsail.network
-    lake: https://aws-public-blockchain.s3.us-east-2.amazonaws.com/v1.1/stellar/parquet/pubnet/v1
   testnet:
     rpc_urls:
       - https://soroban-testnet.stellar.org
-    lake: https://aws-public-blockchain.s3.us-east-2.amazonaws.com/v1.1/stellar/parquet/testnet/v1
-  lake:
-    concurrency: 32
-    days_per_run: 0
-    newest_first: true
-    contracts_only: true
   rpc:
     batch_keys: 200
     concurrency: 4
@@ -197,7 +190,6 @@ stages:
   - {id: ecosystem, uses: github.ecosystem, needs: [metadata]}
   - {id: history, uses: github.history, needs: [clone]}
   - {id: chain, uses: chain.state, needs: [clone]}
-  - {id: lake, uses: chain.lake, needs: [chain]}
   - {id: dispatch, uses: git.dispatch, needs: [metadata]}
   - {id: harvest, uses: git.harvest, needs: [dispatch]}
   - {id: dependents, uses: github.dependents, needs: [catalog]}

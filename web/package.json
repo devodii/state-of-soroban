@@ -1,5 +1,5 @@
 {
-  "name": "soroban-wrapped-web",
+  "name": "state-of-soroban-web",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -9,9 +9,9 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "openapi": "cd .. && uv run soroban-wrapped openapi",
+    "openapi": "cd .. && uv run state-of-soroban openapi",
     "types": "pnpm openapi && openapi-typescript openapi.json -o src/lib/api-schema.ts --root-types --root-types-no-schema-prefix",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
   },
   "dependencies": {

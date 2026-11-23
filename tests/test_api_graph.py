@@ -1,4 +1,4 @@
-from soroban_wrapped.api_app import build_graph, select_ecosystem
+from state_of_soroban.api_app import build_graph, select_ecosystem
 
 
 def node(id_: str, kind: str, label: str, **extra):

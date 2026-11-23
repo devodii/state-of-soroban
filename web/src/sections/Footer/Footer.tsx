@@ -9,8 +9,8 @@ export function Footer() {
         demand. Every figure here links back to its evidence.
       </p>
       <p className="sw-footer-small">
-        Soroban Wrapped is a research index. Scores are a ranked shortlist, read the evidence before
-        acting on one.
+        State of Soroban is a research index. Scores are a ranked shortlist, read the evidence
+        before acting on one.
       </p>
     </footer>
   )

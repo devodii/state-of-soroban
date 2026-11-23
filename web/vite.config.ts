@@ -5,8 +5,8 @@ export default defineConfig({
   base: '/app/',
   plugins: [react()],
   server: {
-    port: 5173,
-    proxy: { '/api': 'http://localhost:8787' },
+    port: 5174,
+    proxy: { '/api': 'http://localhost:8788' },
   },
   worker: { format: 'es' },
 })

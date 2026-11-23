@@ -17,7 +17,7 @@ Decisions made while building, with the reason, so they can be challenged. Newes
 
 ## Resilience
 - **Everything is resumable first.** Every unit of work (search slice and page, crates.io lookup, repo, lake day) has a row in `checkpoints`. A network drop waits until online and leaves the unit pending.
-- **One autopilot (`soroban-wrapped drive`)** runs every stage, restarts crashed stages with backoff and follows new work as it appears. It runs under `caffeinate` so the machine does not idle-sleep.
+- **One autopilot (`state-of-soroban drive`)** runs every stage, restarts crashed stages with backoff and follows new work as it appears. It runs under `caffeinate` so the machine does not idle-sleep.
 
 ## Proposals and the catalog
 - **YAML catalog entries are seeds, not conclusions.** Real proposals are mined from the data and stored with their evidence. Seeds are scored the same way and can be marked unsupported.
@@ -26,7 +26,7 @@ Decisions made while building, with the reason, so they can be challenged. Newes
 - **Weight goes up** for mainnet-confirmed repos, recent activity, lines removable per adopter and fix commits or issues tied to the pattern. **Weight goes down** when OpenZeppelin or the SDK already covers it.
 
 ## Interfaces
-- **Live research UI** (`soroban-wrapped serve`, port 8787) reads the database directly. It is the base for the later React and 3D app, which will use the same API.
+- **Live research UI** (`state-of-soroban serve`, port 8788) reads the database directly. It is the base for the later React and 3D app, which will use the same API.
 
 ## Discovery is not claimed to be complete
 - **Known holes:** identical-size files can hit GitHub's 1,000-result cap inside one size bucket; code search skips most forks, non-default branches and large files; non-GitHub hosts are not searched; sibling repos of a found owner can be missed.
@@ -38,7 +38,7 @@ Decisions made while building, with the reason, so they can be challenged. Newes
 - **Size of the job:** mainnet 2026 is about 5.6M ledgers. At 64 ledgers/s that is about 87,500 runner-seconds, so **about 1,450 Actions minutes**, plus about 20 for job setup. Up to 20 jobs run at once, so the wall time is roughly 1.5 to 2.5 hours.
 - **Budget:** the free plan gives 2,000 private Linux minutes a month. CI has used roughly 60 to 70 so far this month. The full run fits but with thin headroom. Safest is two batches: now and after the monthly reset on 1 December. Set Actions spending limit to 0 so nothing can ever bill. If it did bill, the worst case is about 10 to 15 USD (about 0.008 per minute).
 - **Artifacts:** each day's summary is small (60 to 130 KB per 400 to 800 ledgers, roughly 0.5 to 2 MB per full day). A year could approach the free 500 MB artifact storage, so run in batches of 2 to 3 months, import, then delete the artifacts.
-- **Not launched in full.** It needs your go-ahead. The command is `gh workflow run lake.yml -f network=mainnet -f start=2026-01-01 -f end=2026-02-28` then `gh run download` then `soroban-wrapped lake-import`.
+- **Not launched in full.** It needs your go-ahead. The command is `gh workflow run lake.yml -f network=mainnet -f start=2026-01-01 -f end=2026-02-28` then `gh run download` then `state-of-soroban lake-import`.
 
 ## Overnight decisions (2026-11-21)
 - **Stages run as independent followers, not in sequence.** Metadata, extraction and history each loop on their own pending work, so history (issues, PRs, releases) no longer waits hours behind extraction. A periodic loop runs sweep, chain, lake import, reanalyse, mine, score, graph and report every 20 minutes.
@@ -91,9 +91,9 @@ Decisions made while building, with the reason, so they can be challenged. Newes
 
 ## The public web app (2026-11-22)
 - **One wrapped page, not a multi-page app.** `web/` is a React 19, TypeScript and Vite single page told as a story: hero numbers, what developers hand-write, tooling gaps with RFP drafts, mainnet vs testnet over the year, and the 3D graph as the centrepiece. Detail opens in in-page drawers and the cmd+k palette. State lives in the URL (`?proposal=`, `?need=`, `?repo=`, `?contract=`, `?node=`, `?g=chain`, filters). No router.
-- **It is a separate surface from the old html UI.** `src/soroban_wrapped/ui/index.html` and the `/api/overview`, `/api/graph` routes are untouched and stay for internal checks (coverage, queue health, stage runs). The new app is served at `/app` from `web/dist` and leaves those internals out.
+- **It is a separate surface from the old html UI.** `src/state_of_soroban/ui/index.html` and the `/api/overview`, `/api/graph` routes are untouched and stay for internal checks (coverage, queue health, stage runs). The new app is served at `/app` from `web/dist` and leaves those internals out.
 - **Nothing is deleted or hidden in the database.** Relevance is applied only in the v2 queries: Soroban repos (`is_soroban`) and Stellar-ecosystem repos (`is_stellar`) are searchable, the 300k discovered repos never are, and the graph is capped to the top N by reuse score.
-- **Types are generated, never hand-written.** `soroban-wrapped openapi` dumps the schema from `create_app()` into `web/openapi.json`; `pnpm types` runs openapi-typescript into `web/src/lib/api-schema.ts`. Every v2 route has a pydantic `response_model`; the fetch layer (openapi-fetch) and TanStack Query hooks use only those types. CI regenerates both and fails on a diff.
+- **Types are generated, never hand-written.** `state-of-soroban openapi` dumps the schema from `create_app()` into `web/openapi.json`; `pnpm types` runs openapi-typescript into `web/src/lib/api-schema.ts`. Every v2 route has a pydantic `response_model`; the fetch layer (openapi-fetch) and TanStack Query hooks use only those types. CI regenerates both and fails on a diff.
 - **Heavy aggregates are snapshots, not live queries.** The full-table scans (busiest contracts and call edges over 2M and 4M rows, pattern counts over 5M rows) took 18 to 39 s on the busy database, so they are computed in the background, cached for 30 minutes (stale while revalidate) and warmed at startup. Endpoints answer `warming: true` for the first seconds and the page polls. Repo search runs over a cached in-memory index of the 10k Soroban and Stellar repos instead of scanning the 300k table. Everything else is a primary-key or index lookup behind a 60 s cache.
 - **The graph server returns the top N, the browser lays it out.** `/api/v2/graph` selects proposals, libraries and bug classes always, then repos by summed reuse score and the contracts they deploy, up to `limit` (default 900, max 4000). Neighbourhoods expand on demand through `/api/v2/neighbours`. Layout is d3-force-3d in a web worker (about 55 ms per tick at 4,000 nodes and 14,000 edges, off the main thread). Rendering is one instanced mesh per node kind with per-instance colour, one line-segment buffer for edges, labels only for the focused node and its neighbours, and bloom limited to the highlighted nodes. The 2D canvas fallback is used without WebGL or by choice.
 - **The only write the app does is a note** on a repo, proposal or need, into the existing `comments` table.
@@ -101,3 +101,11 @@ Decisions made while building, with the reason, so they can be challenged. Newes
 - **Known gap:** the time scrubber filters repos by last push, not contracts by deploy date, because the data has no per-contract deployment day.
 - The `dispatch` stage keeps extraction self-driving: when no extract run is active, every finished run is imported, and at least 200 repos are waiting, it publishes the queue and launches the workflow (about 250 repos per shard, 100 shards at most). The local clone follower was removed from the autopilot because it competed with artifact downloads for the one slow link.
 - Harvest downloads artifacts one at a time and skips ones already on disk, so a dropped connection resumes.
+
+## Split from soroban-wrapped (2026-11-23)
+
+- The GitHub indexer, discovery, extraction, ecosystem graph, needs and gap analysis moved here. soroban-wrapped keeps only the on-chain ledger lake, its Actions runners and a metrics-only web app.
+- The database is an exact filesystem clone of the original cluster (role and database stay `soroban`), published on host port 5443. It keeps copies of the chain tables because repo linking and the graph use them.
+- The ledger lake stage, CLI commands and workflow were removed here. The Actions helpers they shared with dispatch and harvest moved to `stages/gh.py`.
+- Ports differ from soroban-wrapped so both can run on one machine: api 8788, vite 5174, storybook 6007.
+- Created but not started. No indexing has run since the split.

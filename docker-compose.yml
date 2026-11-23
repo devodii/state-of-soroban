@@ -1,4 +1,4 @@
-name: soroban-wrapped
+name: state-of-soroban
 
 x-indexer: &indexer
   build: .
@@ -59,7 +59,7 @@ services:
       POSTGRES_DB: soroban
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - "${DB_PORT:-5442}:5432"
+      - "${DB_PORT:-5443}:5432"
     volumes:
       - ./.pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -71,7 +71,7 @@ services:
   indexer:
     <<: *indexer
     profiles: [tools]
-    entrypoint: ["uv", "run", "soroban-wrapped"]
+    entrypoint: ["uv", "run", "state-of-soroban"]
 
 volumes:
   indexer-venv:

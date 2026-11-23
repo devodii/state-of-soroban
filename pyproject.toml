@@ -1,5 +1,5 @@
 [project]
-name = "soroban-wrapped"
+name = "state-of-soroban"
 version = "0.1.0"
 description = "Index every soroban contract repo and the chain to find what devs rewrite by hand"
 requires-python = ">=3.13"
@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.scripts]
-soroban-wrapped = "soroban_wrapped.cli:main"
+state-of-soroban = "state_of_soroban.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5"]

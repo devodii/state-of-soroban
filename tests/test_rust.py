@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from soroban_wrapped.extract.rust import parse_rust
+from state_of_soroban.extract.rust import parse_rust
 
 FIXTURE = Path(__file__).parent / "fixtures" / "token.rs"
 
