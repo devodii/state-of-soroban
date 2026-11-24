@@ -1,8 +1,9 @@
 import pytest
 
+from state_of_soroban import stages as _stages  # noqa: F401
 from state_of_soroban.catalog import load_catalog
 from state_of_soroban.config import ROOT
-from state_of_soroban.runner import order, select
+from state_of_soroban.runner import REGISTRY, order, select
 from state_of_soroban.workflow import Stage, load_workflow
 
 WORKFLOW = ROOT / "workflow" / "workflow.yaml"
@@ -17,9 +18,9 @@ def test_the_committed_workflow_and_catalog_are_valid_and_linked():
     catalog = load_catalog(workflow)
 
     assert workflow.window.end >= workflow.window.start
-    assert {p.id for p in catalog.patterns} >= {
-        item.id for proposal in catalog.proposals for item in proposal.patterns
-    }
+    assert catalog.patterns
+    assert {s.uses for s in workflow.stages} <= set(REGISTRY)
+    assert set(workflow.autopilot.followed) <= {s.id for s in workflow.stages}
 
 
 def test_stages_run_after_the_stages_they_need():

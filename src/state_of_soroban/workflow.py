@@ -28,10 +28,6 @@ class Window(BaseModel):
 class CatalogFiles(BaseModel):
     patterns: Path
     bug_classes: Path
-    libraries: Path
-    proposals: Path
-    tools: Path
-    needs: Path
 
 
 class CratesIo(BaseModel):
@@ -105,108 +101,22 @@ class NetworkSignal(BaseModel):
         return value
 
 
-class ChainNetwork(BaseModel):
-    rpc_urls: list[str]
+class Autopilot(BaseModel):
+    followed: dict[str, str]
+    periodic: list[str]
+    periodic_seconds: int = 600
+    discovery_seconds: int = 3600
+    dependents_seconds: int = 21600
+    pool_size: int = 40
+    min_free_gb: int = 3
 
 
-class Rpc(BaseModel):
-    batch_keys: int = 200
-    concurrency: int = 4
-
-
-class Chain(BaseModel):
-    mainnet: ChainNetwork
-    testnet: ChainNetwork
-    rpc: Rpc
-
-    def network(self, name: str) -> ChainNetwork:
-        return getattr(self, name)
-
-
-class Mine(BaseModel):
-    min_owners: int = 5
-    min_function_nodes: int = 14
-    max_function_loc: int = 70
-    top_per_kind: int = 40
-    min_macro_owners: int = 3
-    min_term_owners: int = 8
-    min_term_lift: float = 3.0
-    min_topic_repos: int = 6
-    soroban_markers: list[str] = Field(default_factory=list)
-
-
-class Weights(BaseModel):
-    owners: float = 1.0
-    independence: float = 0.6
-    mainnet: float = 0.8
-    recency: float = 0.5
-    fixes: float = 0.4
-    loc: float = 0.4
-    covered: float = -0.7
-
-
-class Score(BaseModel):
-    recent_days: int = 90
-    weights: Weights = Field(default_factory=Weights)
-
-
-class Accept(BaseModel):
-    policy: Literal["suggest", "auto"] = "suggest"
-    min_score: float = 45
-    min_owners: int = 8
-    patterns: Literal["off", "auto"] = "auto"
-    max_mined_patterns: int = 40
-    queries: Literal["off", "auto"] = "auto"
-    min_topic_repos: int = 15
-    min_topic_precision: float = 0.15
-
-
-class NeedWeights(BaseModel):
-    pain: float = 1.2
-    owners: float = 0.5
-    relevance: float = 0.6
-    official: float = 0.7
-    custom: float = 0.7
-    recency: float = 0.4
-    engagement: float = 0.5
-    covered: float = -0.6
-
-
-class Needs(BaseModel):
-    min_relevance: float = 0.08
-    min_issue_rank: float = 0.3
-    min_doc_rank: float = 0.25
-    evidence_per_kind: int = 40
-    min_ngram_owners: int = 5
-    top_mined: int = 120
-    cue_words: list[str] = Field(default_factory=list)
-    noise_title: str = "^$never^"
-    weights: NeedWeights = Field(default_factory=NeedWeights)
-
-
-class Improve(BaseModel):
-    mine: Mine = Field(default_factory=Mine)
-    score: Score = Field(default_factory=Score)
-    accept: Accept = Field(default_factory=Accept)
-    needs: Needs = Field(default_factory=Needs)
-
-
-class Ecosystem(BaseModel):
-    batch: int = 8
-    concurrency: int = 4
-    max_text_bytes: int = 120000
-    manifests: list[str]
-    nested_manifests: list[str]
-    subdirs: list[str]
-    files: list[str]
-    trees: list[str]
-    stellar_terms: str
-
-    @field_validator("stellar_terms")
-    @classmethod
-    def compiles(cls, value: str) -> str:
-        re.compile(value)
-        return value
+class Readiness(BaseModel):
+    min_recall: float = 0.99
+    quiet_hours: int = 24
+    max_new_soroban_in_quiet: int = 0
+    min_known_rediscovered: float = 0.99
+    known_file: Path | None = None
 
 
 class Stage(BaseModel):
@@ -227,9 +137,8 @@ class Workflow(BaseModel):
     documents: Documents
     history: History
     networks_signals: dict[Network, list[NetworkSignal]]
-    chain: Chain
-    improve: Improve = Field(default_factory=Improve)
-    ecosystem: Ecosystem
+    autopilot: Autopilot
+    readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")
 

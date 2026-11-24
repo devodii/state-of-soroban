@@ -10,10 +10,6 @@ networks: [mainnet, testnet]
 catalog:
   patterns: catalog/patterns.yaml
   bug_classes: catalog/bug-classes.yaml
-  libraries: catalog/libraries.yaml
-  proposals: catalog/proposals.yaml
-  tools: catalog/tools.yaml
-  needs: catalog/needs.yaml
 
 discover:
   crates_io:
@@ -117,88 +113,31 @@ networks_signals:
     - {signal: rpc, regex: 'rpc-futurenet\.stellar\.org|horizon-futurenet'}
     - {signal: passphrase, regex: 'Test SDF Future Network ; October 2022'}
 
-chain:
-  mainnet:
-    rpc_urls:
-      - https://mainnet.sorobanrpc.com
-      - https://soroban-rpc.mainnet.stellar.gateway.fm
-      - https://rpc.lightsail.network
-  testnet:
-    rpc_urls:
-      - https://soroban-testnet.stellar.org
-  rpc:
-    batch_keys: 200
-    concurrency: 4
+autopilot:
+  followed:
+    metadata: metadata
+    history: history
+  periodic: [sweep, dispatch, harvest]
+  periodic_seconds: 600
+  discovery_seconds: 3600
+  dependents_seconds: 21600
+  pool_size: 40
+  min_free_gb: 3
 
-improve:
-  mine:
-    min_owners: 5
-    min_function_nodes: 14
-    max_function_loc: 70
-    top_per_kind: 40
-    min_macro_owners: 3
-    min_term_owners: 8
-    min_term_lift: 3.0
-    min_topic_repos: 6
-    soroban_markers: [storage, instance, persistent, temporary, require_auth, require_auth_for_args, extend_ttl, extend_ttl_for_all, publish, events, invoke_contract, symbol_short, panic_with_error, current_contract_address, ledger, deployer, register, update_current_contract_wasm]
-  needs:
-    min_relevance: 0.08
-    min_issue_rank: 0.3
-    min_doc_rank: 0.25
-    evidence_per_kind: 40
-    min_ngram_owners: 4
-    top_mined: 120
-    cue_words: [missing, "no way", cannot, "can't", unable, "doesn't work", "does not work", "not working", broken, fails, failing, workaround, "how to", "how do", "would be nice", wish, lack, lacking, limitation, painful, annoying, confusing, unclear, outdated, "hard to", difficult, impossible, "not possible", "not supported", unsupported, "no support", "is there a way", "feature request", "can we", "any plans", "should support", "need a way", "need to be able", "wasting", tedious, boilerplate, manual, manually, "every time", repetitive]
-    noise_title: '^(feat|chore|docs|ci|refactor|test|build|style|perf|release|bump|merge)(\(.*\))?!?:'
-    weights: {pain: 1.2, owners: 0.5, relevance: 0.6, official: 0.7, custom: 0.7, recency: 0.4, engagement: 0.5, covered: -0.6}
-  score:
-    recent_days: 90
-    weights:
-      owners: 1.0
-      independence: 0.6
-      mainnet: 0.8
-      recency: 0.5
-      fixes: 0.4
-      loc: 0.4
-      covered: -0.7
-  accept:
-    policy: suggest
-    min_score: 45
-    min_owners: 8
-    patterns: auto
-    max_mined_patterns: 40
-    queries: auto
-    min_topic_repos: 15
-    min_topic_precision: 0.15
-
-ecosystem:
-  batch: 8
-  concurrency: 10
-  max_text_bytes: 120000
-  manifests: [package.json, requirements.txt, pyproject.toml, go.mod, Cargo.toml, composer.json, Gemfile, pubspec.yaml, Package.swift, build.gradle, build.gradle.kts, pom.xml, Pipfile]
-  nested_manifests: [package.json, requirements.txt, pyproject.toml, go.mod, Cargo.toml, composer.json]
-  subdirs: [frontend, web, app, client, backend, server, api, sdk, cli, packages, apps, contracts, scripts, services, indexer, bot, tools, src]
-  files: [README.md, readme.md, Makefile, justfile, Taskfile.yml, Dockerfile, docker-compose.yml, docker-compose.yaml, .env.example, stellar.toml, soroban.json, .tool-versions, CONTRIBUTING.md, SECURITY.md]
-  trees: [.github/workflows, scripts, .circleci]
-  stellar_terms: 'stellar|soroban|horizon|freighter|albedo|xlm|sep-?\d+|lumens?'
+readiness:
+  min_recall: 0.99
+  quiet_hours: 24
+  max_new_soroban_in_quiet: 0
+  min_known_rediscovered: 0.99
+  known_file: seeds/known-soroban-repos.txt
 
 stages:
   - {id: catalog, uses: catalog.sync}
   - {id: discover, uses: github.discover, needs: [catalog]}
+  - {id: dependents, uses: github.dependents, needs: [catalog]}
   - {id: metadata, uses: github.metadata, needs: [discover]}
   - {id: clone, uses: git.extract, needs: [metadata]}
-  - {id: ecosystem, uses: github.ecosystem, needs: [metadata]}
-  - {id: history, uses: github.history, needs: [clone]}
-  - {id: chain, uses: chain.state, needs: [clone]}
   - {id: dispatch, uses: git.dispatch, needs: [metadata]}
   - {id: harvest, uses: git.harvest, needs: [dispatch]}
-  - {id: dependents, uses: github.dependents, needs: [catalog]}
-  - {id: sweep, uses: github.sweep, needs: [clone]}
-  - {id: mine, uses: catalog.mine, needs: [clone, history, chain]}
-  - {id: reanalyse, uses: catalog.reanalyse, needs: [clone]}
-  - {id: score, uses: catalog.score, needs: [mine]}
-  - {id: qa, uses: qa.stackexchange, needs: [catalog]}
-  - {id: needs, uses: catalog.needs, needs: [ecosystem, history, score, qa]}
-  - {id: gaps, uses: catalog.gaps, needs: [needs]}
-  - {id: graph, uses: graph.build, needs: [score]}
-  - {id: report, uses: report.write, needs: [graph, needs]}
+  - {id: history, uses: github.history, needs: [harvest]}
+  - {id: sweep, uses: github.sweep, needs: [harvest]}

@@ -1,23 +1,5 @@
 name: state-of-soroban
 
-x-indexer: &indexer
-  build: .
-  working_dir: /app
-  volumes:
-    - ./:/app
-    - indexer-venv:/app/.venv
-    - clones:/clones
-  environment:
-    UV_LINK_MODE: copy
-    DATABASE_URL: postgresql://soroban:soroban@db:5432/soroban
-    GITHUB_TOKENS: ${GITHUB_TOKENS:-}
-    MAINNET_RPC_URL: ${MAINNET_RPC_URL:-https://mainnet.sorobanrpc.com}
-    WORKFLOW_FILE: ${WORKFLOW_FILE:-/app/workflow/workflow.yaml}
-    CLONE_DIR: /clones
-  depends_on:
-    db:
-      condition: service_healthy
-
 services:
   db:
     image: postgres:17-alpine
@@ -67,12 +49,3 @@ services:
       interval: 3s
       timeout: 3s
       retries: 20
-
-  indexer:
-    <<: *indexer
-    profiles: [tools]
-    entrypoint: ["uv", "run", "state-of-soroban"]
-
-volumes:
-  indexer-venv:
-  clones:

@@ -110,7 +110,6 @@ async def crawl(context: Context, root: str, package: Package) -> int:
 
 @stage("github.dependents")
 async def dependents(context: Context, _: Stage) -> None:
-    await link_chain_sources(context)
     for source in context.workflow.discover.dependents:
         first = await fetch(
             context, f"https://github.com/{source.repo}/network/dependents"
@@ -120,8 +119,3 @@ async def dependents(context: Context, _: Stage) -> None:
         for package in wanted:
             added = await crawl(context, source.repo, package)
             log.info("dependents %s %s: %s repos", source.repo, package.name, added)
-
-
-async def link_chain_sources(context: Context) -> None:
-    result = await context.pool.execute(load_sql("link_chain_sources"))
-    log.info("on-chain source links: %s", result)

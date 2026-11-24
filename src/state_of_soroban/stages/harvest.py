@@ -5,7 +5,6 @@ import logging
 import shutil
 
 from state_of_soroban import checkpoints
-from state_of_soroban.catalog import active_patterns
 from state_of_soroban.config import ROOT
 from state_of_soroban.extract.analyse import catalog_hash
 from state_of_soroban.extract.shard_line import ShardLine
@@ -141,4 +140,4 @@ async def harvest(context: Context, _: Stage) -> None:
 
 
 async def current_digest(context: Context) -> str:
-    return catalog_hash(await active_patterns(context.pool, context.catalog))
+    return catalog_hash(context.catalog.patterns)

@@ -5,7 +5,7 @@ import tempfile
 from datetime import UTC, datetime
 from pathlib import Path
 
-from state_of_soroban.catalog import active_patterns, load_catalog
+from state_of_soroban.catalog import load_catalog
 from state_of_soroban.config import ROOT
 from state_of_soroban.database import open_pool
 from state_of_soroban.sql_loader import load_sql
@@ -46,7 +46,7 @@ async def run_plan(limit: int) -> int:
         names = [row["full_name"] for row in rows]
         if limit:
             names = names[:limit]
-        patterns = await active_patterns(pool, catalog)
+        patterns = catalog.patterns
     finally:
         await pool.close()
     remote = await git("remote", "get-url", "origin", cwd=ROOT)

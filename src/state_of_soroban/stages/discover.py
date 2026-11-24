@@ -198,15 +198,8 @@ async def crates_io(context: Context, harvest: Harvest) -> None:
 async def discover(context: Context, _: Stage) -> None:
     harvest = Harvest()
     config = context.workflow.discover
-    accepted = [
-        f"topic:{row['signature']}"
-        for row in await context.pool.fetch(load_sql("accepted_queries"))
-    ]
     jobs = [
-        *(
-            run_query(context, harvest, "search", q)
-            for q in [*config.repository_queries, *accepted]
-        ),
+        *(run_query(context, harvest, "search", q) for q in config.repository_queries),
         *(run_query(context, harvest, "code", q) for q in config.code_queries),
         crates_io(context, harvest),
     ]

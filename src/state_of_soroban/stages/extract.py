@@ -9,7 +9,7 @@ from pathlib import Path
 import asyncpg
 
 from state_of_soroban import checkpoints
-from state_of_soroban.catalog import Catalog, active_patterns
+from state_of_soroban.catalog import Catalog
 from state_of_soroban.config import get_settings
 from state_of_soroban.extract import git
 from state_of_soroban.extract.analyse import (
@@ -333,7 +333,7 @@ async def extract(context: Context, _: Stage) -> None:
         ]
     if context.limit:
         targets = targets[: context.limit]
-    patterns = await active_patterns(context.pool, context.catalog)
+    patterns = context.catalog.patterns
     digest = catalog_hash(patterns)
     sparse = sparse_patterns(workflow)
     tokens = itertools.cycle(get_settings().github_tokens or [None])

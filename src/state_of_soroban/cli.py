@@ -12,8 +12,6 @@ from state_of_soroban.db_utils.connection import Connection
 def run_schema(args: argparse.Namespace) -> int:
     connection = Connection.from_url(get_settings().database_url)
     match args.action:
-        case "plan":
-            return pgschema.plan(connection)
         case "apply":
             if not (connection.is_local or args.remote or os.environ.get("CI")):
                 print(
@@ -25,6 +23,20 @@ def run_schema(args: argparse.Namespace) -> int:
         case "verify":
             return pgschema.verify(connection)
     return 1
+
+
+async def show_ready() -> int:
+    from state_of_soroban.database import open_pool
+    from state_of_soroban.readiness import check
+    from state_of_soroban.workflow import load_workflow
+
+    pool = await open_pool(2)
+    try:
+        report = await check(pool, load_workflow())
+    finally:
+        await pool.close()
+    print(report.markdown())
+    return 0 if report.ready else 1
 
 
 def run_stages(args: argparse.Namespace) -> int:
@@ -71,14 +83,6 @@ def main() -> None:
         action="store_true",
         help="restart after a crash and resume from the checkpoints",
     )
-    serve = commands.add_parser("serve", help="serve the live research ui and api")
-    serve.add_argument("--port", type=int, default=8788)
-    serve.add_argument("--host", default="127.0.0.1")
-    commands.add_parser(
-        "openapi", help="write the api schema the web app generates its types from"
-    )
-    export = commands.add_parser("export", help="dump the overview to json and html")
-    export.add_argument("--out", default="out")
     commands.add_parser(
         "drive", help="autopilot: run every stage, restart on crashes, follow new work"
     )
@@ -96,12 +100,12 @@ def main() -> None:
     shard.add_argument("--count", type=int, required=True)
     shard.add_argument("--out", required=True)
     shard.add_argument("--concurrency", type=int, default=24)
-    rfps = commands.add_parser("rfps", help="write each tooling need as an rfp draft")
-    rfps.add_argument("--out", default="out/rfps")
-    rfps.add_argument("--min-score", type=float, default=0.0)
+    commands.add_parser(
+        "ready",
+        help="show whether indexing is complete enough to start the friction layer",
+    )
     schema = commands.add_parser("schema", help="manage the database schema")
     actions = schema.add_subparsers(dest="action", required=True)
-    actions.add_parser("plan", help="write the pending changes to the next migration")
     apply = actions.add_parser("apply", help="apply the schema files")
     apply.add_argument("--allow-destructive", action="store_true")
     apply.add_argument("--remote", action="store_true")
@@ -144,26 +148,7 @@ def main() -> None:
                     args.concurrency,
                 )
             )
-        case "rfps":
-            from state_of_soroban.rfp_export import run_export as export_rfps
-
-            asyncio.run(export_rfps(args.out, args.min_score))
-        case "serve":
-            import uvicorn
-
-            uvicorn.run(
-                "state_of_soroban.api:app",
-                host=args.host,
-                port=args.port,
-                log_level="warning",
-            )
-        case "openapi":
-            from state_of_soroban.openapi import write as write_openapi
-
-            write_openapi()
-        case "export":
-            from state_of_soroban.export import run_export
-
-            asyncio.run(run_export(args.out))
+        case "ready":
+            raise SystemExit(asyncio.run(show_ready()))
         case "schema":
             raise SystemExit(run_schema(args))

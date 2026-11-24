@@ -17,7 +17,7 @@ LOCK_TIMEOUT = "30s"
 
 
 class Target(BaseModel, frozen=True):
-    """One database and the schema and migration files that describe it."""
+    """One database and the schema files that describe it."""
 
     name: str
     db_dir: Path
@@ -25,10 +25,6 @@ class Target(BaseModel, frozen=True):
     @property
     def schema_dir(self) -> Path:
         return self.db_dir / "schema"
-
-    @property
-    def migrations_dir(self) -> Path:
-        return self.db_dir / "migrations"
 
 
 SCHEMA = Target(name="soroban", db_dir=ROOT / "db")
@@ -102,15 +98,6 @@ def format_schema(target: Target = SCHEMA) -> None:
         )
 
 
-def next_migration_path(target: Target = SCHEMA) -> Path:
-    target.migrations_dir.mkdir(parents=True, exist_ok=True)
-    numbers = [
-        int(f.stem)
-        for f in target.migrations_dir.glob("[0-9][0-9][0-9][0-9][0-9][0-9].sql")
-    ]
-    return target.migrations_dir / f"{max(numbers, default=0) + 1:06d}.sql"
-
-
 def plan_sql(
     connection: Connection, out_dir: Path, target: Target = SCHEMA
 ) -> tuple[int, str]:
@@ -130,32 +117,6 @@ def plan_sql(
     )
     sql_file = out_dir / "plan.sql"
     return returncode, sql_file.read_text() if sql_file.is_file() else ""
-
-
-def plan(
-    connection: Connection, *, format: bool = True, target: Target = SCHEMA
-) -> int:
-    if format:
-        format_schema(target)
-    generate_manifest(target.schema_dir)
-    path = next_migration_path(target)
-    returncode = run_pgschema(
-        "plan",
-        "--file",
-        MANIFEST,
-        "--output-sql",
-        f"/db/migrations/{path.name}",
-        connection=connection,
-        target=target,
-    )
-    if returncode != 0:
-        return returncode
-    if not path.is_file() or path.stat().st_size == 0:
-        path.unlink(missing_ok=True)
-        print("No changes detected.")
-        return 0
-    print(f"Wrote the migration plan to {path.relative_to(ROOT)}")
-    return 0
 
 
 def apply(

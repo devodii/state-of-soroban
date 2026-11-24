@@ -1,30 +1,18 @@
 import asyncio
 import logging
 import shutil
-import time
 from datetime import UTC, datetime
 
 from state_of_soroban.config import ROOT
+from state_of_soroban.readiness import check
 from state_of_soroban.runner import REGISTRY, Context, run_stage, session
 from state_of_soroban.sql_loader import load_sql
 
 log = logging.getLogger("state_of_soroban")
 
-FOLLOWED = {
-    "metadata": "metadata",
-    "ecosystem": "ecosystem",
-    "history": "history",
-}
-PERIODIC = ["sweep", "chain", "dispatch", "harvest", "report"]
-ANALYTICS = ["reanalyse", "mine", "score", "needs", "gaps", "graph"]
-PERIOD = 600
-ANALYTICS_PERIOD = 10800
-RERUN_SECONDS = 3600
-DEPENDENTS_SECONDS = 21600
 IDLE_PAUSE = 45
 MAX_BACKOFF = 600
-POOL_SIZE = 40
-MIN_FREE_BYTES = 3_000_000_000
+READY_FILE = ROOT / "out" / "READY.md"
 
 
 async def pending(context: Context) -> dict[str, int]:
@@ -54,27 +42,13 @@ async def safely(context: Context, stage_id: str, failures: dict[str, int]) -> N
         await asyncio.sleep(pause)
 
 
-async def keep_discovering(
-    context: Context, discovered: asyncio.Event, quiet: asyncio.Event
+async def repeat(
+    context: Context, stage_id: str, seconds: int, quiet: asyncio.Event
 ) -> None:
     failures: dict[str, int] = {}
-    while True:
-        await safely(context, "discover", failures)
-        if not failures.get("discover"):
-            discovered.set()
-            for _ in range(RERUN_SECONDS // 30):
-                if quiet.is_set():
-                    return
-                await asyncio.sleep(30)
-        else:
-            await asyncio.sleep(1)
-
-
-async def keep_dependents(context: Context, quiet: asyncio.Event) -> None:
-    failures: dict[str, int] = {}
-    while True:
-        await safely(context, "dependents", failures)
-        for _ in range(DEPENDENTS_SECONDS // 30):
+    while not quiet.is_set():
+        await safely(context, stage_id, failures)
+        for _ in range(max(seconds // 30, 1)):
             if quiet.is_set():
                 return
             await asyncio.sleep(30)
@@ -84,14 +58,11 @@ async def follow(
     context: Context, stage_id: str, key: str, quiet: asyncio.Event
 ) -> None:
     failures: dict[str, int] = {}
+    floor = context.workflow.autopilot.min_free_gb * 1_000_000_000
     while True:
         work = (await pending(context)).get(key, 0)
-        if (
-            work
-            and stage_id == "clone"
-            and shutil.disk_usage(ROOT).free < MIN_FREE_BYTES
-        ):
-            log.warning("less than 3 GB free on disk, pausing extraction")
+        if work and shutil.disk_usage(ROOT).free < floor:
+            log.warning("low disk space, pausing %s", stage_id)
             await asyncio.sleep(300)
             continue
         if work:
@@ -104,58 +75,47 @@ async def follow(
 
 
 async def periodic(context: Context, quiet: asyncio.Event) -> None:
+    config = context.workflow.autopilot
     failures: dict[str, int] = {}
-    last = 0.0
-    last_analytics = time.monotonic()
     while True:
-        now = time.monotonic()
-        if now - last > PERIOD or quiet.is_set():
-            for stage_id in PERIODIC:
-                await safely(context, stage_id, failures)
-            last = time.monotonic()
-        if time.monotonic() - last_analytics > ANALYTICS_PERIOD or quiet.is_set():
-            for stage_id in ANALYTICS:
-                await safely(context, stage_id, failures)
-            last_analytics = time.monotonic()
-            if quiet.is_set():
-                return
-        await asyncio.sleep(IDLE_PAUSE)
+        for stage_id in config.periodic:
+            await safely(context, stage_id, failures)
+        if quiet.is_set():
+            return
+        await asyncio.sleep(config.periodic_seconds)
 
 
-async def watch_quiet(
-    context: Context, discovered: asyncio.Event, quiet: asyncio.Event
-) -> None:
-    calm = 0
+async def watch_ready(context: Context, quiet: asyncio.Event) -> None:
     while True:
         work = await pending(context)
-        if discovered.is_set() and not any(work.values()):
-            calm += 1
-        else:
-            calm = 0
-        if calm >= 2:
-            log.info("nothing left to do, running the final pass")
+        report = await check(context.pool, context.workflow)
+        log.info("pending %s, ready %s", work, report.ready)
+        if report.ready and not any(work.values()):
+            READY_FILE.parent.mkdir(parents=True, exist_ok=True)
+            READY_FILE.write_text(report.markdown())
+            log.info("indexing is complete, see %s", READY_FILE)
             quiet.set()
             return
-        log.info(
-            "pending %s, discovery %s",
-            work,
-            "finished" if discovered.is_set() else "running",
-        )
-        await asyncio.sleep(120)
+        await asyncio.sleep(300)
 
 
 async def drive(force: bool = False) -> None:
-    async with session(force, pool_size=POOL_SIZE) as context:
+    async with session(force, pool_size=40) as context:
+        config = context.workflow.autopilot
         quiet = asyncio.Event()
-        discovered = asyncio.Event()
         tasks = [
-            asyncio.create_task(keep_discovering(context, discovered, quiet)),
-            asyncio.create_task(watch_quiet(context, discovered, quiet)),
+            asyncio.create_task(
+                repeat(context, "discover", config.discovery_seconds, quiet)
+            ),
+            asyncio.create_task(
+                repeat(context, "dependents", config.dependents_seconds, quiet)
+            ),
             asyncio.create_task(periodic(context, quiet)),
-            asyncio.create_task(keep_dependents(context, quiet)),
+            asyncio.create_task(watch_ready(context, quiet)),
             *(
                 asyncio.create_task(follow(context, stage_id, key, quiet))
-                for stage_id, key in FOLLOWED.items()
+                for stage_id, key in config.followed.items()
             ),
         ]
         await asyncio.gather(*tasks)
+        log.info("autopilot finished")

@@ -1,67 +1,48 @@
 # state-of-soroban
 
-The research and indexing product. It is a separate codebase from soroban-wrapped (the public on-chain stats app) so the indexers can run on their own machine and be improved independently. It holds the GitHub scraping, discovery, extraction, ecosystem graph, tooling needs and gap analysis, with its own Postgres on port 5443 (copied from the original database, including copies of the chain tables used for linking).
+Finds every public Soroban repo and reads what its developers struggle with. It is the research and indexing product; the public on-chain stats page is a separate repo, `soroban-wrapped`.
 
-To resume on any machine: `cp .env.example .env`, `docker compose up -d --wait db`, `uv sync`, `uv run state-of-soroban drive`, and `uv run state-of-soroban serve` for the UI. Ports: db 5443, api 8788, web dev 5174, storybook 6007, so it runs beside soroban-wrapped.
+Right now the pipeline does one job: discovery to a complete, trustworthy set of Soroban repos with their commits, issues and pull requests. When `state-of-soroban ready` says the set is complete, the friction layer (recurring problems, counted and scored automatically) is built on top of it.
 
-Indexes every public Soroban contract repo and the chain, stores analysis-grade data in its own Postgres, and lets the data propose what developers should not have to rewrite by hand.
-
-The idea: mine the boilerplate everyone hand-writes (TTL bumps, auth guards, init checks, error plumbing, events, test setup), score each finding by how independently it is reused, and tie it to real bugs. Proposals come from the data. The YAML catalog only holds seeds to test.
-
-## Quick start
+## Run
 
 ```sh
-cp .env.example .env            # put your GitHub tokens in GITHUB_TOKENS, comma separated
-docker compose up -d --wait db
+cp .env.example .env                     # put GITHUB_TOKENS in it
+docker compose up -d --wait db           # empty Postgres 17 on port 5443
 uv sync
-uv run state-of-soroban schema apply
-uv run state-of-soroban drive    # autopilot, runs every stage and keeps going
-uv run state-of-soroban serve    # live UI on http://localhost:8788
+uv run state-of-soroban schema apply     # builds every table from db/schema
+uv run state-of-soroban drive            # autopilot, resumes from checkpoints after any crash
+uv run state-of-soroban ready            # is indexing complete enough to move on?
 ```
-
-The public web app lives in `web/` (see `decisions.md`). Build it with `cd web && pnpm install && pnpm build`, then `serve` hosts it at http://localhost:8788/app. For development run `pnpm dev` in `web` (proxies `/api` to :8788) and `pnpm storybook` for the component workbench. After an API change run `pnpm types`.
-
-Add more tokens to `.env` at any time. Running jobs pick them up within 30 seconds.
 
 ## What runs
 
-Defined in `workflow/workflow.yaml`, in order:
+Defined in `workflow/workflow.yaml`.
 
 | Stage | What it does |
 |---|---|
-| `catalog` | loads the seed patterns, bug classes, libraries and proposals |
-| `discover` | GitHub search (text and content) and crates.io, checkpointed per page |
-| `metadata` | stars, languages, last push, size, in batched GraphQL |
-| `clone` | commits-only sparse git fetch, parses the Rust, matches patterns, reads commits, networks and contract ids |
-| `history` | issues, pull requests and releases through GraphQL |
-| `sweep` | lists every repo of each confirmed owner to find siblings |
-| `chain` | looks every contract id up on mainnet and testnet RPC for liveness, wasm, spec and metadata |
-| `lake` | imports finished ledger-archive runs from GitHub Actions |
-| `mine` | finds uncovered clusters, idioms, macros, vocabularies and fix terms in the corpus |
-| `score` | scores seeds and mined proposals with the same reuse formula |
-| `graph` | builds the proposal, repo, library and contract graph |
+| `catalog` | loads the seed patterns and bug classes |
+| `discover` | GitHub text and code search and crates.io, every query in parallel, checkpointed per page |
+| `dependents` | crawls the GitHub dependency graph of the Soroban SDK crates |
+| `metadata` | stars, languages, last push and size in batched GraphQL |
+| `dispatch` and `harvest` | clone and parse on Actions runners (`extract.yml`), import the artifacts once |
+| `history` | commits, issues, pull requests and releases of confirmed Soroban repos |
+| `sweep` | lists every repo of each confirmed owner |
+| `clone` | the same extraction on this machine, for small runs |
 
-Every unit of work is checkpointed, so a dropped connection or a crash resumes instead of restarting. `drive` supervises all of it.
+The autopilot (`drive`) runs these concurrently as configured under `autopilot` in the workflow file. It never reads the same repo twice: every unit of work has a row in `checkpoints`.
 
-## On-chain history
+## Knowing when to stop
 
-The year of ledger history is too big to download. `.github/workflows/lake.yml` reads the public AWS ledger archive on GitHub runners, keeps only call events and daily totals, and uploads small parquet files. `state-of-soroban lake-import` (or the `lake` stage) loads them. See `decisions.md` for the measured speeds.
+`state-of-soroban ready` prints the signals, and `drive` writes `out/READY.md` and stops when all pass:
 
-```sh
-gh workflow run lake.yml -f network=mainnet -f start=2026-01-01 -f end=2026-04-30
-```
+1. No relevant repo is waiting for metadata, extraction or history.
+2. No new Soroban repo was found in the last 24 hours of running.
+3. Estimated recall of at least 99 percent, from the overlap between independent discovery channels (code search, topic search, dependency graph).
+4. At least 99 percent of the repos in `seeds/known-soroban-repos.txt` (an answer key from an earlier run) were found again.
+
+Thresholds live under `readiness` in the workflow file.
 
 ## Layout
 
-```
-workflow/            the YAML workflow and the catalog (seeds, bug classes, libraries)
-db/schema, db/migrations   pgschema schema files and numbered migrations
-src/state_of_soroban/
-  extract/           rust parser, pattern matcher, cargo, git, networks
-  chain/             rpc, wasm spec reader, ledger archive summariser
-  stages/            one module per workflow stage
-  sql/               every query
-  ui/index.html      the live research page
-```
-
-See `decisions.md` for the choices made and why, and `ROADMAP.md` for what is next.
+`src/state_of_soroban` the code, `src/state_of_soroban/sql` every query, `db/schema` the tables (declarative, applied with pgschema, no migration files), `workflow` the pipeline and catalog yaml, `seeds` the answer key. The earlier full pipeline (web app, needs, gaps, graph, chain) is kept at the git tag `legacy-full-pipeline`.
