@@ -1,6 +1,6 @@
 # state-of-soroban
 
-Standalone indexer and research product. It indexes every public Soroban contract repo (window 2026-01-01 to today) plus ecosystem repos into its own Postgres, mines what developers rewrite or struggle with, scores tooling needs and writes RFP drafts. The on-chain stats product is a different repo (`devodii/soroban-wrapped`). Read `HANDOFF.md` first for the current state and what to do next.
+Standalone indexer and research product. Right now it does one job: discover every public Soroban repo (window 2026-01-01 to today) and read their commits, issues and pull requests into its own Postgres. When `state-of-soroban ready` passes, the Friction Ledger is built on top (recurring problems found and counted automatically). The on-chain stats product is a different repo (`devodii/soroban-wrapped`). Read `HANDOFF.md` first for what to do next. The older full pipeline (web app, needs, gaps, graph, chain) is at the git tag `legacy-full-pipeline`, restore pieces from there when needed.
 
 ## Rules the user has set (follow them exactly)
 
@@ -15,4 +15,4 @@ Standalone indexer and research product. It indexes every public Soroban contrac
 
 ## Run
 
-`cp .env.example .env` (add `GITHUB_TOKENS`, comma separated), `docker compose up -d --wait db`, `uv sync`, `uv run state-of-soroban schema apply`, `uv run state-of-soroban drive` (autopilot), `uv run state-of-soroban serve` (api on 8788). Ports: db 5443, api 8788, vite 5174, storybook 6007.
+`cp .env.example .env` (add `GITHUB_TOKENS`, comma separated), `docker compose up -d --wait db` (empty database), `uv sync`, `uv run state-of-soroban schema apply`, `uv run state-of-soroban drive` (autopilot), `uv run state-of-soroban ready` (is indexing complete?). Database port 5443. There are no migration files: tables are declared under `db/schema` and applied with pgschema.
