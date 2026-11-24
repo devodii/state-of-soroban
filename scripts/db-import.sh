@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-tag="${1:?usage: scripts/db-import.sh <release-tag> (see gh release list --repo devodii/state-of-soroban)}"
+source="${1:?usage: scripts/db-import.sh <folder with the db parts, or a release tag>}"
 work="out/db-restore"
 rm -rf "$work"
 mkdir -p "$work"
-gh release download "$tag" --repo devodii/state-of-soroban --dir "$work" --pattern 'state-of-soroban-db.tar.*' --pattern SHA256SUMS
+if [ -d "$source" ]; then
+  cp "$source"/state-of-soroban-db.tar.* "$source"/SHA256SUMS "$work"/
+else
+  gh release download "$source" --repo devodii/state-of-soroban --dir "$work" --pattern 'state-of-soroban-db.tar.*' --pattern SHA256SUMS
+fi
 (cd "$work" && shasum -a 256 -c SHA256SUMS)
 cat "$work"/state-of-soroban-db.tar.* | tar -C "$work" -xf -
 docker compose up -d --wait db
