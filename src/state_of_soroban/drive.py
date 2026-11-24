@@ -85,6 +85,23 @@ async def periodic(context: Context, quiet: asyncio.Event) -> None:
         await asyncio.sleep(config.periodic_seconds)
 
 
+async def write_stats(context: Context, quiet: asyncio.Event) -> None:
+    path = ROOT / "out" / "stats.log"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    while True:
+        row = dict(await context.pool.fetchrow(load_sql("pipeline_stats")))
+        work = await pending(context)
+        line = " ".join(
+            f"{k}={v}"
+            for k, v in {**row, **{f"pending_{k}": v for k, v in work.items()}}.items()
+        )
+        with path.open("a") as handle:
+            handle.write(f"{datetime.now(UTC):%Y-%m-%d %H:%M:%S} {line}\n")
+        if quiet.is_set():
+            return
+        await asyncio.sleep(context.workflow.autopilot.stats_seconds)
+
+
 async def watch_ready(context: Context, quiet: asyncio.Event) -> None:
     while True:
         work = await pending(context)
@@ -112,6 +129,7 @@ async def drive(force: bool = False) -> None:
             ),
             asyncio.create_task(periodic(context, quiet)),
             asyncio.create_task(watch_ready(context, quiet)),
+            asyncio.create_task(write_stats(context, quiet)),
             *(
                 asyncio.create_task(follow(context, stage_id, key, quiet))
                 for stage_id, key in config.followed.items()

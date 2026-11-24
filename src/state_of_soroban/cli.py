@@ -4,7 +4,7 @@ import logging
 import os
 import time
 
-from state_of_soroban.config import get_settings
+from state_of_soroban.config import ROOT, get_settings
 from state_of_soroban.db_utils import pgschema
 from state_of_soroban.db_utils.connection import Connection
 
@@ -112,7 +112,15 @@ def main() -> None:
     actions.add_parser("verify", help="fail unless the database matches the schema")
     args = parser.parse_args()
 
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
+    (ROOT / "out").mkdir(exist_ok=True)
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler(ROOT / "out" / "pipeline.log"),
+        ],
+    )
     logging.getLogger("httpx").setLevel(logging.WARNING)
     match args.command:
         case "run":
