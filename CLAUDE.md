@@ -13,6 +13,10 @@ Standalone indexer and research product. Right now it does one job: discover eve
 - The user hates long reports: answer in short plain sentences, give frequent concise updates, and do not wait to be told to continue. Keep a running list of their asks and never drop one.
 - Subagents make mistakes. Do the work in the main thread unless the user asks otherwise, and verify what a subagent claims.
 
+## How Actions results reach the database
+
+Extraction runs on GitHub Actions (`.github/workflows/extract.yml`), which clones repos in shards and uploads `shard-N.jsonl.gz` artifacts. The Actions runners never touch the database. `dispatch` starts a run when enough repos are queued, and `harvest` (on this machine) downloads finished runs with `gh`, writes each line to Postgres through `store`, records `extract-run` and `extract-file` checkpoints so nothing is imported twice, then deletes the artifacts.
+
 ## Run
 
 `cp .env.example .env` (add `GITHUB_TOKENS`, comma separated), `docker compose up -d --wait db` (empty database), `uv sync`, `uv run state-of-soroban schema apply`, `uv run state-of-soroban drive` (autopilot), `uv run state-of-soroban ready` (is indexing complete?). Database port 5443. There are no migration files: tables are declared under `db/schema` and applied with pgschema.
