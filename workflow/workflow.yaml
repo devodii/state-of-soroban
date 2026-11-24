@@ -56,7 +56,7 @@ discover:
 clone:
   shallow_since: "{start}"
   max_repo_kb: 750000
-  concurrency: 10
+  concurrency: 24
   keep: false
   require_language: Rust
   max_rust_files: 4000
