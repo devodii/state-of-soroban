@@ -109,6 +109,8 @@ class Autopilot(BaseModel):
     dependents_seconds: int = 21600
     pool_size: int = 40
     min_free_gb: int = 3
+    download_concurrency: int = 12
+    stats_seconds: int = 300
 
 
 class Readiness(BaseModel):

@@ -26,7 +26,6 @@ def read_lines(path):
 
 
 IMPORT_WORKERS = 8
-DOWNLOADS = 6
 
 
 async def import_file(context: Context, path) -> int:
@@ -62,17 +61,26 @@ async def import_file(context: Context, path) -> int:
     return stored
 
 
-async def download(run_id: str, target, names: list[str]) -> None:
-    gate = asyncio.Semaphore(DOWNLOADS)
-
-    async def fetch(name: str) -> None:
-        if any((target / name).glob("*.jsonl.gz")):
-            return
-        async with gate:
+async def fetch_and_import(
+    context: Context, run_id: str, target, name: str, gate: asyncio.Semaphore
+) -> int:
+    async with gate:
+        if not any((target / name).glob("*.jsonl.gz")):
             shutil.rmtree(target / name, ignore_errors=True)
             await gh("run", "download", run_id, "-n", name, "-D", str(target / name))
-
-    await asyncio.gather(*(fetch(name) for name in names))
+    stored = 0
+    for file in sorted((target / name).rglob("*.jsonl.gz")):
+        key = f"{run_id}/{file.parent.name}"
+        saved_file = await checkpoints.get(context.pool, "extract-file", key)
+        if saved_file and saved_file.done:
+            continue
+        count = await import_file(context, file)
+        stored += count
+        await checkpoints.put(
+            context.pool, "extract-file", key, "done", {"repos": count}
+        )
+        log.info("imported %s, %s repos", key, count)
+    return stored
 
 
 @stage("git.harvest")
@@ -112,7 +120,10 @@ async def harvest(context: Context, _: Stage) -> None:
                     "[.artifacts[] | select(.expired | not) | .name]",
                 )
             )
-            await download(run_id, target, names)
+            gate = asyncio.Semaphore(context.workflow.autopilot.download_concurrency)
+            counts = await asyncio.gather(
+                *(fetch_and_import(context, run_id, target, n, gate) for n in names)
+            )
         except RuntimeError as error:
             await checkpoints.put(context.pool, JOB, run_id, "failed", {}, str(error))
             context.errors += 1
@@ -120,18 +131,7 @@ async def harvest(context: Context, _: Stage) -> None:
         if not names:
             await checkpoints.put(context.pool, JOB, run_id, "done", {"repos": 0})
             continue
-        stored = 0
-        for file in sorted(target.rglob("*.jsonl.gz")):
-            key = f"{run_id}/{file.parent.name}"
-            saved_file = await checkpoints.get(context.pool, "extract-file", key)
-            if saved_file and saved_file.done:
-                continue
-            count = await import_file(context, file)
-            stored += count
-            await checkpoints.put(
-                context.pool, "extract-file", key, "done", {"repos": count}
-            )
-            log.info("imported %s, %s repos", key, count)
+        stored = sum(counts)
         await checkpoints.put(context.pool, JOB, run_id, "done", {"repos": stored})
         shutil.rmtree(target, ignore_errors=True)
         await drop_artifacts(run_id)

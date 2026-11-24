@@ -123,6 +123,8 @@ autopilot:
   dependents_seconds: 21600
   pool_size: 40
   min_free_gb: 3
+  download_concurrency: 12
+  stats_seconds: 300
 
 readiness:
   min_recall: 0.99
