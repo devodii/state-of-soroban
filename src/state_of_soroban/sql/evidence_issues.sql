@@ -13,7 +13,7 @@ SELECT
     i.title,
     left(i.body, 800),
     i.url,
-    coalesce(i.author_login ~* '(\[bot\]|dependabot|renovate|github-actions)$', false),
+    coalesce(i.author_login ~* '(\[bot\]|dependabot|renovate|github-actions)$', FALSE),
     md5(lower(regexp_replace(i.title, '[^a-zA-Z ]', '', 'g')))
 FROM issues AS i
 INNER JOIN repos AS r ON i.repo = r.full_name

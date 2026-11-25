@@ -124,7 +124,7 @@ autopilot:
   followed:
     metadata: metadata
     history: history
-  periodic: [expand, sweep, dispatch, harvest]
+  periodic: [expand, sweep, dispatch, harvest, analysis_dispatch, analysis_harvest]
   periodic_seconds: 600
   discovery_seconds: 3600
   dependents_seconds: 21600
@@ -175,3 +175,5 @@ stages:
   - {id: expand, uses: github.expand, needs: [metadata]}
   - {id: sweep, uses: github.sweep, needs: [harvest]}
   - {id: evidence, uses: evidence.build, needs: [history]}
+  - {id: analysis_dispatch, uses: analysis.dispatch, needs: [evidence]}
+  - {id: analysis_harvest, uses: analysis.harvest, needs: [analysis_dispatch]}

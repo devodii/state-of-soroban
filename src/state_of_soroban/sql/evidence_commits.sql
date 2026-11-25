@@ -7,7 +7,8 @@ WITH layered AS (
         cf.repo,
         cf.sha,
         count(*) AS files,
-        array_agg(DISTINCT
+        array_agg(
+            DISTINCT
             CASE
                 WHEN cf.path ~ '\.rs$' AND EXISTS (
                     SELECT 1 FROM crates AS cr
@@ -37,7 +38,7 @@ canonical AS (
     INNER JOIN repos AS r ON c.repo = r.full_name
     LEFT JOIN repo_families AS f ON c.repo = f.repo
     WHERE c.is_fix AND c.parents <= 1 AND r.is_soroban AND NOT r.is_fork
-    ORDER BY c.sha, r.stars DESC NULLS LAST, c.repo
+    ORDER BY c.sha ASC, r.stars DESC NULLS LAST, c.repo ASC
 )
 
 SELECT
@@ -53,7 +54,7 @@ SELECT
     'https://github.com/' || k.repo || '/commit/' || k.sha,
     coalesce(l.layers, '{}'),
     coalesce(l.files, 0),
-    coalesce(k.author_login ~* '(\[bot\]|dependabot|renovate|github-actions)$', false),
+    coalesce(k.author_login ~* '(\[bot\]|dependabot|renovate|github-actions)$', FALSE),
     md5(lower(regexp_replace(split_part(k.message, E'\n', 1), '[^a-zA-Z ]', '', 'g')))
 FROM canonical AS k
 LEFT JOIN layered AS l ON k.repo = l.repo AND k.sha = l.sha

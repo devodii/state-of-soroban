@@ -11,7 +11,7 @@ CREATE TABLE evidence (
     url text NOT NULL,
     layers text[] DEFAULT '{}' NOT NULL,
     files integer DEFAULT 0 NOT NULL,
-    is_bot boolean DEFAULT false NOT NULL,
+    is_bot boolean DEFAULT FALSE NOT NULL,
     dup_key text NOT NULL,
     dup_owners integer DEFAULT 1 NOT NULL,
     CONSTRAINT evidence_pkey PRIMARY KEY (kind, repo, ref)

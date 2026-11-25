@@ -1,3 +1,4 @@
+\i tables/analysis_runs.sql
 \i tables/bug_classes.sql
 \i tables/checkpoints.sql
 \i tables/repos.sql
@@ -9,6 +10,8 @@
 \i tables/crates.sql
 \i tables/crate_dependencies.sql
 \i tables/evidence.sql
+\i tables/friction_members.sql
+\i tables/frictions.sql
 \i tables/functions.sql
 \i tables/github_users.sql
 \i tables/issues.sql
@@ -29,6 +32,7 @@
 \i indexes/commits_is_fix.sql
 \i indexes/contract_calls_callee.sql
 \i indexes/crate_dependencies_name.sql
+\i indexes/friction_members_cluster.sql
 \i indexes/functions_body_hash.sql
 \i indexes/functions_shape_hash.sql
 \i indexes/issues_is_bug.sql

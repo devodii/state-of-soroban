@@ -1,0 +1,21 @@
+CREATE TABLE frictions (
+    run_id text,
+    cluster integer,
+    terms text[] NOT NULL,
+    size integer NOT NULL,
+    cohesion real NOT NULL,
+    parts integer NOT NULL,
+    medoids text[] NOT NULL,
+    families integer DEFAULT 0 NOT NULL,
+    owners integer DEFAULT 0 NOT NULL,
+    authors integer DEFAULT 0 NOT NULL,
+    commits integer DEFAULT 0 NOT NULL,
+    issues integer DEFAULT 0 NOT NULL,
+    pulls integer DEFAULT 0 NOT NULL,
+    contract_units integer DEFAULT 0 NOT NULL,
+    recent_units integer DEFAULT 0 NOT NULL,
+    first_seen timestamptz,
+    last_seen timestamptz,
+    CONSTRAINT frictions_pkey PRIMARY KEY (run_id, cluster),
+    CONSTRAINT frictions_run_fkey FOREIGN KEY (run_id) REFERENCES analysis_runs (run_id) ON DELETE CASCADE
+);
