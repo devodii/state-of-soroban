@@ -134,6 +134,10 @@ autopilot:
   stats_seconds: 300
   metadata_run_size: 4000
 
+evidence:
+  min_shared: 3
+  min_overlap: 0.5
+
 web:
   port: 8080
   page_size: 50
@@ -157,3 +161,4 @@ stages:
   - {id: history, uses: github.history, needs: [harvest]}
   - {id: expand, uses: github.expand, needs: [metadata]}
   - {id: sweep, uses: github.sweep, needs: [harvest]}
+  - {id: evidence, uses: evidence.build, needs: [history]}

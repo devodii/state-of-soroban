@@ -110,6 +110,11 @@ class Expand(BaseModel):
     concurrency: int = 6
 
 
+class Evidence(BaseModel):
+    min_shared: int = 3
+    min_overlap: float = 0.5
+
+
 class Web(BaseModel):
     port: int = 8080
     page_size: int = 50
@@ -158,6 +163,7 @@ class Workflow(BaseModel):
     networks_signals: dict[Network, list[NetworkSignal]]
     autopilot: Autopilot
     web: Web
+    evidence: Evidence = Field(default_factory=Evidence)
     readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")

@@ -8,6 +8,7 @@
 \i tables/contract_calls.sql
 \i tables/crates.sql
 \i tables/crate_dependencies.sql
+\i tables/evidence.sql
 \i tables/functions.sql
 \i tables/github_users.sql
 \i tables/issues.sql
@@ -18,6 +19,7 @@
 \i tables/repo_contract_refs.sql
 \i tables/repo_contributors.sql
 \i tables/repo_documents.sql
+\i tables/repo_families.sql
 \i tables/repo_network_signals.sql
 \i tables/stage_runs.sql
 \i tables/type_defs.sql
