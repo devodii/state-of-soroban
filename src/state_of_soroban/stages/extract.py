@@ -129,7 +129,7 @@ async def store(
                         s.parsed.loc,
                         s.parsed.is_test,
                         s.parsed.parse_errors,
-                        s.content,
+                        s.content or None,
                         digest,
                         s.parsed.uses,
                         sorted(

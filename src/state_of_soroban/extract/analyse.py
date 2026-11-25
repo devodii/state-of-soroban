@@ -314,18 +314,20 @@ def analyse_tree(
         if text is None:
             continue
         parsed = parse_rust(entry.path, text.encode())
-        analysis.sources.append(
-            SourceRecord(
-                path=entry.path,
-                crate_path=crate_of(entry.path, analysis.crates),
-                blob_sha=entry.blob_sha,
-                size=entry.size,
-                parsed=parsed,
-                content=text,
-                hits=run_patterns(patterns, parsed),
-                calls=call_sites(parsed),
-            )
+        record = SourceRecord(
+            path=entry.path,
+            crate_path=crate_of(entry.path, analysis.crates),
+            blob_sha=entry.blob_sha,
+            size=entry.size,
+            parsed=parsed,
+            content=text,
+            hits=run_patterns(patterns, parsed),
+            calls=call_sites(parsed),
         )
+        record.parsed.clean = ""
+        if parsed.is_test and not clone.keep_test_content:
+            record.content = ""
+        analysis.sources.append(record)
     analysis.documents = classify_documents(workflow, entries, root)
     signal_suffixes = tuple(clone.signal_suffixes)
     scanned = 0

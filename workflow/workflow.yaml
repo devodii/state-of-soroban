@@ -58,6 +58,7 @@ clone:
   max_repo_kb: 750000
   concurrency: 24
   keep: false
+  keep_test_content: false
   require_language: Rust
   max_rust_files: 4000
   max_signal_files: 1500
