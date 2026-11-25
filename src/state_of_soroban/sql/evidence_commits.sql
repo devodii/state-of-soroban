@@ -36,7 +36,7 @@ canonical AS (
     FROM commits AS c
     INNER JOIN repos AS r ON c.repo = r.full_name
     LEFT JOIN repo_families AS f ON c.repo = f.repo
-    WHERE c.is_fix AND r.is_soroban AND NOT r.is_fork
+    WHERE c.is_fix AND c.parents <= 1 AND r.is_soroban AND NOT r.is_fork
     ORDER BY c.sha, r.stars DESC NULLS LAST, c.repo
 )
 

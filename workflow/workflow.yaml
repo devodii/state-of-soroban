@@ -138,6 +138,19 @@ evidence:
   min_shared: 3
   min_overlap: 0.5
 
+analysis:
+  shards: 20
+  embed_model: BAAI/bge-small-en-v1.5
+  text_chars: 360
+  clusters: 2500
+  merge_distance: 0.3
+  min_cluster_size: 25
+  stability_sample: 0.3
+  rerun_growth: 0.1
+  terms: 8
+  medoids: 6
+  stop_words: [the, and, for, with, this, that, not, are, from, when, should, does, into, use, add, fix, fixes, fixed, issue, pull, request, merge, branch, main, feat, chore, test, tests, can, will, has, have, been, was, but, all, new, update, support, need, also, make, get, set, its, our]
+
 web:
   port: 8080
   page_size: 50

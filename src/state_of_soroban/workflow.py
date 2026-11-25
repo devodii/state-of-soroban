@@ -115,6 +115,20 @@ class Evidence(BaseModel):
     min_overlap: float = 0.5
 
 
+class Analysis(BaseModel):
+    shards: int = 20
+    embed_model: str = "BAAI/bge-small-en-v1.5"
+    text_chars: int = 360
+    clusters: int = 2500
+    merge_distance: float = 0.3
+    min_cluster_size: int = 25
+    stability_sample: float = 0.3
+    rerun_growth: float = 0.1
+    terms: int = 8
+    medoids: int = 6
+    stop_words: list[str] = Field(default_factory=list)
+
+
 class Web(BaseModel):
     port: int = 8080
     page_size: int = 50
@@ -164,6 +178,7 @@ class Workflow(BaseModel):
     autopilot: Autopilot
     web: Web
     evidence: Evidence = Field(default_factory=Evidence)
+    analysis: Analysis = Field(default_factory=Analysis)
     readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")

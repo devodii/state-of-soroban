@@ -1,0 +1,85 @@
+name: analyse
+
+on:
+  workflow_dispatch:
+    inputs:
+      shards:
+        description: parallel embedding jobs
+        default: "20"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.matrix.outputs.shards }}
+    steps:
+      - id: matrix
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          print("shards=" + json.dumps(list(range(int("${{ inputs.shards }}")))))
+          PY
+
+  embed:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.shards) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis
+          path: analysis
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-dev --group analysis
+      - uses: actions/cache@v4
+        with:
+          path: /tmp/fastembed_cache
+          key: fastembed-v1
+      - run: |
+          mkdir -p out
+          uv run state-of-soroban analysis-embed \
+            --units analysis/units.jsonl.gz \
+            --index "${{ matrix.shard }}" --count "${{ inputs.shards }}" \
+            --out out/shard-${{ matrix.shard }}.npz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: embed-${{ matrix.shard }}
+          path: out/shard-${{ matrix.shard }}.npz
+          retention-days: 2
+
+  cluster:
+    needs: embed
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis
+          path: analysis
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-dev --group analysis
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: embed-*
+          path: embeds
+      - run: |
+          mkdir -p result
+          uv run state-of-soroban analysis-cluster \
+            --units analysis/units.jsonl.gz --embeds embeds \
+            --count "${{ inputs.shards }}" --out result
+      - uses: actions/upload-artifact@v4
+        with:
+          name: analysis-result
+          path: result
+          retention-days: 7

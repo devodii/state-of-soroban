@@ -88,6 +88,21 @@ def main() -> None:
     )
     site = commands.add_parser("serve", help="browse the data on a local website")
     site.add_argument("--port", type=int, default=None)
+    commands.add_parser("analysis-export", help="publish evidence units for analysis")
+    embed = commands.add_parser(
+        "analysis-embed", help="embed one slice (runs in actions)"
+    )
+    embed.add_argument("--units", required=True)
+    embed.add_argument("--index", type=int, required=True)
+    embed.add_argument("--count", type=int, required=True)
+    embed.add_argument("--out", required=True)
+    cluster = commands.add_parser(
+        "analysis-cluster", help="cluster embeddings (runs in actions)"
+    )
+    cluster.add_argument("--units", required=True)
+    cluster.add_argument("--embeds", required=True)
+    cluster.add_argument("--count", type=int, required=True)
+    cluster.add_argument("--out", required=True)
     plan = commands.add_parser(
         "extract-plan", help="publish the repos to scan on the queue branch"
     )
@@ -158,6 +173,25 @@ def main() -> None:
                     args.concurrency,
                 )
             )
+        case "analysis-export":
+            from state_of_soroban.analysis.export import run_export
+
+            print(run_export())
+        case "analysis-embed":
+            from pathlib import Path
+
+            from state_of_soroban.analysis.embed import embed_shard
+
+            print(embed_shard(Path(args.units), args.index, args.count, Path(args.out)))
+        case "analysis-cluster":
+            from pathlib import Path
+
+            from state_of_soroban.analysis.cluster import run_cluster
+
+            result = run_cluster(
+                Path(args.units), Path(args.embeds), args.count, Path(args.out)
+            )
+            print(result.model_dump_json())
         case "serve":
             from state_of_soroban.web.server import serve
 
