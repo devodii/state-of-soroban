@@ -1,17 +1,13 @@
 SELECT
     (SELECT count(*) FROM repos) AS discovered,
     (
-        SELECT count(*) FROM checkpoints
-        WHERE job = 'metadata' AND status = 'done'
-    ) AS metadata,
+        SELECT count(*) FROM repos
+        WHERE is_soroban
+    ) AS soroban,
     (
-        SELECT count(*) FROM checkpoints
-        WHERE job = 'extract' AND status = 'done'
+        SELECT count(*) FROM repos
+        WHERE scanned_at IS NOT NULL
     ) AS extracted,
-    (
-        SELECT count(*) FROM checkpoints
-        WHERE job = 'extract' AND status IN ('failed', 'gone')
-    ) AS extract_failed,
     (
         SELECT count(*) FROM checkpoints
         WHERE job = 'history' AND status = 'done'
