@@ -6,6 +6,9 @@ on:
       shards:
         description: parallel embedding jobs
         default: "20"
+      embeds_run:
+        description: reuse the embeddings of this earlier run id
+        default: ""
 
 jobs:
   plan:
@@ -21,6 +24,7 @@ jobs:
           PY
 
   embed:
+    if: ${{ inputs.embeds_run == '' }}
     needs: plan
     runs-on: ubuntu-latest
     timeout-minutes: 200
@@ -57,6 +61,7 @@ jobs:
 
   cluster:
     needs: embed
+    if: ${{ always() && (needs.embed.result == 'success' || needs.embed.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -73,6 +78,8 @@ jobs:
         with:
           pattern: embed-*
           path: embeds
+          run-id: ${{ inputs.embeds_run || github.run_id }}
+          github-token: ${{ github.token }}
       - run: |
           mkdir -p result
           uv run state-of-soroban analysis-cluster \

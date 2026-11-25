@@ -121,8 +121,10 @@ class Analysis(BaseModel):
     text_chars: int = 360
     clusters: int = 2500
     merge_distance: float = 0.3
+    min_merge_distance: float = 0.03
+    merge_step: float = 0.02
+    max_cluster_share: float = 0.03
     min_cluster_size: int = 25
-    stability_sample: float = 0.3
     rerun_growth: float = 0.1
     max_run_hours: int = 6
     max_failures: int = 3

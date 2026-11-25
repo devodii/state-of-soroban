@@ -34,7 +34,8 @@ class RunMetrics(BaseModel):
     small_share: float
     mean_cohesion: float
     stability_ami: float
-    stability_sample: int
+    merge_distance: float
+    largest_share: float
 
 
 def read_jsonl(path: Path, model: type[BaseModel]) -> Iterator:

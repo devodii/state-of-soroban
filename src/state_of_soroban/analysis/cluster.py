@@ -31,16 +31,28 @@ def load_vectors(folder: Path, count: int) -> np.ndarray:
     return matrix
 
 
-def merge_centroids(centroids: np.ndarray, distance: float) -> np.ndarray:
+def merge_centroids(
+    centroids: np.ndarray, weights: np.ndarray, config: Analysis
+) -> tuple[np.ndarray, float]:
     from sklearn.cluster import AgglomerativeClustering
 
-    merged = AgglomerativeClustering(
-        n_clusters=None,
-        metric="cosine",
-        linkage="average",
-        distance_threshold=distance,
-    ).fit(centroids)
-    return merged.labels_
+    cap = config.max_cluster_share * weights.sum()
+    distance = config.merge_distance
+    while True:
+        labels = (
+            AgglomerativeClustering(
+                n_clusters=None,
+                metric="cosine",
+                linkage="average",
+                distance_threshold=distance,
+            )
+            .fit(centroids)
+            .labels_
+        )
+        sizes = np.bincount(labels, weights=weights)
+        if sizes.max() <= cap or distance <= config.min_merge_distance:
+            return labels, distance
+        distance = round(distance - config.merge_step, 4)
 
 
 def top_terms(units: list[Unit], labels: np.ndarray, config: Analysis, stop: set[str]):
@@ -70,23 +82,14 @@ def top_terms(units: list[Unit], labels: np.ndarray, config: Analysis, stop: set
     return terms
 
 
-def stability(matrix: np.ndarray, labels: np.ndarray, config: Analysis) -> tuple:
+def stability(matrix: np.ndarray, micro_labels: np.ndarray, k: int) -> float:
     from sklearn.cluster import MiniBatchKMeans
     from sklearn.metrics import adjusted_mutual_info_score
 
-    rng = np.random.default_rng(7)
-    size = int(len(matrix) * config.stability_sample)
-    chosen = rng.choice(len(matrix), size, replace=False)
-    second = MiniBatchKMeans(
-        n_clusters=max(min(config.clusters // 3, size // 10), 2),
-        random_state=99,
-        n_init=1,
-        batch_size=8192,
-    ).fit(matrix[chosen])
-    return (
-        float(adjusted_mutual_info_score(labels[chosen], second.labels_)),
-        size,
-    )
+    again = MiniBatchKMeans(
+        n_clusters=k, random_state=99, n_init=1, batch_size=8192, max_iter=60
+    ).fit(matrix)
+    return float(adjusted_mutual_info_score(micro_labels, again.labels_))
 
 
 def run_cluster(units_file: Path, embeds: Path, count: int, out: Path) -> RunMetrics:
@@ -106,7 +109,9 @@ def run_cluster(units_file: Path, embeds: Path, count: int, out: Path) -> RunMet
     centroids = micro.cluster_centers_ / (
         np.linalg.norm(micro.cluster_centers_, axis=1, keepdims=True) + 1e-9
     )
-    parent = merge_centroids(centroids, config.merge_distance)
+    weights = np.bincount(micro.labels_, minlength=len(centroids)).astype(float)
+    parent, distance = merge_centroids(centroids, weights, config)
+    log.info("merged at distance %s into %s clusters", distance, len(set(parent)))
     labels = parent[micro.labels_]
     macro = {}
     for label in np.unique(labels):
@@ -140,7 +145,7 @@ def run_cluster(units_file: Path, embeds: Path, count: int, out: Path) -> RunMet
             for i, unit in enumerate(units)
         ),
     )
-    ami, sample = stability(matrix, labels, config)
+    ami = stability(matrix, micro.labels_, int(micro.n_clusters))
     metrics = RunMetrics(
         units=len(units),
         clusters=len(infos),
@@ -150,7 +155,8 @@ def run_cluster(units_file: Path, embeds: Path, count: int, out: Path) -> RunMet
         ),
         mean_cohesion=float(sims.mean()),
         stability_ami=ami,
-        stability_sample=sample,
+        merge_distance=float(distance),
+        largest_share=float(max(i.size for i in infos) / len(units)),
     )
     (out / "metrics.json").write_text(metrics.model_dump_json(indent=2))
     return metrics
