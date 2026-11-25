@@ -124,6 +124,9 @@ class Analysis(BaseModel):
     min_cluster_size: int = 25
     stability_sample: float = 0.3
     rerun_growth: float = 0.1
+    max_run_hours: int = 6
+    max_failures: int = 3
+    retry_hours: int = 6
     terms: int = 8
     medoids: int = 6
     stop_words: list[str] = Field(default_factory=list)

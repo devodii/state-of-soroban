@@ -147,6 +147,9 @@ analysis:
   min_cluster_size: 25
   stability_sample: 0.3
   rerun_growth: 0.1
+  max_run_hours: 6
+  max_failures: 3
+  retry_hours: 6
   terms: 8
   medoids: 6
   stop_words: [the, and, for, with, this, that, not, are, from, when, should, does, into, use, add, fix, fixes, fixed, issue, pull, request, merge, branch, main, feat, chore, test, tests, can, will, has, have, been, was, but, all, new, update, support, need, also, make, get, set, its, our]

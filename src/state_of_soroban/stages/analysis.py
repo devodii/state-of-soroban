@@ -1,6 +1,7 @@
 import json
 import logging
 import shutil
+from datetime import UTC, datetime
 
 from state_of_soroban import checkpoints
 from state_of_soroban.analysis.export import export_units
@@ -24,31 +25,78 @@ RUNS_DIR = ROOT / "out" / "analysis-runs"
 WORKFLOW = "analyse.yml"
 
 
+GIVE_UP = 3
+BAD = {"failure", "cancelled", "timed_out", "startup_failure"}
+
+
+async def recent_runs() -> list[dict]:
+    return json.loads(
+        await gh(
+            "run",
+            "list",
+            "--workflow",
+            WORKFLOW,
+            "--limit",
+            "10",
+            "--json",
+            "databaseId,status,conclusion,createdAt",
+        )
+    )
+
+
+def age_hours(created: str) -> float:
+    moment = datetime.fromisoformat(created.replace("Z", "+00:00"))
+    return (datetime.now(UTC) - moment).total_seconds() / 3600
+
+
+async def healthy_to_run(context: Context, runs: list[dict]) -> bool:
+    config = context.workflow.analysis
+    for run in runs:
+        if run["status"] != "completed":
+            if age_hours(run["createdAt"]) > config.max_run_hours:
+                await gh("run", "cancel", str(run["databaseId"]))
+                log.warning(
+                    "cancelled analysis run %s stuck for too long", run["databaseId"]
+                )
+            return False
+    done = [run for run in runs if run["status"] == "completed"]
+    if done and done[0]["conclusion"] == "success":
+        saved = await checkpoints.get(context.pool, JOB, str(done[0]["databaseId"]))
+        if not (saved and (saved.done or saved.attempts >= GIVE_UP)):
+            return False
+    streak = 0
+    for run in done:
+        if run["conclusion"] not in BAD:
+            break
+        streak += 1
+    if (
+        streak >= config.max_failures
+        and age_hours(done[0]["createdAt"]) < config.retry_hours
+    ):
+        log.warning(
+            "analysis failed %s times in a row, waiting before retrying", streak
+        )
+        return False
+    return True
+
+
 @stage("analysis.dispatch")
 async def dispatch(context: Context, node: Stage) -> None:
     if shutil.which("gh") is None:
         return
     try:
-        active = json.loads(
-            await gh(
-                "run",
-                "list",
-                "--workflow",
-                WORKFLOW,
-                "--limit",
-                "5",
-                "--json",
-                "status",
-            )
-        )
-        if any(run["status"] != "completed" for run in active):
+        runs = await recent_runs()
+        if not await healthy_to_run(context, runs):
             return
         total = await context.pool.fetchval(load_sql("analysis_source_count"))
         last = await context.pool.fetchval(
             "SELECT source_count FROM analysis_runs ORDER BY created_at DESC LIMIT 1"
         )
-        growth = context.workflow.analysis.rerun_growth
-        if last is not None and total < last * (1 + growth):
+        failed_last = bool(runs) and runs[0]["conclusion"] in BAD
+        grown = last is None or total >= last * (
+            1 + context.workflow.analysis.rerun_growth
+        )
+        if not (grown or failed_last):
             return
         await build_evidence(context, node)
         await export_units()
@@ -82,12 +130,26 @@ async def harvest(context: Context, _: Stage) -> None:
     for run in listing:
         run_id = str(run["databaseId"])
         saved = await checkpoints.get(context.pool, JOB, run_id)
-        if (saved and saved.done) or run["conclusion"] != "success":
+        if run["conclusion"] != "success":
+            continue
+        if saved and (saved.done or saved.attempts >= GIVE_UP):
             continue
         target = RUNS_DIR / run_id
         shutil.rmtree(target, ignore_errors=True)
-        await gh("run", "download", run_id, "-n", "analysis-result", "-D", str(target))
-        metrics = RunMetrics.model_validate_json((target / "metrics.json").read_text())
+        try:
+            await gh(
+                "run", "download", run_id, "-n", "analysis-result", "-D", str(target)
+            )
+            metrics = RunMetrics.model_validate_json(
+                (target / "metrics.json").read_text()
+            )
+        except (RuntimeError, OSError, ValueError) as error:
+            context.errors += 1
+            await checkpoints.put(
+                context.pool, JOB, run_id, "failed", {}, str(error)[:200]
+            )
+            log.warning("could not read analysis run %s: %s", run_id, error)
+            continue
         total = await context.pool.fetchval(load_sql("analysis_source_count"))
         async with context.pool.acquire() as connection, connection.transaction():
             await connection.execute(
