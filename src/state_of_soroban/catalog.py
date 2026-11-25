@@ -75,6 +75,6 @@ def load_catalog(workflow: Workflow) -> Catalog:
         return yaml.safe_load(workflow.catalog_path(name).read_text())[key]
 
     return Catalog(
-        patterns=read("patterns", "patterns"),
+        patterns=read("patterns", "patterns") if workflow.catalog.patterns else [],
         bug_classes=read("bug_classes", "bug_classes"),
     )

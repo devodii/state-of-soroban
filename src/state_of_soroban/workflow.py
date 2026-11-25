@@ -26,7 +26,7 @@ class Window(BaseModel):
 
 
 class CatalogFiles(BaseModel):
-    patterns: Path
+    patterns: Path | None = None
     bug_classes: Path
 
 

@@ -18,7 +18,7 @@ def test_the_committed_workflow_and_catalog_are_valid_and_linked():
     catalog = load_catalog(workflow)
 
     assert workflow.window.end >= workflow.window.start
-    assert catalog.patterns
+    assert catalog.bug_classes
     assert {s.uses for s in workflow.stages} <= set(REGISTRY)
     assert set(workflow.autopilot.followed) <= {s.id for s in workflow.stages}
 

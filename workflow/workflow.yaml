@@ -8,7 +8,6 @@ window:
 networks: [mainnet, testnet]
 
 catalog:
-  patterns: catalog/patterns.yaml
   bug_classes: catalog/bug-classes.yaml
 
 discover:
