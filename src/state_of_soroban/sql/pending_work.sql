@@ -9,7 +9,8 @@ SELECT
     ) AS clone,
     count(*) FILTER (
         WHERE
-        is_soroban
+        (is_soroban OR is_stellar)
+        AND NOT is_fork
         AND NOT EXISTS (
             SELECT 1 FROM checkpoints AS c
             WHERE c.job = 'history' AND c.key = repos.full_name AND c.status = 'done'
