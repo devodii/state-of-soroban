@@ -75,15 +75,13 @@ async def follow(
         await asyncio.sleep(IDLE_PAUSE)
 
 
-async def periodic(context: Context, quiet: asyncio.Event) -> None:
-    config = context.workflow.autopilot
+async def periodic(context: Context, stage_id: str, quiet: asyncio.Event) -> None:
     failures: dict[str, int] = {}
     while True:
-        for stage_id in config.periodic:
-            await safely(context, stage_id, failures)
+        await safely(context, stage_id, failures)
         if quiet.is_set():
             return
-        await asyncio.sleep(config.periodic_seconds)
+        await asyncio.sleep(context.workflow.autopilot.periodic_seconds)
 
 
 async def write_stats(context: Context, quiet: asyncio.Event) -> None:
@@ -128,7 +126,10 @@ async def drive(force: bool = False) -> None:
             asyncio.create_task(
                 repeat(context, "dependents", config.dependents_seconds, quiet)
             ),
-            asyncio.create_task(periodic(context, quiet)),
+            *(
+                asyncio.create_task(periodic(context, stage_id, quiet))
+                for stage_id in config.periodic
+            ),
             asyncio.create_task(watch_ready(context, quiet)),
             asyncio.create_task(write_stats(context, quiet)),
             *(
