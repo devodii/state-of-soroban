@@ -50,7 +50,11 @@ async def sweep(context: Context, _: Stage) -> None:
     )
     owners = [
         row["owner"]
-        for row in await context.pool.fetch(load_sql("sweep_owners"), context.force)
+        for row in await context.pool.fetch(
+            load_sql("sweep_owners"),
+            context.force,
+            context.workflow.expansion.min_contributor_repos,
+        )
     ]
     if context.limit:
         owners = owners[: context.limit]

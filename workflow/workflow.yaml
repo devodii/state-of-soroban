@@ -68,6 +68,12 @@ clone:
   max_file_bytes: 1000000
   skip_directories: [target, node_modules, .git, vendor, test_snapshots]
 
+expansion:
+  fork_pages: 10
+  contributor_pages: 3
+  min_contributor_repos: 2
+  concurrency: 6
+
 documents:
   max_text_bytes: 200000
   kinds:
@@ -118,7 +124,7 @@ autopilot:
   followed:
     metadata: metadata
     history: history
-  periodic: [sweep, dispatch, harvest]
+  periodic: [expand, sweep, dispatch, harvest]
   periodic_seconds: 600
   discovery_seconds: 3600
   dependents_seconds: 21600
@@ -143,4 +149,5 @@ stages:
   - {id: dispatch, uses: git.dispatch, needs: [metadata]}
   - {id: harvest, uses: git.harvest, needs: [dispatch]}
   - {id: history, uses: github.history, needs: [harvest]}
+  - {id: expand, uses: github.expand, needs: [metadata]}
   - {id: sweep, uses: github.sweep, needs: [harvest]}

@@ -9,6 +9,7 @@
 \i tables/crates.sql
 \i tables/crate_dependencies.sql
 \i tables/functions.sql
+\i tables/github_users.sql
 \i tables/issues.sql
 \i tables/pattern_matches.sql
 \i tables/patterns.sql

@@ -102,6 +102,13 @@ class NetworkSignal(BaseModel):
         return value
 
 
+class Expand(BaseModel):
+    fork_pages: int = 10
+    contributor_pages: int = 3
+    min_contributor_repos: int = 2
+    concurrency: int = 6
+
+
 class Autopilot(BaseModel):
     followed: dict[str, str]
     periodic: list[str]
@@ -137,6 +144,7 @@ class Workflow(BaseModel):
     catalog: CatalogFiles
     discover: Discover
     clone: Clone
+    expansion: Expand = Field(default_factory=Expand)
     documents: Documents
     history: History
     networks_signals: dict[Network, list[NetworkSignal]]
