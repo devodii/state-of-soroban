@@ -42,6 +42,7 @@ async def run_plan(limit: int) -> int:
             workflow.clone.require_language or "",
             workflow.clone.max_repo_kb,
             False,
+            workflow.clone.include_forks,
         )
         names = [row["full_name"] for row in rows]
         if limit:

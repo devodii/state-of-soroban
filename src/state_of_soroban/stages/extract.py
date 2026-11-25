@@ -329,6 +329,7 @@ async def extract(context: Context, _: Stage) -> None:
                 clone.require_language or "",
                 clone.max_repo_kb,
                 context.force,
+                clone.include_forks,
             )
         ]
     if context.limit:

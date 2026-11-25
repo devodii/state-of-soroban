@@ -57,6 +57,7 @@ async def check(pool: asyncpg.Pool, workflow: Workflow) -> ReadinessReport:
             workflow.window.start,
             workflow.clone.require_language or "",
             workflow.clone.max_repo_kb,
+            workflow.clone.include_forks,
         )
     )
     signals = [

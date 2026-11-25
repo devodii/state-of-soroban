@@ -56,6 +56,7 @@ class Clone(BaseModel):
     concurrency: int
     keep: bool = False
     keep_test_content: bool = False
+    include_forks: bool = False
     require_language: str | None = None
     max_rust_files: int = 4000
     max_signal_files: int = 1500

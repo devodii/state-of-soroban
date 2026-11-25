@@ -24,6 +24,7 @@ async def pending(context: Context) -> dict[str, int]:
         cutoff,
         context.workflow.clone.require_language or "",
         context.workflow.clone.max_repo_kb,
+        context.workflow.clone.include_forks,
     )
     return dict(row)
 

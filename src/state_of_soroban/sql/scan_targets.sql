@@ -8,6 +8,7 @@ WHERE
     AND (languages ? $2 OR $2 = '')
     AND size_kb <= $3
     AND ($4::boolean OR scanned_at IS NULL)
+    AND ($5::boolean OR NOT is_fork)
     AND NOT EXISTS (
         SELECT 1 FROM checkpoints AS c
         WHERE

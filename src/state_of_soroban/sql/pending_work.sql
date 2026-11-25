@@ -6,6 +6,7 @@ SELECT
         AND (languages ? $2 OR $2 = '')
         AND size_kb <= $3
         AND scanned_at IS NULL
+        AND ($4::boolean OR NOT is_fork)
     ) AS clone,
     count(*) FILTER (
         WHERE
