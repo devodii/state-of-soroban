@@ -86,6 +86,8 @@ def main() -> None:
     commands.add_parser(
         "drive", help="autopilot: run every stage, restart on crashes, follow new work"
     )
+    site = commands.add_parser("serve", help="browse the data on a local website")
+    site.add_argument("--port", type=int, default=None)
     plan = commands.add_parser(
         "extract-plan", help="publish the repos to scan on the queue branch"
     )
@@ -156,6 +158,10 @@ def main() -> None:
                     args.concurrency,
                 )
             )
+        case "serve":
+            from state_of_soroban.web.server import serve
+
+            serve(args.port)
         case "ready":
             raise SystemExit(asyncio.run(show_ready()))
         case "schema":

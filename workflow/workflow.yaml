@@ -135,6 +135,11 @@ autopilot:
   stats_seconds: 300
   metadata_run_size: 4000
 
+web:
+  port: 8080
+  page_size: 50
+  repo_sorts: [stars, forks, recent, activity, name]
+
 readiness:
   min_recall: 0.99
   quiet_hours: 24

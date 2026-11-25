@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Find every public Soroban repo and read what its developers struggle with"
 requires-python = ">=3.13"
 dependencies = [
+    "aiohttp>=3.14.5",
     "asyncpg>=0.32.0",
     "httpx>=0.28.1",
     "pydantic>=2.11.0",

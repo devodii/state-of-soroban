@@ -1,0 +1,162 @@
+import json
+from pathlib import Path
+
+from aiohttp import web
+from pydantic import BaseModel
+
+from state_of_soroban.database import open_pool
+from state_of_soroban.sql_loader import load_sql
+from state_of_soroban.workflow import load_workflow
+
+STATIC = Path(__file__).parent / "static"
+
+
+class Page(BaseModel):
+    q: str = ""
+    kind: str = "all"
+    sort: str = "stars"
+    repo: str = ""
+    fixes: bool = False
+    bugs: bool = False
+    type: str = ""
+    page: int = 0
+
+    @classmethod
+    def read(cls, request: web.Request) -> "Page":
+        return cls.model_validate(dict(request.query))
+
+
+def dump(data) -> str:
+    return json.dumps(data, default=str)
+
+
+def rows(records) -> list[dict]:
+    return [dict(record) for record in records]
+
+
+async def stats(request: web.Request) -> web.Response:
+    row = await request.app["pool"].fetchrow(load_sql("web_stats"))
+    return web.json_response(dict(row))
+
+
+async def repos(request: web.Request) -> web.Response:
+    config = request.app["config"]
+    page = Page.read(request)
+    sort = page.sort if page.sort in config.repo_sorts else config.repo_sorts[0]
+    found = rows(
+        await request.app["pool"].fetch(
+            load_sql("web_repos"),
+            page.q,
+            page.kind,
+            config.page_size,
+            page.page * config.page_size,
+            sort,
+        )
+    )
+    total = found[0]["total"] if found else 0
+    return web.json_response(
+        {"rows": found, "total": total, "page_size": config.page_size},
+        dumps=dump,
+    )
+
+
+async def repo(request: web.Request) -> web.Response:
+    name = request.match_info["name"]
+    pool = request.app["pool"]
+    row = await pool.fetchrow(load_sql("web_repo"), name)
+    if row is None:
+        raise web.HTTPNotFound
+    people = await pool.fetch(load_sql("web_repo_contributors"), name)
+    return web.json_response(
+        {"repo": dict(row), "contributors": rows(people)},
+        dumps=dump,
+    )
+
+
+async def commits(request: web.Request) -> web.Response:
+    config = request.app["config"]
+    page = Page.read(request)
+    found = rows(
+        await request.app["pool"].fetch(
+            load_sql("web_commits"),
+            page.repo,
+            page.q,
+            page.fixes,
+            config.page_size + 1,
+            page.page * config.page_size,
+        )
+    )
+    return web.json_response(
+        {"rows": found[: config.page_size], "more": len(found) > config.page_size},
+        dumps=dump,
+    )
+
+
+async def issues(request: web.Request) -> web.Response:
+    config = request.app["config"]
+    page = Page.read(request)
+    found = rows(
+        await request.app["pool"].fetch(
+            load_sql("web_issues"),
+            page.repo,
+            page.q,
+            page.bugs,
+            page.type,
+            config.page_size + 1,
+            page.page * config.page_size,
+        )
+    )
+    return web.json_response(
+        {"rows": found[: config.page_size], "more": len(found) > config.page_size},
+        dumps=dump,
+    )
+
+
+async def users(request: web.Request) -> web.Response:
+    config = request.app["config"]
+    page = Page.read(request)
+    found = rows(
+        await request.app["pool"].fetch(
+            load_sql("web_users"),
+            page.q,
+            config.page_size + 1,
+            page.page * config.page_size,
+        )
+    )
+    return web.json_response(
+        {"rows": found[: config.page_size], "more": len(found) > config.page_size},
+        dumps=dump,
+    )
+
+
+async def index(_: web.Request) -> web.FileResponse:
+    return web.FileResponse(STATIC / "index.html")
+
+
+async def start(app: web.Application) -> None:
+    app["pool"] = await open_pool(8)
+
+
+async def stop(app: web.Application) -> None:
+    await app["pool"].close()
+
+
+def serve(port: int | None = None) -> None:
+    config = load_workflow().web
+    app = web.Application()
+    app["config"] = config
+    app.on_startup.append(start)
+    app.on_cleanup.append(stop)
+    app.add_routes(
+        [
+            web.get("/", index),
+            web.get("/api/stats", stats),
+            web.get("/api/repos", repos),
+            web.get("/api/repo/{name:.+}", repo),
+            web.get("/api/commits", commits),
+            web.get("/api/issues", issues),
+            web.get("/api/users", users),
+            web.static("/static", STATIC),
+        ]
+    )
+    web.run_app(app, host="127.0.0.1", port=port or config.port)

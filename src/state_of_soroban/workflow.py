@@ -110,6 +110,12 @@ class Expand(BaseModel):
     concurrency: int = 6
 
 
+class Web(BaseModel):
+    port: int = 8080
+    page_size: int = 50
+    repo_sorts: list[str]
+
+
 class Autopilot(BaseModel):
     followed: dict[str, str]
     periodic: list[str]
@@ -151,6 +157,7 @@ class Workflow(BaseModel):
     history: History
     networks_signals: dict[Network, list[NetworkSignal]]
     autopilot: Autopilot
+    web: Web
     readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")

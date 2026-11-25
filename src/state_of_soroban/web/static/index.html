@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State of Soroban</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>State of Soroban</h1>
+  <div id="stats"></div>
+</header>
+<nav id="tabs">
+  <button data-tab="repos" class="on">Repos</button>
+  <button data-tab="commits">Commits</button>
+  <button data-tab="issues">Issues &amp; PRs</button>
+  <button data-tab="users">Contributors</button>
+</nav>
+<section id="bar">
+  <input id="q" type="search" placeholder="search" autocomplete="off">
+  <select id="kind">
+    <option value="soroban">Soroban repos (no forks)</option>
+    <option value="all">All discovered</option>
+    <option value="nonfork">Non-forks</option>
+    <option value="forks">Forks only</option>
+    <option value="extracted">Extracted</option>
+  </select>
+  <select id="sort">
+    <option value="stars">Stars</option>
+    <option value="forks">Forks</option>
+    <option value="recent">Recently pushed</option>
+    <option value="activity">2026 commits</option>
+    <option value="name">Name</option>
+  </select>
+  <label id="fixes-label"><input id="fixes" type="checkbox"> fixes only</label>
+  <label id="bugs-label"><input id="bugs" type="checkbox"> bugs only</label>
+  <select id="type">
+    <option value="">issues and PRs</option>
+    <option value="issue">issues</option>
+    <option value="pull">pull requests</option>
+  </select>
+  <span id="chip" hidden></span>
+</section>
+<main>
+  <div id="detail" hidden></div>
+  <table id="table"><thead></thead><tbody></tbody></table>
+  <div id="pager">
+    <button id="prev">Prev</button>
+    <span id="info"></span>
+    <button id="next">Next</button>
+  </div>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
