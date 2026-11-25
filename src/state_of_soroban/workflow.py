@@ -120,6 +120,7 @@ class Autopilot(BaseModel):
     min_free_gb: int = 3
     download_concurrency: int = 12
     stats_seconds: int = 300
+    metadata_run_size: int = 4000
 
 
 class Readiness(BaseModel):

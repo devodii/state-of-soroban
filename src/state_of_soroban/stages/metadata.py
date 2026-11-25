@@ -168,7 +168,11 @@ async def metadata(context: Context, _: Stage) -> None:
     async with context.pool.acquire() as connection:
         names = [
             row["full_name"]
-            for row in await connection.fetch(load_sql("metadata_names"), context.force)
+            for row in await connection.fetch(
+                load_sql("metadata_names"),
+                context.force,
+                context.workflow.autopilot.metadata_run_size,
+            )
             if VALID_NAME.match(row["full_name"])
         ]
     if context.limit:
