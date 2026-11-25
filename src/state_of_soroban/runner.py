@@ -105,6 +105,7 @@ async def session(
         http = await stack.enter_async_context(
             httpx.AsyncClient(
                 timeout=60,
+                follow_redirects=True,
                 limits=httpx.Limits(max_connections=200, max_keepalive_connections=50),
             )
         )
