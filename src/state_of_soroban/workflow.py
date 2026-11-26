@@ -137,6 +137,10 @@ class Analysis(BaseModel):
     min_usecase_families: int = 5
 
 
+class Tools(BaseModel):
+    min_dependents: int = 15
+
+
 class Web(BaseModel):
     port: int = 8080
     page_size: int = 50
@@ -187,6 +191,7 @@ class Workflow(BaseModel):
     web: Web
     evidence: Evidence = Field(default_factory=Evidence)
     analysis: Analysis = Field(default_factory=Analysis)
+    tools: Tools = Field(default_factory=Tools)
     readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")

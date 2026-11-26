@@ -26,6 +26,7 @@
 \i tables/repo_network_signals.sql
 \i tables/repo_usecases.sql
 \i tables/stage_runs.sql
+\i tables/tools.sql
 \i tables/type_defs.sql
 \i tables/usecases.sql
 \i indexes/checkpoints_status.sql

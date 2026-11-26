@@ -159,6 +159,9 @@ analysis:
   usecase_stop_words: [stellar, soroban, smart, contract, contracts, project, app, application, platform, built, using, based, blockchain, decentralized, description, license, badge, shields, svg, img, build, deploy, testnet, mainnet, github, https, http, com, wallet, rust, wasm, cli, sdk, npm]
   stop_words: [the, and, for, with, this, that, not, are, from, when, should, does, into, use, add, fix, fixes, fixed, issue, pull, request, merge, branch, main, feat, chore, test, tests, can, will, has, have, been, was, but, all, new, update, support, need, also, make, get, set, its, our]
 
+tools:
+  min_dependents: 15
+
 web:
   port: 8080
   page_size: 50
@@ -183,5 +186,6 @@ stages:
   - {id: expand, uses: github.expand, needs: [metadata]}
   - {id: sweep, uses: github.sweep, needs: [harvest]}
   - {id: evidence, uses: evidence.build, needs: [history]}
+  - {id: tools, uses: tools.resolve, needs: [history]}
   - {id: analysis_dispatch, uses: analysis.dispatch, needs: [evidence]}
   - {id: analysis_harvest, uses: analysis.harvest, needs: [analysis_dispatch]}
