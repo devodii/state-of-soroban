@@ -12,7 +12,8 @@
   <div id="stats"></div>
 </header>
 <nav id="tabs">
-  <button data-tab="repos" class="on">Repos</button>
+  <button data-tab="frictions" class="on">Frictions</button>
+  <button data-tab="repos">Repos</button>
   <button data-tab="commits">Commits</button>
   <button data-tab="issues">Issues &amp; PRs</button>
   <button data-tab="users">Contributors</button>
@@ -35,6 +36,18 @@
   </select>
   <label id="fixes-label"><input id="fixes" type="checkbox"> fixes only</label>
   <label id="bugs-label"><input id="bugs" type="checkbox"> bugs only</label>
+  <select id="fsort">
+    <option value="families">Most independent projects</option>
+    <option value="recent">Most active, last 90 days</option>
+    <option value="size">Most evidence</option>
+    <option value="contract">Most in contract code</option>
+  </select>
+  <select id="fmin">
+    <option value="5">5+ projects</option>
+    <option value="20">20+ projects</option>
+    <option value="100">100+ projects</option>
+    <option value="1">all</option>
+  </select>
   <select id="type">
     <option value="">issues and PRs</option>
     <option value="issue">issues</option>

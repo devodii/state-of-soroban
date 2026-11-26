@@ -129,6 +129,44 @@ async def users(request: web.Request) -> web.Response:
     )
 
 
+async def frictions(request: web.Request) -> web.Response:
+    config = request.app["config"]
+    query = request.query
+    found = rows(
+        await request.app["pool"].fetch(
+            load_sql("web_frictions"),
+            int(query.get("min_families", 5)),
+            query.get("q", ""),
+            float(query.get("contract_share", 0)),
+            query.get("sort", "families"),
+            config.page_size,
+            int(query.get("page", 0)) * config.page_size,
+        )
+    )
+    total = found[0]["total"] if found else 0
+    return web.json_response(
+        {"rows": found, "total": total, "page_size": config.page_size}, dumps=dump
+    )
+
+
+async def friction(request: web.Request) -> web.Response:
+    cluster = int(request.match_info["cluster"])
+    kind = request.query.get("kind", "")
+    page = int(request.query.get("page", 0))
+    pool = request.app["pool"]
+    size = request.app["config"].page_size
+    evidence = rows(
+        await pool.fetch(
+            load_sql("web_friction_evidence"), cluster, kind, size + 1, page * size
+        )
+    )
+    repos = rows(await pool.fetch(load_sql("web_friction_repos"), cluster))
+    return web.json_response(
+        {"evidence": evidence[:size], "more": len(evidence) > size, "repos": repos},
+        dumps=dump,
+    )
+
+
 async def index(_: web.Request) -> web.FileResponse:
     return web.FileResponse(STATIC / "index.html")
 
@@ -156,6 +194,8 @@ def serve(port: int | None = None) -> None:
             web.get("/api/commits", commits),
             web.get("/api/issues", issues),
             web.get("/api/users", users),
+            web.get("/api/frictions", frictions),
+            web.get("/api/friction/{cluster}", friction),
             web.static("/static", STATIC),
         ]
     )

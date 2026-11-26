@@ -1,5 +1,5 @@
 const $ = (id) => document.getElementById(id);
-const state = { tab: 'repos', page: 0, repo: '' };
+const state = { tab: 'frictions', page: 0, repo: '', cluster: null };
 let pageSize = 50;
 let timer;
 let ticket = 0;
@@ -11,6 +11,7 @@ const esc = (s) =>
 const gh = (name) => `https://github.com/${name}`;
 
 const columns = {
+  frictions: ['Friction (top terms)', 'Projects', 'Owners', 'Evidence', 'Last 90d', 'In contract code', 'First seen'],
   repos: ['Repo', 'Stars', 'Forks', '2026 commits', 'Language', 'Pushed'],
   commits: ['Date', 'Repo', 'Author', 'Message', '+/-'],
   issues: ['Date', 'Repo', 'Title', 'State', 'Author', 'Comments'],
@@ -18,6 +19,13 @@ const columns = {
 };
 
 const renderers = {
+  frictions: (r) => `<tr>
+    <td><span class="link" data-cluster="${r.cluster}">${esc((r.terms || []).slice(0, 5).join(', '))}</span>
+      <div class="muted">${fmt(r.commits)} fix commits, ${fmt(r.issues)} issues, ${fmt(r.pulls)} PRs</div></td>
+    <td class="num">${fmt(r.families)}</td><td class="num">${fmt(r.owners)}</td>
+    <td class="num">${fmt(r.size)}</td><td class="num">${fmt(r.recent_units)}</td>
+    <td class="num">${Math.round((100 * r.contract_units) / Math.max(r.size, 1))}%</td>
+    <td>${day(r.first_seen)}</td></tr>`,
   repos: (r) => `<tr>
     <td><span class="link" data-repo="${esc(r.full_name)}">${esc(r.full_name)}</span>
       ${r.is_soroban ? '<span class="tag soroban">soroban</span>' : ''}
@@ -48,6 +56,10 @@ const renderers = {
 
 function params() {
   const p = new URLSearchParams({ page: state.page, q: $('q').value.trim() });
+  if (state.tab === 'frictions') {
+    p.set('sort', $('fsort').value);
+    p.set('min_families', $('fmin').value);
+  }
   if (state.tab === 'repos') {
     p.set('kind', $('kind').value);
     p.set('sort', $('sort').value);
@@ -61,6 +73,7 @@ function params() {
 
 async function load() {
   const mine = ++ticket;
+  if (state.cluster !== null && state.tab === 'frictions') return loadCluster();
   const res = await fetch(`/api/${state.tab}?${params()}`);
   const data = await res.json();
   if (mine !== ticket) return;
@@ -76,6 +89,28 @@ async function load() {
   $('next').disabled = data.total != null ? to >= data.total : !data.more;
 }
 
+async function loadCluster() {
+  const mine = ++ticket;
+  const q = new URLSearchParams({ page: state.page, kind: $('type').value });
+  const data = await (await fetch(`/api/friction/${state.cluster}?${q}`)).json();
+  if (mine !== ticket) return;
+  const list = data.repos.map((r) => `<span class="link" data-repo="${esc(r.repo)}">${esc(r.repo)}</span> (${r.units})`).join(' · ');
+  $('detail').hidden = false;
+  $('detail').innerHTML = `<h2>${esc(state.clusterTitle)}</h2>
+    <div class="muted"><span class="link" id="back">← all frictions</span></div>
+    <div class="facts"><span>Projects most affected: ${list}</span></div>`;
+  $('table').tHead.innerHTML = '<tr><th>Date</th><th>Evidence (links to GitHub)</th><th>Repo</th><th>Author</th></tr>';
+  $('table').tBodies[0].innerHTML = data.evidence
+    .map((r) => `<tr><td>${day(r.occurred_at)}</td>
+      <td><a href="${esc(r.url)}" target="_blank">${esc(r.title)}</a> <span class="tag">${esc(r.kind)}</span></td>
+      <td><span class="link" data-repo="${esc(r.repo)}">${esc(r.repo)}</span></td><td>${esc(r.author_login)}</td></tr>`)
+    .join('');
+  const from = state.page * pageSize + 1;
+  $('info').textContent = data.evidence.length ? `${fmt(from)}–${fmt(from + data.evidence.length - 1)}` : 'no results';
+  $('prev').disabled = state.page === 0;
+  $('next').disabled = !data.more;
+}
+
 function reset() {
   state.page = 0;
   load();
@@ -84,11 +119,12 @@ function reset() {
 function showControls() {
   const t = state.tab;
   $('kind').hidden = $('sort').hidden = t !== 'repos';
+  $('fsort').hidden = $('fmin').hidden = t !== 'frictions';
   $('fixes-label').hidden = t !== 'commits';
   $('bugs-label').hidden = $('type').hidden = t !== 'issues';
   $('chip').hidden = !state.repo || t === 'repos' || t === 'users';
   $('chip').textContent = `${state.repo} ✕`;
-  $('detail').hidden = !state.repo || t === 'users';
+  $('detail').hidden = t === 'frictions' ? state.cluster === null : !state.repo || t === 'users';
 }
 
 function setTab(tab) {
@@ -134,6 +170,7 @@ async function stats() {
 document.querySelectorAll('#tabs button').forEach((b) =>
   b.addEventListener('click', () => {
     if (b.dataset.tab === 'repos') state.repo = '';
+    state.cluster = null;
     setTab(b.dataset.tab);
   }),
 );
@@ -141,14 +178,28 @@ $('q').addEventListener('input', () => {
   clearTimeout(timer);
   timer = setTimeout(reset, 250);
 });
-['kind', 'sort', 'fixes', 'bugs', 'type'].forEach((id) => $(id).addEventListener('change', reset));
+['kind', 'sort', 'fsort', 'fmin', 'fixes', 'bugs', 'type'].forEach((id) => $(id).addEventListener('change', reset));
 $('prev').addEventListener('click', () => { state.page--; load(); window.scrollTo(0, 0); });
 $('next').addEventListener('click', () => { state.page++; load(); window.scrollTo(0, 0); });
 $('chip').addEventListener('click', () => { state.repo = ''; showControls(); reset(); });
 $('table').addEventListener('click', (e) => {
+  const friction = e.target.closest('[data-cluster]');
+  if (friction) {
+    state.cluster = Number(friction.dataset.cluster);
+    state.clusterTitle = friction.textContent;
+    state.page = 0;
+    showControls();
+    load();
+    return;
+  }
   const link = e.target.closest('[data-repo]');
   if (link) openRepo(link.dataset.repo);
 });
 
+$('detail').addEventListener('click', (e) => {
+  if (e.target.id === 'back') { state.cluster = null; showControls(); reset(); }
+  const link = e.target.closest('[data-repo]');
+  if (link) openRepo(link.dataset.repo);
+});
 stats();
-setTab('repos');
+setTab('frictions');
