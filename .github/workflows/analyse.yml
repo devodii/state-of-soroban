@@ -90,3 +90,26 @@ jobs:
           name: analysis-result
           path: result
           retention-days: 7
+
+  usecases:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis
+          path: analysis
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --no-dev --group analysis
+      - run: |
+          mkdir -p usecases
+          uv run state-of-soroban analysis-usecases \
+            --repos analysis/repos.jsonl.gz --out usecases
+      - uses: actions/upload-artifact@v4
+        with:
+          name: usecases-result
+          path: usecases
+          retention-days: 7

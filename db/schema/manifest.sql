@@ -24,8 +24,10 @@
 \i tables/repo_documents.sql
 \i tables/repo_families.sql
 \i tables/repo_network_signals.sql
+\i tables/repo_usecases.sql
 \i tables/stage_runs.sql
 \i tables/type_defs.sql
+\i tables/usecases.sql
 \i indexes/checkpoints_status.sql
 \i indexes/commit_pattern_touches_pattern.sql
 \i indexes/commits_committed_at.sql

@@ -51,3 +51,20 @@ def write_jsonl(path: Path, items: Iterator[BaseModel] | list[BaseModel]) -> int
             target.write(item.model_dump_json() + "\n")
             count += 1
     return count
+
+
+class RepoText(BaseModel):
+    repo: str
+    text: str
+
+
+class UsecaseInfo(BaseModel):
+    usecase: int
+    size: int
+    terms: list[str]
+
+
+class RepoUsecase(BaseModel):
+    repo: str
+    usecase: int
+    sim: float

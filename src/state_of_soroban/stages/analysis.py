@@ -8,7 +8,9 @@ from state_of_soroban.analysis.export import export_units
 from state_of_soroban.analysis.records import (
     ClusterInfo,
     Member,
+    RepoUsecase,
     RunMetrics,
+    UsecaseInfo,
     read_jsonl,
 )
 from state_of_soroban.config import ROOT
@@ -109,6 +111,30 @@ async def dispatch(context: Context, node: Stage) -> None:
         log.warning("could not dispatch an analysis run: %s", error)
 
 
+async def import_usecases(connection, run_id: str) -> None:
+    target = RUNS_DIR / f"{run_id}-usecases"
+    shutil.rmtree(target, ignore_errors=True)
+    try:
+        await gh("run", "download", run_id, "-n", "usecases-result", "-D", str(target))
+    except RuntimeError:
+        return
+    await connection.executemany(
+        load_sql("usecase_put"),
+        [
+            (run_id, u.usecase, u.size, u.terms)
+            for u in read_jsonl(target / "usecases.jsonl.gz", UsecaseInfo)
+        ],
+    )
+    await connection.executemany(
+        load_sql("repo_usecase_put"),
+        [
+            (run_id, r.repo, r.usecase, r.sim)
+            for r in read_jsonl(target / "repo_usecases.jsonl.gz", RepoUsecase)
+        ],
+    )
+    shutil.rmtree(target, ignore_errors=True)
+
+
 @stage("analysis.harvest")
 async def harvest(context: Context, _: Stage) -> None:
     if shutil.which("gh") is None:
@@ -170,6 +196,7 @@ async def harvest(context: Context, _: Stage) -> None:
                     await connection.executemany(load_sql("friction_member_put"), batch)
                     batch = []
             await connection.executemany(load_sql("friction_member_put"), batch)
+            await import_usecases(connection, run_id)
             await connection.execute("ANALYZE friction_members")
             await connection.execute(load_sql("friction_stats"), run_id)
             await connection.execute(load_sql("analysis_prune"), run_id)

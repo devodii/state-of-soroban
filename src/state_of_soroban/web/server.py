@@ -161,8 +161,20 @@ async def friction(request: web.Request) -> web.Response:
         )
     )
     repos = rows(await pool.fetch(load_sql("web_friction_repos"), cluster))
+    usecases = rows(
+        await pool.fetch(
+            load_sql("web_friction_usecases"),
+            cluster,
+            request.app["workflow"].analysis.min_usecase_families,
+        )
+    )
     return web.json_response(
-        {"evidence": evidence[:size], "more": len(evidence) > size, "repos": repos},
+        {
+            "evidence": evidence[:size],
+            "more": len(evidence) > size,
+            "repos": repos,
+            "usecases": usecases,
+        },
         dumps=dump,
     )
 
@@ -180,9 +192,11 @@ async def stop(app: web.Application) -> None:
 
 
 def serve(port: int | None = None) -> None:
-    config = load_workflow().web
+    workflow = load_workflow()
+    config = workflow.web
     app = web.Application()
     app["config"] = config
+    app["workflow"] = workflow
     app.on_startup.append(start)
     app.on_cleanup.append(stop)
     app.add_routes(

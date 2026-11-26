@@ -154,6 +154,9 @@ analysis:
   retry_hours: 6
   terms: 8
   medoids: 6
+  usecase_clusters: 40
+  min_usecase_families: 5
+  usecase_stop_words: [stellar, soroban, smart, contract, contracts, project, app, application, platform, built, using, based, blockchain, decentralized, description, license, badge, shields, svg, img, build, deploy, testnet, mainnet, github, https, http, com, wallet, rust, wasm, cli, sdk, npm]
   stop_words: [the, and, for, with, this, that, not, are, from, when, should, does, into, use, add, fix, fixes, fixed, issue, pull, request, merge, branch, main, feat, chore, test, tests, can, will, has, have, been, was, but, all, new, update, support, need, also, make, get, set, its, our]
 
 web:

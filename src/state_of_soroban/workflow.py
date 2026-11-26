@@ -132,6 +132,9 @@ class Analysis(BaseModel):
     terms: int = 8
     medoids: int = 6
     stop_words: list[str] = Field(default_factory=list)
+    usecase_clusters: int = 40
+    usecase_stop_words: list[str] = Field(default_factory=list)
+    min_usecase_families: int = 5
 
 
 class Web(BaseModel):

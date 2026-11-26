@@ -103,6 +103,11 @@ def main() -> None:
     cluster.add_argument("--embeds", required=True)
     cluster.add_argument("--count", type=int, required=True)
     cluster.add_argument("--out", required=True)
+    usecases = commands.add_parser(
+        "analysis-usecases", help="group repos by use case (runs in actions)"
+    )
+    usecases.add_argument("--repos", required=True)
+    usecases.add_argument("--out", required=True)
     plan = commands.add_parser(
         "extract-plan", help="publish the repos to scan on the queue branch"
     )
@@ -183,6 +188,12 @@ def main() -> None:
             from state_of_soroban.analysis.embed import embed_shard
 
             print(embed_shard(Path(args.units), args.index, args.count, Path(args.out)))
+        case "analysis-usecases":
+            from pathlib import Path
+
+            from state_of_soroban.analysis.usecases import run_usecases
+
+            print(run_usecases(Path(args.repos), Path(args.out)))
         case "analysis-cluster":
             from pathlib import Path
 

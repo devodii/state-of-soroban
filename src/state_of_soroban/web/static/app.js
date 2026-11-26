@@ -95,9 +95,13 @@ async function loadCluster() {
   const data = await (await fetch(`/api/friction/${state.cluster}?${q}`)).json();
   if (mine !== ticket) return;
   const list = data.repos.map((r) => `<span class="link" data-repo="${esc(r.repo)}">${esc(r.repo)}</span> (${r.units})`).join(' · ');
+  const uses = (data.usecases || [])
+    .map((u) => `${esc(u.terms.slice(0, 3).join(', '))} (${u.lift.toFixed(1)}x, ${u.families} projects)`)
+    .join(' · ');
   $('detail').hidden = false;
   $('detail').innerHTML = `<h2>${esc(state.clusterTitle)}</h2>
     <div class="muted"><span class="link" id="back">← all frictions</span></div>
+    <div class="facts"><span>Hits hardest in: ${uses || 'not computed yet'}</span></div>
     <div class="facts"><span>Projects most affected: ${list}</span></div>`;
   $('table').tHead.innerHTML = '<tr><th>Date</th><th>Evidence (links to GitHub)</th><th>Repo</th><th>Author</th></tr>';
   $('table').tBodies[0].innerHTML = data.evidence
