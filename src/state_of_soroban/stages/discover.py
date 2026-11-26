@@ -11,6 +11,7 @@ from state_of_soroban.github.search import (
     RESULT_CAP,
     code_slices,
     pages,
+    refine_code,
     repository_slices,
 )
 from state_of_soroban.linking.repo_ref import normalize_repo
@@ -92,12 +93,38 @@ async def plan_slices(
     return slices
 
 
+async def read_refined(
+    context: Context,
+    harvest: Harvest,
+    kind: str,
+    query: str,
+    sliced: str,
+    cursor: dict,
+) -> None:
+    depth = context.workflow.discover.refine_depth
+    parts = await resilient(
+        context.http, lambda: refine_code(context.github, sliced, depth)
+    )
+    for part in parts:
+        if part != sliced:
+            await read_slice(context, harvest, kind, query, part)
+    key = f"page|{kind}|{sliced}"
+    await checkpoints.put(context.pool, JOB, key, "done", {**cursor, "refined": True})
+    log.info("refined %s into %s parts", sliced, len(parts))
+
+
 async def read_slice(
     context: Context, harvest: Harvest, kind: str, query: str, sliced: str
 ) -> None:
     key = f"page|{kind}|{sliced}"
     saved = await checkpoints.get(context.pool, JOB, key)
     if saved and saved.done:
+        if (
+            kind == "code"
+            and saved.cursor.get("saturated")
+            and not saved.cursor.get("refined")
+        ):
+            await read_refined(context, harvest, kind, query, sliced, saved.cursor)
         return
     start = saved.cursor.get("page", 0) + 1 if saved else 1
     path = "/search/repositories" if kind == "search" else "/search/code"

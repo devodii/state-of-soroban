@@ -1,5 +1,6 @@
 import asyncio
 import logging
+from collections import Counter
 from collections.abc import AsyncIterator, Awaitable, Callable
 from datetime import UTC, datetime
 from typing import Any
@@ -62,6 +63,39 @@ async def code_slices(github: GithubClient, query: str) -> list[str]:
         f"{query} size:{lo}..{hi}"
         for lo, hi in await split_range(0, SIZE_CEILING, count)
     ]
+
+
+def best_split(items: list[dict[str, Any]]) -> str | None:
+    """The filename or top folder that divides the results closest to half and half."""
+    counts: Counter[str] = Counter()
+    for item in items:
+        counts[f"filename:{item['name']}"] += 1
+        folder, _, _ = item["path"].partition("/")
+        if folder != item["name"]:
+            counts[f"path:{folder}"] += 1
+    balanced = [
+        (abs(count / len(items) - 0.5), key)
+        for key, count in counts.items()
+        if count < len(items)
+    ]
+    return min(balanced)[1] if balanced else None
+
+
+async def refine_code(github: GithubClient, query: str, depth: int) -> list[str]:
+    """Splits a code search that matches more than the result cap into parts that fit."""
+    if depth == 0 or await _total(github, "/search/code", query, "code") <= RESULT_CAP:
+        return [query]
+    data = await github.json(
+        "/search/code", {"q": query, "per_page": PAGE_SIZE}, search="code"
+    )
+    split = best_split(data["items"] if data else [])
+    if split is None:
+        return [query]
+    parts = await asyncio.gather(
+        refine_code(github, f"{query} {split}", depth - 1),
+        refine_code(github, f"{query} NOT {split}", depth - 1),
+    )
+    return [*parts[0], *parts[1]]
 
 
 async def pages(

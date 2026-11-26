@@ -48,6 +48,7 @@ class Discover(BaseModel):
     exclude_owners: list[str] = []
     exclude_repos: list[str] = []
     min_window_commits: int = 0
+    refine_depth: int = 5
 
 
 class Clone(BaseModel):

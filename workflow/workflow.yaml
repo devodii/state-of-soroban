@@ -51,6 +51,7 @@ discover:
   exclude_owners: []
   exclude_repos: []
   min_window_commits: 0
+  refine_depth: 5
 
 clone:
   shallow_since: "{start}"
