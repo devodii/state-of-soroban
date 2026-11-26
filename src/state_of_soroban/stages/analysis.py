@@ -170,6 +170,7 @@ async def harvest(context: Context, _: Stage) -> None:
                     await connection.executemany(load_sql("friction_member_put"), batch)
                     batch = []
             await connection.executemany(load_sql("friction_member_put"), batch)
+            await connection.execute("ANALYZE friction_members")
             await connection.execute(load_sql("friction_stats"), run_id)
             await connection.execute(load_sql("analysis_prune"), run_id)
         await checkpoints.put(context.pool, JOB, run_id, "done", metrics.model_dump())
