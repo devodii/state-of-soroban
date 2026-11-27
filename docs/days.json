@@ -42,60 +42,6 @@
       ],
       "discoveryTweet": "https://x.com/devodii_/status/2126004544358236472",
       "fixTweet": "https://x.com/devodii_/status/2126004544358236472"
-    },
-    {
-      "day": 2,
-      "status": "planned",
-      "area": "Storage TTL and rent",
-      "finding": "About 937 projects hit TTL and rent problems. To measure how many contracts write persistent storage without extending it.",
-      "shipped": "Planned, a lint for missing TTL extension and a watchdog for deployed contracts.",
-      "discoveryTweet": null,
-      "fixTweet": null
-    },
-    {
-      "day": 3,
-      "status": "planned",
-      "area": "Stellar Raven answer quality",
-      "finding": "Replay the questions and bugs builders actually hit against Stellar Raven and find where its answers are wrong or missing.",
-      "shipped": "Planned, eval cases and findings handed to the Raven maintainers.",
-      "discoveryTweet": null,
-      "fixTweet": null
-    },
-    {
-      "day": 4,
-      "status": "planned",
-      "area": "Events and topics",
-      "finding": "About 876 projects have event and topic problems.",
-      "shipped": "Planned",
-      "discoveryTweet": null,
-      "fixTweet": null
-    },
-    {
-      "day": 5,
-      "status": "planned",
-      "area": "Tests that only use mock_all_auths",
-      "finding": "About 1,037 projects hit auth testing problems.",
-      "shipped": "Planned",
-      "discoveryTweet": null,
-      "fixTweet": null
-    },
-    {
-      "day": 6,
-      "status": "planned",
-      "area": "Upgrades and reproducible wasm",
-      "finding": "About 777 and 610 projects.",
-      "shipped": "Planned",
-      "discoveryTweet": null,
-      "fixTweet": null
-    },
-    {
-      "day": 7,
-      "status": "planned",
-      "area": "CPU and fee benchmarks",
-      "finding": "About 733 projects.",
-      "shipped": "Planned",
-      "discoveryTweet": null,
-      "fixTweet": null
     }
   ],
   "data": [
