@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T20:53:12.890931Z",
+  "generated_at": "2026-11-27T20:54:45.289788Z",
   "crate": "soroban-sdk",
   "version": "30.0.0",
   "docs_source": "https://developers.stellar.org/llms-full.txt",
@@ -12,7 +12,7 @@
       "file": "src/events.rs",
       "summary": "Publish an event.",
       "repos": 5491,
-      "repos_defining_same_name": 200,
+      "repos_defining_same_name": 183,
       "docs_pages": 7,
       "docs_urls": [
         "https://developers.stellar.org/docs/build/guides/auth/check-auth-tutorials",
@@ -38,7 +38,7 @@
       "file": "src/env.rs",
       "summary": "Register a contract with the [Env] for testing.",
       "repos": 2477,
-      "repos_defining_same_name": 120,
+      "repos_defining_same_name": 102,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": "use `register`",
@@ -48,8 +48,8 @@
       ],
       "example_repos": [
         "stellar/soroban-example-dapp",
-        "hyperledger-solang/solang",
-        "hyperledger-cacti/cacti"
+        "hyperledger-cacti/cacti",
+        "Stellar-Pathfinder/stellar-pathfinder"
       ]
     },
     {
@@ -58,7 +58,7 @@
       "file": "src/env.rs",
       "summary": "Mock authorizations in the environment which will cause matching invokes of [`Address::require_auth`] and [`Address::require_auth_for_args`] to pass.",
       "repos": 1303,
-      "repos_defining_same_name": 13,
+      "repos_defining_same_name": 9,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -67,8 +67,8 @@
       ],
       "example_repos": [
         "hyperledger-solang/solang",
-        "stellar/rs-soroban-sdk",
-        "daccred/attestprotocol"
+        "daccred/attestprotocol",
+        "ShoeSafari-Org/ShoeSafari"
       ]
     },
     {
@@ -77,7 +77,7 @@
       "file": "src/deploy.rs",
       "summary": "Replaces the executable of the current contract with the provided Wasm.",
       "repos": 1168,
-      "repos_defining_same_name": 21,
+      "repos_defining_same_name": 8,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": "use update_current_contract",
@@ -88,7 +88,7 @@
       "example_repos": [
         "kalepail/passkey-kit",
         "PiNetwork/SmartContracts",
-        "stellar/rs-soroban-sdk"
+        "Stellar-tradehub/stellar-trade-contracts"
       ]
     },
     {
@@ -97,7 +97,7 @@
       "file": "src/env.rs",
       "summary": "Register the built-in Stellar Asset Contract with provided admin address.",
       "repos": 651,
-      "repos_defining_same_name": 5,
+      "repos_defining_same_name": 0,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": "use [Env::register_stellar_asset_contract_v2]",
@@ -117,7 +117,7 @@
       "file": "src/env.rs",
       "summary": "A version of [`mock_all_auths`][Self::mock_all_auths] that allows authorizations that are not present in the root invocation.",
       "repos": 495,
-      "repos_defining_same_name": 6,
+      "repos_defining_same_name": 2,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -126,8 +126,8 @@
       ],
       "example_repos": [
         "hyperledger-solang/solang",
-        "stellar/rs-soroban-sdk",
-        "stellar/soroban-examples"
+        "stellar/soroban-examples",
+        "stellar/stellar-cli"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "file": "src/crypto.rs",
       "summary": "Returns the Keccak-256 hash of the data.",
       "repos": 331,
-      "repos_defining_same_name": 43,
+      "repos_defining_same_name": 32,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -144,9 +144,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "hyperledger-solang/solang",
-        "stellar/rs-soroban-sdk",
-        "daccred/attestprotocol"
+        "daccred/attestprotocol",
+        "StellarHyperion/stellarhyperion-contracts",
+        "OpenZeppelin/stellar-contracts"
       ]
     },
     {
@@ -155,7 +155,7 @@
       "file": "src/env.rs",
       "summary": "Authorizes sub-contract calls on behalf of the current contract.",
       "repos": 313,
-      "repos_defining_same_name": 5,
+      "repos_defining_same_name": 0,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -174,7 +174,7 @@
       "file": "src/crypto.rs",
       "summary": "Get a [Bn254][bn254::Bn254] for accessing the bn254 functions.",
       "repos": 271,
-      "repos_defining_same_name": 4,
+      "repos_defining_same_name": 1,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -182,9 +182,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "stellar/soroban-examples",
-        "NethermindEth/stellar-private-payments"
+        "NethermindEth/stellar-private-payments",
+        "salazarsebas/Cougr"
       ]
     },
     {
@@ -193,7 +193,7 @@
       "file": "src/address.rs",
       "summary": "",
       "repos": 247,
-      "repos_defining_same_name": 23,
+      "repos_defining_same_name": 16,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -202,8 +202,8 @@
       ],
       "example_repos": [
         "Certora/CertoraProver",
-        "stellar/rs-soroban-sdk",
-        "StellarHyperion/stellarhyperion-contracts"
+        "Stellar-hush/hush",
+        "stellar/stellar-cli"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "file": "src/env.rs",
       "summary": "Create an Env with the test config.",
       "repos": 228,
-      "repos_defining_same_name": 31,
+      "repos_defining_same_name": 24,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -220,9 +220,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "OpenZeppelin/stellar-contracts",
-        "NethermindEth/stellar-private-payments"
+        "NethermindEth/stellar-private-payments",
+        "accensa/accensa-contracts"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "file": "src/prng.rs",
       "summary": "Returns a random value of the given type in the range specified.",
       "repos": 218,
-      "repos_defining_same_name": 18,
+      "repos_defining_same_name": 12,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -240,8 +240,8 @@
       ],
       "example_repos": [
         "hyperledger-solang/solang",
-        "stellar/rs-soroban-sdk",
-        "StellarHyperion/stellarhyperion-contracts"
+        "StellarHyperion/stellarhyperion-contracts",
+        "stellar/stellar-cli"
       ]
     },
     {
@@ -250,7 +250,7 @@
       "file": "src/env.rs",
       "summary": "Register a contract in a Wasm file with the [Env] for testing.",
       "repos": 120,
-      "repos_defining_same_name": 6,
+      "repos_defining_same_name": 0,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": "use `register`",
@@ -270,7 +270,7 @@
       "file": "src/testutils/cost_estimate.rs",
       "summary": "Disables resource limit enforcement for contract invocations in tests.",
       "repos": 109,
-      "repos_defining_same_name": 4,
+      "repos_defining_same_name": 0,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -289,7 +289,7 @@
       "file": "src/address.rs",
       "summary": "",
       "repos": 100,
-      "repos_defining_same_name": 19,
+      "repos_defining_same_name": 13,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -297,9 +297,29 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
-        "StellarHyperion/stellarhyperion-contracts",
-        "stellar/rs-soroban-env"
+        "Timi16/soroban-debugger",
+        "soroventures/SoroMint",
+        "MDTechLabs/GasGuard"
+      ]
+    },
+    {
+      "symbol": "protocol_version",
+      "owner": "Ledger",
+      "file": "src/ledger.rs",
+      "summary": "Returns the version of the protocol that the ledger created with.",
+      "repos": 80,
+      "repos_defining_same_name": 13,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": "Protocol version won't be available in the future",
+      "gaps": [
+        "undocumented",
+        "deprecated-still-used"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-env",
+        "redstone-finance/redstone-oracles-monorepo",
+        "StormSale/StormSale"
       ]
     },
     {
@@ -308,7 +328,7 @@
       "file": "src/crypto.rs",
       "summary": "Recovers the ECDSA secp256k1 public key.",
       "repos": 79,
-      "repos_defining_same_name": 10,
+      "repos_defining_same_name": 2,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -316,9 +336,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "OpenZeppelin/stellar-contracts",
-        "accensa/accensa-contracts"
+        "accensa/accensa-contracts",
+        "benelabs/crucible"
       ]
     },
     {
@@ -327,7 +347,7 @@
       "file": "src/address.rs",
       "summary": "Constructs an [`Address`] from an [`AddressPayload`].",
       "repos": 75,
-      "repos_defining_same_name": 15,
+      "repos_defining_same_name": 9,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -335,9 +355,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "StellarHyperion/stellarhyperion-contracts",
-        "stellar/stellar-cli"
+        "stellar/stellar-cli",
+        "salazarsebas/Cougr"
       ]
     },
     {
@@ -346,7 +366,7 @@
       "file": "src/env.rs",
       "summary": "Create a snapshot from the Env's current state.",
       "repos": 70,
-      "repos_defining_same_name": 5,
+      "repos_defining_same_name": 1,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -354,9 +374,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "NethermindEth/stellar-private-payments",
-        "Vellar-Wallet/vellar-dapp"
+        "Vellar-Wallet/vellar-dapp",
+        "StormSale/StormSale"
       ]
     },
     {
@@ -365,7 +385,7 @@
       "file": "src/env.rs",
       "summary": "# ⚠️ Hazardous Materials",
       "repos": 62,
-      "repos_defining_same_name": 5,
+      "repos_defining_same_name": 1,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -373,9 +393,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "NethermindEth/stellar-private-payments",
-        "salazarsebas/Cougr"
+        "salazarsebas/Cougr",
+        "0xbow-io/privacy-pools-v2-monorepo"
       ]
     },
     {
@@ -384,7 +404,7 @@
       "file": "src/address.rs",
       "summary": "Extracts the payload from the address.",
       "repos": 57,
-      "repos_defining_same_name": 7,
+      "repos_defining_same_name": 3,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -403,7 +423,7 @@
       "file": "src/env.rs",
       "summary": "Invokes a function of a contract that is registered in the [Env], returns an error if the invocation fails for any reason.",
       "repos": 53,
-      "repos_defining_same_name": 10,
+      "repos_defining_same_name": 6,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -411,9 +431,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
-        "Tollcraft/soroban-cost-linter",
-        "kindfi-org/kindfi"
+        "kindfi-org/kindfi",
+        "Epta-Node/ai-net",
+        "Carbon-Ledger-stellar/carbonledger"
       ]
     },
     {
@@ -422,7 +442,7 @@
       "file": "src/address.rs",
       "summary": "",
       "repos": 46,
-      "repos_defining_same_name": 8,
+      "repos_defining_same_name": 3,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -430,9 +450,9 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "StellarHyperion/stellarhyperion-contracts",
-        "stellar/rs-soroban-env"
+        "stellar/rs-soroban-env",
+        "salazarsebas/Cougr"
       ]
     },
     {
@@ -441,7 +461,7 @@
       "file": "src/env.rs",
       "summary": "Creates a new Env loaded with the snapshot source.",
       "repos": 34,
-      "repos_defining_same_name": 5,
+      "repos_defining_same_name": 1,
       "docs_pages": 0,
       "docs_urls": [],
       "deprecated": null,
@@ -449,9 +469,28 @@
         "undocumented"
       ],
       "example_repos": [
-        "stellar/rs-soroban-sdk",
         "stellar/soroban-examples",
-        "Vellar-Wallet/vellar-dapp"
+        "Vellar-Wallet/vellar-dapp",
+        "Emeka000/Health-chain-stellar"
+      ]
+    },
+    {
+      "symbol": "try_update",
+      "owner": "Storage",
+      "file": "src/storage.rs",
+      "summary": "Update a value stored against a key.",
+      "repos": 30,
+      "repos_defining_same_name": 6,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "StellarDevHub/Web3-Student-Lab",
+        "Crossmint/stellar-smart-account",
+        "Goldii-locks/escrow-contract"
       ]
     }
   ]

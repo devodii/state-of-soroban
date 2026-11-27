@@ -9,20 +9,19 @@ WITH used AS (
 ),
 
 defined AS (
-    SELECT
-        name,
-        count(DISTINCT repo) AS repos
+    SELECT DISTINCT
+        repo,
+        name
     FROM functions
     WHERE name = any($1)
-    GROUP BY name
 )
 
 SELECT
     u.name,
     count(*) AS repos,
-    coalesce(max(d.repos), 0) AS defining_repos,
-    (array_agg(u.repo ORDER BY r.stars DESC))[1:3] AS example_repos
+    count(d.repo) AS defining_repos,
+    (array_agg(u.repo ORDER BY r.stars DESC) FILTER (WHERE d.repo IS NULL))[1:3] AS example_repos
 FROM used AS u
 INNER JOIN repos AS r ON u.repo = r.full_name
-LEFT JOIN defined AS d ON u.name = d.name
+LEFT JOIN defined AS d ON u.repo = d.repo AND u.name = d.name
 GROUP BY u.name
