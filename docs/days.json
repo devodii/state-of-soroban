@@ -48,15 +48,11 @@
       "status": "shipped",
       "area": "Stellar Raven answer quality",
       "finding": "Raven answers from the Stellar docs and its pinned skills. We ranked every soroban-sdk API by how many non-fork Soroban repos call it, then checked the docs and the pinned skills. The biggest gaps are two deprecated test APIs, register_contract (2,477 repos) and register_stellar_asset_contract (651 repos), which neither the docs nor the skills mention, and 5 docs pages that still call the deprecated events publish. A compiler build against soroban-sdk 30.0.0 confirms the deprecations.",
-      "shipped": "Two draft PRs to Raven. One adds a script that turns our SDK feed into findings in Raven's own format, with four records and probes that report when the docs change. The other proposes an eval case for the deprecated register APIs, checked against the SDK source, docs.rs and the compiler. We also published a feed of active repos that Stellar Light does not index or has out of date.",
+      "shipped": "A draft PR to Raven that turns our SDK feed into findings in Raven's own format, with four records and probes that report when the docs change. Two issues to Stellar Light with read-only probes, one for active repos it does not index and one for a last-commit date that lags GitHub.",
       "links": [
         {
           "label": "Raven PR: findings from SDK usage",
           "url": "https://github.com/stellar-experimental/stellar-raven/pull/575"
-        },
-        {
-          "label": "Raven PR: eval case for the register APIs",
-          "url": "https://github.com/stellar-experimental/stellar-raven/pull/576"
         },
         {
           "label": "SDK usage feed (JSON)",
@@ -65,6 +61,14 @@
         {
           "label": "Stellar Light coverage feed (JSON)",
           "url": "data/scout-feed.json"
+        },
+        {
+          "label": "Stellar Light issue: active repos not indexed",
+          "url": "https://github.com/Stellar-Light/stellarlight/issues/2027"
+        },
+        {
+          "label": "Stellar Light issue: stale lastCommitAt",
+          "url": "https://github.com/Stellar-Light/stellarlight/issues/2028"
         }
       ],
       "discoveryTweet": null,
