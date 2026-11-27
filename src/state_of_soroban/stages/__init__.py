@@ -11,6 +11,7 @@ from state_of_soroban.stages import (  # noqa: F401
     harvest,
     history,
     metadata,
+    sdk,
     sweep,
     tools,
 )

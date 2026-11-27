@@ -163,6 +163,14 @@ analysis:
 tools:
   min_dependents: 15
 
+sdk:
+  crates: [soroban-sdk]
+  owner_types: [Env, Storage, Persistent, Temporary, Instance, Deployer, Ledger, Events, Address, Crypto, Prng, Logs, MockAuth, Budget, CostEstimate]
+  docs_text_url: https://developers.stellar.org/llms-full.txt
+  feed_path: docs/data/raven-feed-{crate}.json
+  min_repos: 25
+  ambiguous_share: 0.2
+
 web:
   port: 8080
   page_size: 50
@@ -188,5 +196,6 @@ stages:
   - {id: sweep, uses: github.sweep, needs: [harvest]}
   - {id: evidence, uses: evidence.build, needs: [history]}
   - {id: tools, uses: tools.resolve, needs: [history]}
+  - {id: sdk, uses: sdk.coverage, needs: [history]}
   - {id: analysis_dispatch, uses: analysis.dispatch, needs: [evidence]}
   - {id: analysis_harvest, uses: analysis.harvest, needs: [analysis_dispatch]}

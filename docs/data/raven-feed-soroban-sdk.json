@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-11-27T20:51:36.980689Z",
+  "crate": "soroban-sdk",
+  "version": "30.0.0",
+  "docs_source": "https://developers.stellar.org/llms-full.txt",
+  "docs_pages_read": 983,
+  "repos_scanned": 8973,
+  "entries": [
+    {
+      "symbol": "publish",
+      "repos": 5491,
+      "repos_defining_same_name": 200,
+      "docs_pages": 7,
+      "docs_urls": [
+        "https://developers.stellar.org/docs/build/guides/auth/check-auth-tutorials",
+        "https://developers.stellar.org/docs/build/guides/dapps/working-with-contract-specs",
+        "https://developers.stellar.org/docs/build/guides/events/publish",
+        "https://developers.stellar.org/docs/build/guides/fees/analyzing-smart-contract-cost",
+        "https://developers.stellar.org/docs/build/smart-contracts/example-contracts/events"
+      ],
+      "deprecated": "use the #[contractevent] macro on a contract event type",
+      "gaps": [
+        "deprecated-still-used",
+        "docs-teach-deprecated"
+      ],
+      "example_repos": [
+        "stellar/soroban-example-dapp",
+        "kalepail/passkey-kit",
+        "PiNetwork/SmartContracts"
+      ]
+    },
+    {
+      "symbol": "register_contract",
+      "repos": 2477,
+      "repos_defining_same_name": 120,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": "use `register`",
+      "gaps": [
+        "undocumented",
+        "deprecated-still-used"
+      ],
+      "example_repos": [
+        "stellar/soroban-example-dapp",
+        "hyperledger-solang/solang",
+        "hyperledger-cacti/cacti"
+      ]
+    },
+    {
+      "symbol": "mock_auths",
+      "repos": 1303,
+      "repos_defining_same_name": 13,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "hyperledger-solang/solang",
+        "stellar/rs-soroban-sdk",
+        "daccred/attestprotocol"
+      ]
+    },
+    {
+      "symbol": "update_current_contract_wasm",
+      "repos": 1168,
+      "repos_defining_same_name": 21,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": "use update_current_contract",
+      "gaps": [
+        "undocumented",
+        "deprecated-still-used"
+      ],
+      "example_repos": [
+        "kalepail/passkey-kit",
+        "PiNetwork/SmartContracts",
+        "stellar/rs-soroban-sdk"
+      ]
+    },
+    {
+      "symbol": "register_stellar_asset_contract",
+      "repos": 651,
+      "repos_defining_same_name": 5,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": "use [Env::register_stellar_asset_contract_v2]",
+      "gaps": [
+        "undocumented",
+        "deprecated-still-used"
+      ],
+      "example_repos": [
+        "stellar/soroban-example-dapp",
+        "hyperledger-cacti/cacti",
+        "ritik4ever/stellar-portfolio-rebalancer"
+      ]
+    },
+    {
+      "symbol": "mock_all_auths_allowing_non_root_auth",
+      "repos": 495,
+      "repos_defining_same_name": 6,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "hyperledger-solang/solang",
+        "stellar/rs-soroban-sdk",
+        "stellar/soroban-examples"
+      ]
+    },
+    {
+      "symbol": "keccak256",
+      "repos": 331,
+      "repos_defining_same_name": 43,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "hyperledger-solang/solang",
+        "stellar/rs-soroban-sdk",
+        "daccred/attestprotocol"
+      ]
+    },
+    {
+      "symbol": "authorize_as_current_contract",
+      "repos": 313,
+      "repos_defining_same_name": 5,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/soroban-examples",
+        "StellarHyperion/stellarhyperion-contracts",
+        "daccred/soroban-by-example"
+      ]
+    },
+    {
+      "symbol": "bn254",
+      "repos": 271,
+      "repos_defining_same_name": 4,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "stellar/soroban-examples",
+        "NethermindEth/stellar-private-payments"
+      ]
+    },
+    {
+      "symbol": "as_object",
+      "repos": 247,
+      "repos_defining_same_name": 23,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "Certora/CertoraProver",
+        "stellar/rs-soroban-sdk",
+        "StellarHyperion/stellarhyperion-contracts"
+      ]
+    },
+    {
+      "symbol": "new_with_config",
+      "repos": 228,
+      "repos_defining_same_name": 31,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "OpenZeppelin/stellar-contracts",
+        "NethermindEth/stellar-private-payments"
+      ]
+    },
+    {
+      "symbol": "gen_range",
+      "repos": 218,
+      "repos_defining_same_name": 18,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "hyperledger-solang/solang",
+        "stellar/rs-soroban-sdk",
+        "StellarHyperion/stellarhyperion-contracts"
+      ]
+    },
+    {
+      "symbol": "register_contract_wasm",
+      "repos": 120,
+      "repos_defining_same_name": 6,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": "use `register`",
+      "gaps": [
+        "undocumented",
+        "deprecated-still-used"
+      ],
+      "example_repos": [
+        "hyperledger-solang/solang",
+        "Tollcraft/soroban-budget-assert",
+        "soroswap/core"
+      ]
+    },
+    {
+      "symbol": "disable_resource_limits",
+      "repos": 109,
+      "repos_defining_same_name": 4,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/soroban-examples",
+        "Stellar-tradehub/stellar-trade-contracts",
+        "OpenZeppelin/stellar-contracts"
+      ]
+    },
+    {
+      "symbol": "from_contract_id",
+      "repos": 100,
+      "repos_defining_same_name": 19,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "StellarHyperion/stellarhyperion-contracts",
+        "stellar/rs-soroban-env"
+      ]
+    },
+    {
+      "symbol": "secp256k1_recover",
+      "repos": 79,
+      "repos_defining_same_name": 10,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "OpenZeppelin/stellar-contracts",
+        "accensa/accensa-contracts"
+      ]
+    },
+    {
+      "symbol": "from_payload",
+      "repos": 75,
+      "repos_defining_same_name": 15,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "StellarHyperion/stellarhyperion-contracts",
+        "stellar/stellar-cli"
+      ]
+    },
+    {
+      "symbol": "to_ledger_snapshot",
+      "repos": 70,
+      "repos_defining_same_name": 5,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "NethermindEth/stellar-private-payments",
+        "Vellar-Wallet/vellar-dapp"
+      ]
+    },
+    {
+      "symbol": "crypto_hazmat",
+      "repos": 62,
+      "repos_defining_same_name": 5,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "NethermindEth/stellar-private-payments",
+        "salazarsebas/Cougr"
+      ]
+    },
+    {
+      "symbol": "to_payload",
+      "repos": 57,
+      "repos_defining_same_name": 7,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "NethermindEth/stellar-private-payments",
+        "Meet-hybrid/soroban-forge",
+        "SoroLabs/soroscope"
+      ]
+    },
+    {
+      "symbol": "try_invoke_contract",
+      "repos": 53,
+      "repos_defining_same_name": 10,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "Tollcraft/soroban-cost-linter",
+        "kindfi-org/kindfi"
+      ]
+    },
+    {
+      "symbol": "as_val",
+      "repos": 46,
+      "repos_defining_same_name": 8,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "StellarHyperion/stellarhyperion-contracts",
+        "stellar/rs-soroban-env"
+      ]
+    },
+    {
+      "symbol": "from_ledger_snapshot",
+      "repos": 34,
+      "repos_defining_same_name": 5,
+      "docs_pages": 0,
+      "docs_urls": [],
+      "deprecated": null,
+      "gaps": [
+        "undocumented"
+      ],
+      "example_repos": [
+        "stellar/rs-soroban-sdk",
+        "stellar/soroban-examples",
+        "Vellar-Wallet/vellar-dapp"
+      ]
+    }
+  ]
+}

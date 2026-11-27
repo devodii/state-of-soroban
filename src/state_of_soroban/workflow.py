@@ -142,6 +142,17 @@ class Tools(BaseModel):
     min_dependents: int = 15
 
 
+class Sdk(BaseModel):
+    crates: list[str]
+    owner_types: list[str]
+    docs_text_url: str
+    feed_path: str
+    cache_dir: str = "out/sdk"
+    min_repos: int = 25
+    ambiguous_share: float = 0.2
+    max_docs_urls: int = 5
+
+
 class Web(BaseModel):
     port: int = 8080
     page_size: int = 50
@@ -193,6 +204,7 @@ class Workflow(BaseModel):
     evidence: Evidence = Field(default_factory=Evidence)
     analysis: Analysis = Field(default_factory=Analysis)
     tools: Tools = Field(default_factory=Tools)
+    sdk: Sdk
     readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")

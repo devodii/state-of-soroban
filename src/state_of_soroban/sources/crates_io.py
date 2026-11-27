@@ -1,5 +1,6 @@
 import asyncio
 import time
+from pathlib import Path
 
 import httpx
 from pydantic import BaseModel
@@ -86,3 +87,31 @@ async def crate_repository(
         updated_at=info.get("updated_at"),
         downloads=info.get("downloads", 0),
     )
+
+
+async def crate_source(
+    http: httpx.AsyncClient, throttle: Throttle, name: str, cache: Path
+) -> tuple[str, bytes]:
+    data = await _get(http, throttle, f"/crates/{name}")
+    if data is None:
+        raise ValueError(f"crate {name} not found")
+    version = data["crate"]["max_stable_version"]
+    saved = cache / f"{name}-{version}.crate"
+    if saved.exists():
+        return version, saved.read_bytes()
+    for attempt in range(5):
+        try:
+            await throttle.wait()
+            response = await http.get(
+                f"{API}/crates/{name}/{version}/download",
+                headers={"User-Agent": USER_AGENT},
+            )
+            response.raise_for_status()
+            break
+        except httpx.TransportError:
+            if attempt == 4:
+                raise
+            await asyncio.sleep(2**attempt * 5)
+    cache.mkdir(parents=True, exist_ok=True)
+    saved.write_bytes(response.content)
+    return version, response.content
