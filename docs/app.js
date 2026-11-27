@@ -22,6 +22,7 @@ fetch("days.json")
             el("h2", [text(`Day ${d.day}, ${d.area} `), el("span", [text(d.status)], { className: "tag" })]),
             el("p", [text(d.finding)]),
             el("p", [el("b", [text("Shipped. ")]), text(d.shipped)]),
+            ...(d.post ? [el("h3", [text("Post for X")]), el("pre", [text(d.post)], { className: "post" })] : []),
             ...(d.links ? [el("ul", d.links.map((l) => el("li", [link(l)])))] : []),
             ...[
               ["Tweet about the discovery", d.discoveryTweet],

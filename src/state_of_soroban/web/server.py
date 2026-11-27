@@ -4,6 +4,7 @@ from pathlib import Path
 from aiohttp import web
 from pydantic import BaseModel
 
+from state_of_soroban.config import ROOT
 from state_of_soroban.database import open_pool
 from state_of_soroban.sql_loader import load_sql
 from state_of_soroban.workflow import load_workflow
@@ -183,6 +184,14 @@ async def index(_: web.Request) -> web.FileResponse:
     return web.FileResponse(STATIC / "index.html")
 
 
+async def days(request: web.Request) -> web.FileResponse:
+    return web.FileResponse(ROOT / request.app["config"].days_dir / "index.html")
+
+
+async def days_redirect(_: web.Request) -> web.Response:
+    raise web.HTTPFound("/21days/")
+
+
 async def start(app: web.Application) -> None:
     app["pool"] = await open_pool(8)
 
@@ -210,6 +219,9 @@ def serve(port: int | None = None) -> None:
             web.get("/api/users", users),
             web.get("/api/frictions", frictions),
             web.get("/api/friction/{cluster}", friction),
+            web.get("/21days", days_redirect),
+            web.get("/21days/", days),
+            web.static("/21days", ROOT / config.days_dir),
             web.static("/static", STATIC),
         ]
     )

@@ -188,6 +188,7 @@ web:
   port: 8080
   page_size: 50
   repo_sorts: [stars, forks, recent, activity, name]
+  days_dir: docs
 
 readiness:
   min_recall: 0.99

@@ -171,6 +171,7 @@ class Web(BaseModel):
     port: int = 8080
     page_size: int = 50
     repo_sorts: list[str]
+    days_dir: str = "docs"
 
 
 class Autopilot(BaseModel):

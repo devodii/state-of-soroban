@@ -46,8 +46,8 @@
     {
       "day": 2,
       "status": "shipped",
-      "area": "Stellar Raven answer quality",
-      "finding": "Raven answers from the Stellar docs and its pinned skills. We ranked every soroban-sdk API by how many non-fork Soroban repos call it, then checked the docs and the pinned skills. The biggest gaps are two deprecated test APIs, register_contract (2,477 repos) and register_stellar_asset_contract (651 repos), which neither the docs nor the skills mention, and 5 docs pages that still call the deprecated events publish. A compiler build against soroban-sdk 30.0.0 confirms the deprecations.",
+      "area": "Stellar Raven and Stellar Light",
+      "finding": "Raven answers from the Stellar docs and its pinned skills. We ranked every soroban-sdk API by how many non-fork Soroban repos call it, then checked the docs and the pinned skills. 3,193 repos call an API the SDK has deprecated (not counting the very common publish), including 573 of the 837 active repos. The biggest gaps are register_contract (2,477 repos) and register_stellar_asset_contract (651 repos), which neither the docs nor the skills mention, and 7 docs pages that still call the deprecated events publish. A compiler build against soroban-sdk 30.0.0 confirms the deprecations. For Stellar Light, we checked 597 active repos. It holds 287 and misses 310. Its repo list comes from Electric Capital's taxonomy, and 102 of the missing repos are already in that list but were not ingested since the last run on Aug 14. 69 more are in neither.",
       "shipped": "A draft PR to Raven that turns our SDK feed into findings in Raven's own format, with four records and probes that report when the docs change. A feed of active repos Stellar Light does not index, with a ready-to-submit Electric Capital taxonomy migration for the ones missing from the taxonomy Stellar Light is built from.",
       "links": [
         {
@@ -72,7 +72,8 @@
         }
       ],
       "discoveryTweet": null,
-      "fixTweet": null
+      "fixTweet": null,
+      "post": "Day 2 of State of Soroban is about Stellar Raven and Stellar Light, two tools that agents and builders use to find answers about Stellar.\n\nI ranked every API in the Soroban SDK by how many real repos call it, then checked what the docs and Raven's pinned skills say about each one.\n\n3,193 non-fork Soroban repos still call an API the SDK has deprecated, not counting the very common publish. That includes 573 of the 837 repos that were actively developed in the last 90 days. Two of them, register_contract and register_stellar_asset_contract, are called by 2,477 and 651 repos, and neither the docs nor Raven's skills mention them. A real compile against soroban-sdk 30.0.0 confirms both are deprecated.\n\nI opened a draft PR to Raven that turns this data into findings in its own format, with probes that flag when the docs change.\n\nThen I checked 597 active repos against Stellar Light. It holds 287 of them and misses 310. Its repo list comes from Electric Capital's taxonomy, and 102 of the missing repos are already in that list but were never ingested, because the last ingest ran on Aug 14. Another 69 are in neither, so I opened a PR to Electric Capital adding them, which also counts them in their developer report.\n\nRaven PR https://github.com/stellar-experimental/stellar-raven/pull/575\nElectric Capital PR https://github.com/electric-capital/open-dev-data/pull/3199\n\nThese are repo counts, not independent projects."
     }
   ],
   "data": [
