@@ -23,7 +23,12 @@ fetch("days.json")
             el("p", [text(d.finding)]),
             el("p", [el("b", [text("Shipped. ")]), text(d.shipped)]),
             ...(d.links ? [el("ul", d.links.map((l) => el("li", [link(l)])))] : []),
-            ...(d.tweet ? [el("p", [link({ label: "Tweet", url: d.tweet })])] : []),
+            ...[
+              ["Tweet about the discovery", d.discoveryTweet],
+              ["Tweet about the fix", d.fixTweet],
+            ].map(([label, url]) =>
+              el("p", url ? [link({ label, url })] : [text(`${label}, coming soon`)])
+            ),
           ],
           { className: d.status }
         )
