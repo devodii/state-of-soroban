@@ -65,6 +65,10 @@
         {
           "label": "Stellar Light issue: active repos not indexed",
           "url": "https://github.com/Stellar-Light/stellarlight/issues/2027"
+        },
+        {
+          "label": "Electric Capital PR: add 69 active Soroban repos to the Stellar taxonomy",
+          "url": "https://github.com/electric-capital/open-dev-data/pull/3199"
         }
       ],
       "discoveryTweet": null,
