@@ -18,12 +18,8 @@ class Activity(BaseModel):
 
 class Missing(Activity):
     spread: bool
-
-
-class Stale(Activity):
-    scout_last_commit: datetime
-    days_behind: int
-    scout_activity_state: str | None
+    in_taxonomy: bool
+    removed_from_taxonomy: bool
 
 
 class ScoutFeed(BaseModel):
@@ -38,5 +34,5 @@ class ScoutFeed(BaseModel):
     in_scout: int
     not_in_scout: int
     errors: int
+    taxonomy_repos: int
     missing: list[Missing]
-    stale: list[Stale]

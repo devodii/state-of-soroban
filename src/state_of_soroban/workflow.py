@@ -156,12 +156,14 @@ class Sdk(BaseModel):
 class Scout(BaseModel):
     base_url: str
     feed_path: str
+    migration_path: str
+    taxonomy_remote: str
+    taxonomy_cache: str
     window_days: int = 90
     min_commits: int = 30
     min_authors: int = 3
     min_active_weeks: int = 6
     max_top_author_share: float = 0.8
-    stale_days: int = 30
     concurrency: int = 4
 
 

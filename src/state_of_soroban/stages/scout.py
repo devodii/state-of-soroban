@@ -7,7 +7,8 @@ import httpx
 
 from state_of_soroban.config import ROOT
 from state_of_soroban.runner import Context, stage
-from state_of_soroban.scout.feed import Missing, ScoutFeed, Stale
+from state_of_soroban.scout.feed import Missing, ScoutFeed
+from state_of_soroban.scout.taxonomy import normalise, read_taxonomy, refresh
 from state_of_soroban.sql_loader import load_sql
 from state_of_soroban.workflow import Stage
 
@@ -44,6 +45,9 @@ async def trust(
 @stage("scout.coverage")
 async def coverage(context: Context, _: Stage) -> None:
     config = context.workflow.scout
+    cache = ROOT / config.taxonomy_cache
+    await refresh(config.taxonomy_remote, cache)
+    taxonomy = read_taxonomy(cache)
     rows = await context.pool.fetch(
         load_sql("scout_active"),
         config.window_days,
@@ -61,7 +65,6 @@ async def coverage(context: Context, _: Stage) -> None:
         *(trust(context.http, config.base_url, gate, row["repo"]) for row in kept)
     )
     missing: list[Missing] = []
-    stale: list[Stale] = []
     errors = 0
     for row, report in zip(kept, reports, strict=True):
         activity = {
@@ -88,23 +91,15 @@ async def coverage(context: Context, _: Stage) -> None:
                 row["active_weeks"] >= config.min_active_weeks
                 and row["top_author_share"] <= config.max_top_author_share
             )
-            missing.append(Missing(**activity, spread=spread))
-        else:
-            seen = report["repo"].get("lastCommitAt")
-            if not seen:
-                continue
-            scout_last = datetime.fromisoformat(seen.replace("Z", "+00:00"))
-            behind = (row["last_commit"] - scout_last).days
-            if behind >= config.stale_days:
-                stale.append(
-                    Stale(
-                        **activity,
-                        scout_last_commit=scout_last,
-                        days_behind=behind,
-                        scout_activity_state=report["repo"].get("activityState"),
-                    )
+            address = normalise(row["url"])
+            missing.append(
+                Missing(
+                    **activity,
+                    spread=spread,
+                    in_taxonomy=address in taxonomy.listed,
+                    removed_from_taxonomy=address in taxonomy.removed,
                 )
-    stale.sort(key=lambda item: -item.days_behind)
+            )
     checked = len(kept)
     feed = ScoutFeed(
         generated_at=datetime.now(UTC),
@@ -118,17 +113,24 @@ async def coverage(context: Context, _: Stage) -> None:
         in_scout=checked - len(missing) - errors,
         not_in_scout=len(missing),
         errors=errors,
+        taxonomy_repos=len(taxonomy.listed),
         missing=missing,
-        stale=stale,
     )
     path = Path(ROOT / config.feed_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(feed.model_dump_json(indent=2) + "\n")
+    proposed = sorted(
+        item.url
+        for item in missing
+        if item.spread and not item.in_taxonomy and not item.removed_from_taxonomy
+    )
+    migration = Path(ROOT / config.migration_path)
+    migration.write_text("".join(f"repadd Stellar {url}\n" for url in proposed))
     context.items += checked
     log.info(
-        "scout: %s repos checked, %s missing, %s stale, %s errors",
+        "scout: %s repos checked, %s missing, %s errors, %s to propose",
         checked,
         len(missing),
-        len(stale),
         errors,
+        len(proposed),
     )

@@ -174,12 +174,14 @@ sdk:
 scout:
   base_url: https://stellarlight.xyz
   feed_path: docs/data/scout-feed.json
+  migration_path: docs/data/ec-stellar-repadd.txt
+  taxonomy_remote: https://github.com/electric-capital/crypto-ecosystems.git
+  taxonomy_cache: out/crypto-ecosystems
   window_days: 90
   min_commits: 30
   min_authors: 3
   min_active_weeks: 6
   max_top_author_share: 0.8
-  stale_days: 30
   concurrency: 4
 
 web:
