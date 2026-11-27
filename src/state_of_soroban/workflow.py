@@ -153,6 +153,18 @@ class Sdk(BaseModel):
     max_docs_urls: int = 5
 
 
+class Scout(BaseModel):
+    base_url: str
+    feed_path: str
+    window_days: int = 90
+    min_commits: int = 30
+    min_authors: int = 3
+    min_active_weeks: int = 6
+    max_top_author_share: float = 0.8
+    stale_days: int = 30
+    concurrency: int = 4
+
+
 class Web(BaseModel):
     port: int = 8080
     page_size: int = 50
@@ -205,6 +217,7 @@ class Workflow(BaseModel):
     analysis: Analysis = Field(default_factory=Analysis)
     tools: Tools = Field(default_factory=Tools)
     sdk: Sdk
+    scout: Scout
     readiness: Readiness = Field(default_factory=Readiness)
     stages: list[Stage]
     root: Path = Path(".")

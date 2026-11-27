@@ -171,6 +171,17 @@ sdk:
   min_repos: 25
   ambiguous_share: 0.2
 
+scout:
+  base_url: https://stellarlight.xyz
+  feed_path: docs/data/scout-feed.json
+  window_days: 90
+  min_commits: 30
+  min_authors: 3
+  min_active_weeks: 6
+  max_top_author_share: 0.8
+  stale_days: 30
+  concurrency: 4
+
 web:
   port: 8080
   page_size: 50
@@ -197,5 +208,6 @@ stages:
   - {id: evidence, uses: evidence.build, needs: [history]}
   - {id: tools, uses: tools.resolve, needs: [history]}
   - {id: sdk, uses: sdk.coverage, needs: [history]}
+  - {id: scout, uses: scout.coverage, needs: [history]}
   - {id: analysis_dispatch, uses: analysis.dispatch, needs: [evidence]}
   - {id: analysis_harvest, uses: analysis.harvest, needs: [analysis_dispatch]}
