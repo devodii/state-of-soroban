@@ -57,6 +57,9 @@ async def coverage(context: Context, _: Stage) -> None:
             entries.append(
                 Entry(
                     symbol=name,
+                    owner=symbols[name].owner,
+                    file=symbols[name].file,
+                    summary=symbols[name].summary,
                     repos=row["repos"],
                     repos_defining_same_name=row["defining_repos"],
                     docs_pages=len(urls),

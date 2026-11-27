@@ -1,4 +1,5 @@
 import io
+import itertools
 import re
 import tarfile
 
@@ -15,15 +16,30 @@ ITEM_START = re.compile(r"^\s*(pub\b|fn\b|impl\b|struct\b|enum\b|trait\b|mod\b|t
 
 class Symbol(BaseModel):
     name: str
+    owner: str
+    file: str
+    summary: str
     deprecated: str | None
 
 
-def parse_source(text: str, owners: set[str]) -> list[Symbol]:
+def first_sentence(lines: list[str]) -> str:
+    text = " ".join(
+        line for line in itertools.takewhile(lambda line: line, lines) if line
+    )
+    return re.split(r"(?<=[.!?])\s", text, maxsplit=1)[0] if text else ""
+
+
+def parse_source(text: str, path: str, owners: set[str]) -> list[Symbol]:
     found: list[Symbol] = []
     pending: str | None = None
     collecting = False
     owner: str | None = None
+    docs: list[str] = []
     for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("///"):
+            docs.append(stripped.removeprefix("///").strip())
+            continue
         impl = IMPL.match(line)
         if impl:
             owner = impl.group(1)
@@ -43,15 +59,25 @@ def parse_source(text: str, owners: set[str]) -> list[Symbol]:
         match = PUBLIC_FN.match(line)
         if match:
             if owner in owners:
-                found.append(Symbol(name=match.group(1), deprecated=pending))
+                found.append(
+                    Symbol(
+                        name=match.group(1),
+                        owner=owner,
+                        file=path,
+                        summary=first_sentence(docs),
+                        deprecated=pending,
+                    )
+                )
             pending = None
+            docs = []
         elif ITEM_START.match(line):
             pending = None
+            docs = []
     return found
 
 
 def parse_crate(archive: bytes, owners: set[str]) -> list[Symbol]:
-    symbols: dict[str, list[str | None]] = {}
+    symbols: dict[str, list[Symbol]] = {}
     with tarfile.open(fileobj=io.BytesIO(archive), mode="r:gz") as tar:
         for member in tar.getmembers():
             parts = member.name.split("/")
@@ -62,12 +88,18 @@ def parse_crate(archive: bytes, owners: set[str]) -> list[Symbol]:
             body = tar.extractfile(member)
             if body is None:
                 continue
-            for symbol in parse_source(body.read().decode("utf-8", "replace"), owners):
-                symbols.setdefault(symbol.name, []).append(symbol.deprecated)
+            path = "/".join(parts[1:])
+            for symbol in parse_source(
+                body.read().decode("utf-8", "replace"), path, owners
+            ):
+                symbols.setdefault(symbol.name, []).append(symbol)
     return [
-        Symbol(
-            name=name,
-            deprecated=notes[0] if all(note is not None for note in notes) else None,
+        group[0].model_copy(
+            update={
+                "deprecated": group[0].deprecated
+                if all(item.deprecated is not None for item in group)
+                else None
+            }
         )
-        for name, notes in sorted(symbols.items())
+        for _, group in sorted(symbols.items())
     ]

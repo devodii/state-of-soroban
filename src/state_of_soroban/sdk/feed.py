@@ -5,6 +5,9 @@ from pydantic import BaseModel
 
 class Entry(BaseModel):
     symbol: str
+    owner: str
+    file: str
+    summary: str
     repos: int
     repos_defining_same_name: int
     docs_pages: int

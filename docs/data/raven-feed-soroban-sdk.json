@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T20:51:36.980689Z",
+  "generated_at": "2026-11-27T20:53:12.890931Z",
   "crate": "soroban-sdk",
   "version": "30.0.0",
   "docs_source": "https://developers.stellar.org/llms-full.txt",
@@ -8,6 +8,9 @@
   "entries": [
     {
       "symbol": "publish",
+      "owner": "Events",
+      "file": "src/events.rs",
+      "summary": "Publish an event.",
       "repos": 5491,
       "repos_defining_same_name": 200,
       "docs_pages": 7,
@@ -31,6 +34,9 @@
     },
     {
       "symbol": "register_contract",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Register a contract with the [Env] for testing.",
       "repos": 2477,
       "repos_defining_same_name": 120,
       "docs_pages": 0,
@@ -48,6 +54,9 @@
     },
     {
       "symbol": "mock_auths",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Mock authorizations in the environment which will cause matching invokes of [`Address::require_auth`] and [`Address::require_auth_for_args`] to pass.",
       "repos": 1303,
       "repos_defining_same_name": 13,
       "docs_pages": 0,
@@ -64,6 +73,9 @@
     },
     {
       "symbol": "update_current_contract_wasm",
+      "owner": "Deployer",
+      "file": "src/deploy.rs",
+      "summary": "Replaces the executable of the current contract with the provided Wasm.",
       "repos": 1168,
       "repos_defining_same_name": 21,
       "docs_pages": 0,
@@ -81,6 +93,9 @@
     },
     {
       "symbol": "register_stellar_asset_contract",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Register the built-in Stellar Asset Contract with provided admin address.",
       "repos": 651,
       "repos_defining_same_name": 5,
       "docs_pages": 0,
@@ -98,6 +113,9 @@
     },
     {
       "symbol": "mock_all_auths_allowing_non_root_auth",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "A version of [`mock_all_auths`][Self::mock_all_auths] that allows authorizations that are not present in the root invocation.",
       "repos": 495,
       "repos_defining_same_name": 6,
       "docs_pages": 0,
@@ -114,6 +132,9 @@
     },
     {
       "symbol": "keccak256",
+      "owner": "Crypto",
+      "file": "src/crypto.rs",
+      "summary": "Returns the Keccak-256 hash of the data.",
       "repos": 331,
       "repos_defining_same_name": 43,
       "docs_pages": 0,
@@ -130,6 +151,9 @@
     },
     {
       "symbol": "authorize_as_current_contract",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Authorizes sub-contract calls on behalf of the current contract.",
       "repos": 313,
       "repos_defining_same_name": 5,
       "docs_pages": 0,
@@ -146,6 +170,9 @@
     },
     {
       "symbol": "bn254",
+      "owner": "Crypto",
+      "file": "src/crypto.rs",
+      "summary": "Get a [Bn254][bn254::Bn254] for accessing the bn254 functions.",
       "repos": 271,
       "repos_defining_same_name": 4,
       "docs_pages": 0,
@@ -162,6 +189,9 @@
     },
     {
       "symbol": "as_object",
+      "owner": "Address",
+      "file": "src/address.rs",
+      "summary": "",
       "repos": 247,
       "repos_defining_same_name": 23,
       "docs_pages": 0,
@@ -178,6 +208,9 @@
     },
     {
       "symbol": "new_with_config",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Create an Env with the test config.",
       "repos": 228,
       "repos_defining_same_name": 31,
       "docs_pages": 0,
@@ -194,6 +227,9 @@
     },
     {
       "symbol": "gen_range",
+      "owner": "Prng",
+      "file": "src/prng.rs",
+      "summary": "Returns a random value of the given type in the range specified.",
       "repos": 218,
       "repos_defining_same_name": 18,
       "docs_pages": 0,
@@ -210,6 +246,9 @@
     },
     {
       "symbol": "register_contract_wasm",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Register a contract in a Wasm file with the [Env] for testing.",
       "repos": 120,
       "repos_defining_same_name": 6,
       "docs_pages": 0,
@@ -222,11 +261,14 @@
       "example_repos": [
         "hyperledger-solang/solang",
         "Tollcraft/soroban-budget-assert",
-        "soroswap/core"
+        "accensa/accensa-contracts"
       ]
     },
     {
       "symbol": "disable_resource_limits",
+      "owner": "CostEstimate",
+      "file": "src/testutils/cost_estimate.rs",
+      "summary": "Disables resource limit enforcement for contract invocations in tests.",
       "repos": 109,
       "repos_defining_same_name": 4,
       "docs_pages": 0,
@@ -243,6 +285,9 @@
     },
     {
       "symbol": "from_contract_id",
+      "owner": "Address",
+      "file": "src/address.rs",
+      "summary": "",
       "repos": 100,
       "repos_defining_same_name": 19,
       "docs_pages": 0,
@@ -259,6 +304,9 @@
     },
     {
       "symbol": "secp256k1_recover",
+      "owner": "Crypto",
+      "file": "src/crypto.rs",
+      "summary": "Recovers the ECDSA secp256k1 public key.",
       "repos": 79,
       "repos_defining_same_name": 10,
       "docs_pages": 0,
@@ -275,6 +323,9 @@
     },
     {
       "symbol": "from_payload",
+      "owner": "Address",
+      "file": "src/address.rs",
+      "summary": "Constructs an [`Address`] from an [`AddressPayload`].",
       "repos": 75,
       "repos_defining_same_name": 15,
       "docs_pages": 0,
@@ -291,6 +342,9 @@
     },
     {
       "symbol": "to_ledger_snapshot",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Create a snapshot from the Env's current state.",
       "repos": 70,
       "repos_defining_same_name": 5,
       "docs_pages": 0,
@@ -307,6 +361,9 @@
     },
     {
       "symbol": "crypto_hazmat",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "# ⚠️ Hazardous Materials",
       "repos": 62,
       "repos_defining_same_name": 5,
       "docs_pages": 0,
@@ -323,6 +380,9 @@
     },
     {
       "symbol": "to_payload",
+      "owner": "Address",
+      "file": "src/address.rs",
+      "summary": "Extracts the payload from the address.",
       "repos": 57,
       "repos_defining_same_name": 7,
       "docs_pages": 0,
@@ -339,6 +399,9 @@
     },
     {
       "symbol": "try_invoke_contract",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Invokes a function of a contract that is registered in the [Env], returns an error if the invocation fails for any reason.",
       "repos": 53,
       "repos_defining_same_name": 10,
       "docs_pages": 0,
@@ -355,6 +418,9 @@
     },
     {
       "symbol": "as_val",
+      "owner": "Address",
+      "file": "src/address.rs",
+      "summary": "",
       "repos": 46,
       "repos_defining_same_name": 8,
       "docs_pages": 0,
@@ -371,6 +437,9 @@
     },
     {
       "symbol": "from_ledger_snapshot",
+      "owner": "Env",
+      "file": "src/env.rs",
+      "summary": "Creates a new Env loaded with the snapshot source.",
       "repos": 34,
       "repos_defining_same_name": 5,
       "docs_pages": 0,
