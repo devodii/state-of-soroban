@@ -1,0 +1,35 @@
+{
+  "title": "State of Soroban, 21 days",
+  "intro": "A 21 day quest to find what slows Soroban builders down, measure it from public data, and ship something for each finding. Every day lists the numbers, the evidence you can click, and what we shipped.",
+  "stats": [
+    { "label": "Soroban repos read", "value": "9,210" },
+    { "label": "Commits", "value": "1.33M" },
+    { "label": "Issues and PRs", "value": "643K" },
+    { "label": "Friction clusters", "value": "2,322" }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "status": "shipped",
+      "area": "Contract deploys from CI",
+      "finding": "670 public Soroban repos have CI workflows that deploy or invoke contracts. 229 of them sign with a single GitHub secret used as the key, and 96 of those also target mainnet. That is the setup where multisig fits best.",
+      "shipped": "A GitHub Action for Stellar Stratum, built on Stratum's own library. CI proposes the deploy transaction, the team reviews and signs it in Stratum, and no single key ships alone.",
+      "links": [
+        { "label": "Pull request to Stratum", "url": "https://github.com/tupui/stellar-stratum/pull/89" },
+        { "label": "Stellar Stratum", "url": "https://stellar-stratum.xyz" },
+        { "label": "Stratum repository", "url": "https://github.com/tupui/stellar-stratum" }
+      ],
+      "tweet": null
+    },
+    { "day": 2, "status": "planned", "area": "Storage TTL and rent", "finding": "About 937 projects hit TTL and rent problems. To measure how many contracts write persistent storage without extending it.", "shipped": "Planned, a lint for missing TTL extension and a watchdog for deployed contracts." },
+    { "day": 3, "status": "planned", "area": "Stellar Raven answer quality", "finding": "Replay the questions and bugs builders actually hit against Stellar Raven and find where its answers are wrong or missing.", "shipped": "Planned, eval cases and findings handed to the Raven maintainers." },
+    { "day": 4, "status": "planned", "area": "Events and topics", "finding": "About 876 projects have event and topic problems.", "shipped": "Planned" },
+    { "day": 5, "status": "planned", "area": "Tests that only use mock_all_auths", "finding": "About 1,037 projects hit auth testing problems.", "shipped": "Planned" },
+    { "day": 6, "status": "planned", "area": "Upgrades and reproducible wasm", "finding": "About 777 and 610 projects.", "shipped": "Planned" },
+    { "day": 7, "status": "planned", "area": "CPU and fee benchmarks", "finding": "About 733 projects.", "shipped": "Planned" }
+  ],
+  "data": [
+    { "label": "Ranked frictions (CSV, with an example evidence link for each)", "url": "data/frictions.csv" },
+    { "label": "Source code of the indexer", "url": "https://github.com/devodii/state-of-soroban" }
+  ]
+}

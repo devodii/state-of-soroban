@@ -1,0 +1,695 @@
+rank,top_terms,independent_projects,owners,fix_commits,issues,pull_requests,evidence_last_90d,first_seen,example_evidence
+1,"reconciliation, owner, verifier, state machine, transitions",1421,1292,5232,8129,2003,8485,2026-01-02,https://github.com/ecotask-network/EcoTask-contract/issues/62
+2,"withdrawal, transfer, deposit, balance, withdraw",1312,1212,4018,6501,1251,6339,2025-09-24,https://github.com/ethos-protocol/ethos-contracts-backend/issues/323
+3,"soroban, soroban contract, soroban smart, soroban event, soroban events",1227,1106,1312,3488,448,1995,2026-01-10,https://github.com/learnault/learnault-contracts/pull/79
+4,"deploy, testnet, deployment, scripts, scripts deploy",1213,1118,1561,3659,436,3039,2026-01-02,https://github.com/Netwalls/BOXMEOUT_STELLA/commit/b550d76a4cf1023f2558c80e5699c58926c33205
+5,"readme, examples, docs, documentation, api reference",1075,1016,1366,4758,435,3218,2026-01-12,https://github.com/StellarState/SS-contracts/issues/15
+6,"closes closes, issues, repair, closes, four",1073,1009,4173,739,3464,4150,2025-12-15,https://github.com/INVERSEARENA/inversearena-frontend/pull/1672
+7,"import, package json, package, next, imports",1057,963,2760,2384,847,2783,2026-01-02,https://github.com/ognla-payeasy/payeasy/commit/1f16ae5ff4ae2ae55874f8534335d2f5847adc49
+8,"stellar, stellar wallet, pillar, five pillar, stellar wallets",1037,928,1416,2463,446,1782,2026-01-05,https://github.com/Tekinvest/SorobanSave/issues/118
+9,"mock, unit, vitest, mock_all_auths, coverage",1030,961,2505,5470,901,4203,2026-01-02,https://github.com/Signpost-Labs/signpost-contracts/issues/10
+10,"stellar sdk, stellar cli, stellar stellar, stellar, cli",991,884,1458,801,345,1130,2026-01-02,https://github.com/obajecollinsmicheal-cmd/smile4money/issues/1986
+11,"soroban sdk, soroban, rust soroban, rust, cargo toml",978,913,1072,2348,378,1667,2026-01-09,https://github.com/OlaGreat/NovaSupport/issues/228
+12,"harden, hardening, security hardening, security, harden security",942,869,2516,304,400,1589,2026-01-09,https://github.com/nirium-protocol/nirium-core/commit/7cf5bce6d4ebba3596a58eb786c6bc248dc58ab0
+13,"resolve, build errors, compilation errors, compilation, resolve build",937,841,2431,16,153,598,2025-12-16,https://github.com/stellarmarket-labs/stellar-market/commit/359e68f0ef07d87fa7040b4b02ba5e386114b45d
+14,"ttl, extend_ttl, persistent, storage ttl, ttl extension",932,900,1910,2977,1407,3236,2026-01-17,https://github.com/Alien-Protocol/Alien-Protocol/issues/182
+15,"expiry, timestamp, expiration, expired, grace",929,895,2025,3913,1147,3816,2026-01-02,https://github.com/mind-vault-1/mindvault/issues/979
+16,"remove, remove unused, remove duplicate, unused, import",924,837,2879,137,77,860,2025-12-23,https://github.com/Stellar-Deejah/-LineProof/commit/9f48c02f2844ed5efd0f1eb6bd0483fa39492a5b
+17,"codes, error codes, error, enum, error code",899,852,1381,3147,474,2168,2026-01-02,https://github.com/Mega-Header/mega-header-kovara/commit/7a3e775bbed4aad61bd617b80ac9ae76c673b2b1
+18,"cross chain, cross, bridge, cross contract, chain bridge",843,795,819,3689,245,1761,2026-01-01,https://github.com/Cylo-Traders/Agrocylo-Global/issues/752
+19,"integration, end, end end, e2e, suite",841,796,892,3501,239,1497,2026-01-01,https://github.com/Blue-Kollar/Blue-Collar/issues/1156
+20,"wallet, disconnect, connected, connect, wallet connection",829,765,1475,2441,544,1855,2026-01-08,https://github.com/Ibinola/soroban-dev-console/issues/190
+21,"event, topic, events, topics, event schema",814,791,1120,4986,458,2980,2026-01-16,https://github.com/EquipChain/EquipChain-contracts/issues/20
+22,"pub, scval, rust, struct, types",804,767,1566,3620,548,2867,2026-01-02,https://github.com/Obiajulu-gif/Prompt-Hash-Stellar/issues/952
+23,"storage, persistent, instance, storage key, instance storage",801,765,920,2898,442,1886,2026-01-16,https://github.com/water-credits/water-credits-contracts/commit/01ea23f09b0ae1c139452f19329ab97552168c2a
+24,"soroban, soroban_sdk, soroban sdk, soroban contract, contract error",795,748,1093,715,302,805,2026-01-05,https://github.com/SoroStream/sorostream-contracts/commit/9a5baaa098ba2290069fa7d72300c258cef0ed24
+25,"decimal, decimals, rounding, interest, precision",791,759,1370,3578,668,2841,2026-01-02,https://github.com/ushpraise/Starfund-contracts/issues/224
+26,"upgrade, contract upgrade, upgrades, version, migration",786,766,733,3691,247,2033,2026-01-12,https://github.com/Lumenbay/Lumenbay-contract/issues/125
+27,"payment, closes, closes closes, payments, decimal",769,731,2344,79,351,1441,2026-01-02,https://github.com/Devsol-01/Nestera/commit/af939be94a6f2d9c86979bddd7c328d178d0e773
+28,"validation, validate, input validation, form validation, form",749,723,1408,1818,494,1641,2026-01-12,https://github.com/MettaChain/PropChain-contract/issues/79
+29,"benchmark, cpu, benchmarks, performance, resource",724,683,704,2392,194,1522,2026-01-01,https://github.com/Haroldwonder/SwiftRemit/issues/1093
+30,"security, authorization, implement security, authentication, security hardening",721,690,1585,91,48,790,2026-01-04,https://github.com/veracindarella/paystream-contracts/commit/f0cacd9a4c0fa4fd98d2c13293121c01fff3df7f
+31,"admin, admin transfer, two step, transfer_admin, step admin",716,702,1165,3095,550,2200,2026-01-13,https://github.com/OpenKnight-Foundation/KnightVerse/issues/1576
+32,"cargo, cargo toml, workspace, fmt, cargo fmt",701,682,1178,1487,364,1471,2026-01-15,https://github.com/Movalabs-crew/mova-store/issues/52
+33,"fee, fees, protocol fee, platform fee, fee_bps",696,674,823,2819,314,1745,2026-01-02,https://github.com/Abdulazeem-code/stellar-tags/commit/7ab211259e7fc250f18a72eff34b087243358117
+34,"fallback, stabilize, timeout, retry, preserve",675,642,1619,57,83,841,2026-01-07,https://github.com/NovaGrids/VaultDAO/commit/7d1bbb1248d40f3e531b9f758b0d9ba21bb60e3d
+35,"analytics, dashboard, chart, analytics dashboard, charts",672,636,578,3785,137,1319,2026-01-17,https://github.com/Xoulomon/Stellar-Save/issues/781
+36,"encryption, secret, secret key, encrypted, redaction",667,644,920,1723,413,1413,2026-01-06,https://github.com/Health-watchers/health_watchers/issues/1823
+37,"pagination, offset, cursor, paginated, cursor based",659,652,812,2917,377,1976,2026-01-18,https://github.com/Remitwise-Org/Remitwise-Frontend/issues/185
+38,"import, missing, imports, field, fallback defaults",654,605,1471,100,34,429,2026-01-06,https://github.com/Austinaminu2/stellarforge/commit/32f1b4d160c516ad66030eb40e79d2cbf07be8d1
+39,"passkey, api key, api keys, webauthn, challenge",652,608,981,1448,261,1323,2025-11-24,https://github.com/Miracle656/veil/issues/1173
+40,"zero address, address, address validation, stellar address, strkey",650,629,883,1406,359,1038,2026-01-01,https://github.com/EziAgric/EziAgric/issues/402
+41,"rate limiting, limiting, rate, rate limit, limiter",645,625,862,3324,418,1670,2026-01-17,https://github.com/soroventures/EventHorizon/issues/67
+42,"timeout, polling, poll, interval, polls",634,600,894,1664,409,1416,2026-01-02,https://github.com/ThinkLikeAFounder/pulsartrack/issues/273
+43,"audit log, audit, audit logging, log, trail",633,609,801,1807,358,1305,2026-01-17,https://github.com/sorolens/sorolens/issues/122
+44,"contrast, navbar, spacing, logo, layout",631,569,1390,56,58,344,2026-01-02,https://github.com/FWDP/votes-pulse-project/commit/0b5de6614e7d2630159bad664e2fa1226615440c
+45,"batch, implement batch, batch size, max_batch_size, batch operations",626,618,862,2738,332,1723,2026-01-17,https://github.com/INVERSEARENA/inversearena-frontend/pull/612
+46,"syntax, syntax error, trailing whitespace, trailing, resolve syntax",625,577,1326,30,46,368,2025-12-10,https://github.com/sublime247/mobile-money/commit/e3146fe66c99c5fd0db95968dfb8785cc67a2184
+47,"retry, backoff, exponential, exponential backoff, transient",621,590,852,1796,346,1561,2026-01-01,https://github.com/Calebux/SYNCRO/issues/1303
+48,"cap, dust, spending, minimum, caps",617,596,655,1965,278,1385,2026-01-21,https://github.com/Nodal-stellar/Nodal-AI/issues/728
+49,"card, hero, width, cards, viewport",616,581,1512,805,274,921,2026-01-02,https://github.com/Suncrest-Labs/nester/commit/0285fd9103eec1b7260a28585fe1c0efb7a5a20f
+50,"emit, emit event, event, event emission, emission",614,605,438,2319,219,1288,2026-01-16,https://github.com/drydocs/meridian/issues/563
+51,"tsx, page tsx, components, page, modal",610,577,928,2592,380,1538,2026-01-05,https://github.com/mergemint-mint/mergemint-contracts/pull/774
+52,"wasm, wasm hash, reproducible, hash, artifact",609,583,585,1339,179,1154,2026-01-19,https://github.com/Xoulomon/Stellar-Save/issues/1039
+53,"security, security audit, security policy, code conduct, conduct",605,562,939,27,29,354,2026-01-10,https://github.com/joekeyz8/Lumigift-lumigift/commit/5656ec0ac238050d37812c70c203ec754f7b3a2e
+54,"escrow, escrows, escrow contract, escrow src, create_escrow",605,603,1668,3865,756,2931,2026-01-16,https://github.com/StellarState/SS-contracts/issues/41
+55,"hash, hex, hashing, bytes, sha",602,565,735,1016,225,965,2026-01-01,https://github.com/mind-vault-1/mindvault/issues/1004
+56,"env example, variables, environment variables, environment, env",585,550,536,1360,149,800,2026-01-09,https://github.com/BrainTease/Brain-Storm/issues/1297
+57,"pause, paused, unpause, emergency, emergency pause",583,575,704,2476,371,1635,2026-01-12,https://github.com/Escelit/stellar-escrow/issues/19
+58,"reentrancy, reentrancy guard, keeper, guard, reentrancy protection",580,567,733,1245,317,989,2026-01-13,https://github.com/Hahfyeex/Stellar-PolyMarket/issues/223
+59,"url, route, urls, redirect, relative_path",576,541,1087,46,70,335,2026-01-02,https://github.com/jadonamite/Chessify/commit/f64bff083055c4d2124338fb23186477202b2b60
+60,"threat, threat model, model, security audit, checklist",570,552,396,1005,241,670,2026-01-18,https://github.com/Ndifreke000/stellar-insights/issues/2886
+61,"logo, icon, color, svg, brand",562,523,752,767,153,605,2026-01-02,https://github.com/Calebux/SYNCRO/issues/1293
+62,"property, property based, invariant, invariants, proptest",559,549,344,1545,84,846,2026-01-18,https://github.com/Haroldwonder/SwiftRemit/commit/a634e2907a637ec61a3629e101739490fa093c64
+63,"vercel, vercel json, vercel deployment, vercel build, vercel deploy",553,475,956,96,85,236,2026-01-11,https://github.com/AnuGuin/FlexBill/commit/6944a31c965ef65dffeec383b713f6365572684e
+64,"overflow, arithmetic, checked_add, i128, checked arithmetic",538,533,883,1414,595,1153,2026-01-21,https://github.com/MiHashport/Astre/issues/53
+65,"payment, fiat, ramp, x402, pay",536,513,702,1714,160,1203,2026-01-06,https://github.com/OrbitFlow-AI/AI-Engine/issues/61
+66,"duplicate, prevent duplicate, deduplication, twice, reject duplicate",536,531,459,1187,237,860,2026-01-25,https://github.com/mind-vault-1/mindvault/issues/967
+67,"freighter, freighter wallet, albedo, xbull, wallet connection",535,503,297,1030,98,486,2026-01-10,https://github.com/Xconfess/Xconfess/issues/1273
+68,"history, transaction history, history page, transaction, transactions",532,524,353,1607,143,836,2026-01-17,https://github.com/ANYTECHS/clips-frontend/issues/1225
+69,"yml, workflows, github workflows, concurrency, concurrency group",527,505,525,953,266,990,2026-01-07,https://github.com/LabsCrypt/flowfi/issues/892
+70,"rpc, soroban rpc, failover, rpc client, rpc calls",527,511,506,1216,217,998,2026-01-21,https://github.com/InsurNiffy/niff-Stellar-shurance/issues/36
+71,"fuzz, fuzzing, fuzz testing, fuzz target, cargo fuzz",524,515,477,1697,179,1112,2026-01-05,https://github.com/ritik4ever/stellar-goal-vault/issues/533
+72,"github, github actions, actions, github action, actions checkout",523,493,568,366,167,479,2026-01-01,https://github.com/solutions-plug/predictIQ/issues/1211
+73,"dependencies, patch forge, openzeppelin dependencies, forge std, patch",523,498,972,26,21,228,2026-01-04,https://github.com/chioma-housing-protocol-I/chioma/commit/55490e1fbf3cc5fc516a9a891bf9c434d492efc7
+74,"refund, refunds, cancellation, cancel, cancelled",523,526,490,1892,219,1313,2026-01-19,https://github.com/DocForum/docforum-escrow/issues/3
+75,"landing page, landing, demo, page, hero",516,490,377,1363,61,619,2026-01-05,https://github.com/Cylo-Traders/Agrocylo-PIP/issues/46
+76,"cache, caching, invalidation, redis, cache invalidation",514,507,866,1997,324,1262,2026-01-18,https://github.com/ritik4ever/stellar-goal-vault/issues/576
+77,"migrations, migration, database migration, sql, migrate",510,498,806,1465,273,1281,2025-12-03,https://github.com/Blue-Kollar/Blue-Collar/issues/1828
+78,"health, health check, health endpoint, liveness, check endpoint",510,492,400,1910,169,997,2026-01-18,https://github.com/AlienScroll78/vesting-cliff-drip-stream/issues/35
+79,"length, maximum, length validation, max, clamp",503,489,512,1223,296,1068,2026-01-09,https://github.com/JSE-ORG/trust-link-contract/issues/40
+80,"multi sig, sig, multi signature, multisig, multi",494,485,292,1323,92,619,2026-01-15,https://github.com/Navin-xmr/navin-contracts/issues/91
+81,"json, output, json output, json schema, stdout",479,446,417,1102,146,963,2026-01-05,https://github.com/ANTAPEX/Soroban-Registry/pull/1011
+82,"closes, integration, mocks, flaky, closes closes",474,459,996,28,89,378,2026-01-13,https://github.com/Pulsefy/QiuckEx/commit/de422b852b7d12f6b8d8d0135eb9e2f5058ae8e0
+83,"github actions, pipeline, actions workflow, github, actions",472,432,160,827,27,184,2026-01-17,https://github.com/Privacy-Prio/Proveil/issues/10
+84,"contributing, setup, guide, contributors, contributing guide",470,450,141,911,24,397,2026-01-20,https://github.com/Crowdfunding-DApp/stellar-raise-contracts/issues/141
+85,"timelock, delay, time lock, timelocked, execute",470,471,470,1489,201,1021,2026-01-10,https://github.com/Healthy-Stellar/contracts/pull/275
+86,"auth, desgin proof, desgin, proof submit, auth paths",468,443,843,12,127,460,2026-01-09,https://github.com/pugsley76/glassbox/pull/465
+87,"diagram, mermaid, architecture, diagrams, docs architecture",467,450,186,747,27,377,2026-01-19,https://github.com/Happybello365/innov8/issues/122
+88,"staking, stake, reward, rewards, unstake",461,456,669,2025,275,1311,2026-01-10,https://github.com/Esbeevybz/skymoonscope/issues/72
+89,"weight, count, median, weights, aggregation",459,460,472,1080,183,796,2026-01-09,https://github.com/TrusTrove/TrusTrove-contract/issues/261
+90,"unused, dead_code, dead code, dead, remove",459,431,462,889,225,819,2026-01-02,https://github.com/BrainTease/Brain-Storm/issues/769
+91,"xlm, multi token, usdc, native xlm, asset",457,439,106,909,38,333,2026-01-18,https://github.com/Xoulomon/Stellar-Save/issues/463
+92,"closes, close close, closes closes, close, closes added",453,445,1389,8,924,1488,2026-01-16,https://github.com/Web3Novalabs/Nevo/pull/1416
+93,"changelog, keep changelog, release, changelog format, conventional",453,430,213,975,71,557,2026-01-05,https://github.com/blockchain-maxis/signet/issues/227
+94,"retention, soft, deletion, delete, soft delete",451,442,407,1385,234,980,2026-01-13,https://github.com/InsurNiffy/niff-Stellar-shurance/issues/221
+95,"webhook, webhooks, hmac, delivery, webhook delivery",450,444,844,2493,495,1973,2026-01-02,https://github.com/Arena1X/InsightArena/issues/1376
+96,"toolchain, rust toolchain, toolchain toml, rust, rust version",450,439,617,382,116,538,2026-01-04,https://github.com/Presago-Labs/presago-contracts/issues/37
+97,"bindings, typescript, typescript sdk, sdk, typescript bindings",449,430,149,1165,50,646,2026-01-06,https://github.com/sorocon-labs/sorocron/issues/27
+98,"restore, restore missing, repair, restore clean, restore green",449,426,961,14,34,387,2026-01-01,https://github.com/ssupportme/support-me/commit/c0743e6ac292bc4e210783d05f94fe3cd790d782
+99,"wallet, wallet connection, connect, wallet connect, connect wallet",446,412,785,11,39,245,2026-01-09,https://github.com/Gospelsam019/mindvault/commit/22640e2d9516c8741bf49f497fbcc15dd0b2ed01
+100,"role, roles, rbac, role based, based access",444,435,477,1272,193,724,2026-01-12,https://github.com/zintarh/stellar-wrap-contract/issues/969
+101,"network, passphrase, network mismatch, mainnet, network passphrase",443,421,256,936,138,668,2025-04-11,https://github.com/Feyisara2108/stellargive/issues/381
+102,"resolve failures, resolve, failures, compilation, resolve build",436,402,864,5,35,211,2026-01-08,https://github.com/Netwalls/BOXMEOUT_STELLA/commit/28ef0e126516eef2675f3d42ed91cd82adc11e5d
+103,"resolve typescript, typescript errors, typescript, typescript compilation, typescript build",435,404,1036,13,27,174,2026-01-02,https://github.com/SudiptaPaul-31/Codely/commit/c6adc23fcb1a404a1b821cf65df65da9f544efa2
+104,"require_auth, admin require_auth, initialize, require admin, caller",434,432,520,646,233,607,2026-01-20,https://github.com/Epta-Node/ai-net/issues/536
+105,"oracle, price, staleness, oracle price, price oracle",428,417,668,2044,313,1256,2026-01-12,https://github.com/OdyxeeeLabs/Perigee/issues/527
+106,"fee, rounding, property, fee calculation, interest",426,432,485,1016,61,617,2026-01-21,https://github.com/Lex-Studios/Stellar-Spend/issues/681
+107,"allowlist, whitelist, token allowlist, denylist, token whitelist",419,416,324,946,108,673,2026-01-27,https://github.com/TrustHire/hiresettle-contract/issues/26
+108,"proof, groth16, proofs, zero knowledge, circuit",417,393,699,1521,194,905,2026-01-19,https://github.com/Kevin737866/stellar-identity-credentials-sdk/issues/373
+109,"harden, some faulty, faulty logic, landing counters, fence",414,399,791,18,20,338,2026-01-12,https://github.com/Neurowealth/NeuroWealth-Smartcontract/commit/073e514bbab2748b2de032caa95ed824ed37b237
+110,"initialize, initialization, notinitialized, init, initialized",413,417,336,855,199,620,2026-01-12,https://github.com/Raveu-lab/soroban-devkit-contract/commit/b8190d06990200676a6c2aa77302579192b72d0c
+111,"responsive, mobile, navigation, hamburger, mobile responsive",410,395,289,946,127,354,2026-01-18,https://github.com/Netwalls/BOXMEOUT_STELLA/issues/953
+112,"dark, theme, dark mode, light, toggle",409,395,324,942,124,491,2026-01-02,https://github.com/Arenax-gaming/ArenaX/issues/1112
+113,"quorum, threshold, signer, signers, multisig",408,396,464,1204,193,973,2026-02-17,https://github.com/Akazajan/Oraculum/pull/786
+114,"coverage, coverage reporting, llvm cov, codecov, llvm",407,389,177,878,48,487,2026-01-22,https://github.com/SETTLIX/settlix-contracts/issues/313
+115,"optimistic, transaction status, confirmation, optimistic updates, transaction",404,395,170,1104,59,464,2026-01-16,https://github.com/Lex-Studios/Stellar-Spend/issues/951
+116,"revert, reverts commit, reverts, commit, revert docs",401,385,633,0,183,224,2026-01-06,https://github.com/BigDella/parcel-protocol/commit/7405d6e60617950ee5273074cd0ddd9cf23dfe73
+117,"snapshot, snapshots, test_snapshots, snapshot testing, state snapshot",399,386,348,904,99,599,2026-01-08,https://github.com/AnchorNet-Org/AnchorNet-Contracts/issues/265
+118,"clippy, cargo clippy, warnings, clippy warnings, fmt",397,396,408,437,115,371,2026-01-17,https://github.com/CoralSwap-Finance/coralswap-core/issues/379
+119,"contract build, contract errors, contract issues, around formal, repair contract",396,389,611,7,36,215,2026-01-06,https://github.com/StellarStream-HQ/StellarStream/commit/e78572f60937d43ffc60411fde916cb16934302c
+120,"disclosure, disclosure policy, vulnerability, vulnerability reporting, vulnerability disclosure",395,378,168,509,188,422,2026-01-19,https://github.com/ComplyRail/complyrail-app/issues/138
+121,"indexer, lag, backfill, indexer lag, indexer src",395,387,455,1152,194,965,2026-01-17,https://github.com/SiLioLabs/PayFlow/issues/880
+122,"expiry, expiration, expiring, expired, token discount",394,379,667,31,37,291,2026-01-12,https://github.com/Stellar-Bounty-Treasury/stellar-bounty-contracts/issues/9
+123,"vault, vaults, vault contract, deposit, shares",394,389,1291,2602,508,2059,2026-01-08,https://github.com/SentinelFi/sentinel_soroban_v3/commit/4929a22e268c3e450db6381e474dcee3b5553b36
+124,"copilot, copilot copilot, authored copilot, copilot users, noreply",393,384,1178,8,21,959,2026-01-09,https://github.com/Rickyy1017/Stellar-Defi-Vault/commit/e92484ea1aab5ed7ff744e3f91cdbdd4ea7c5776
+125,"panic, panic_with_error, panics, replace panic, expect",391,389,576,598,219,474,2026-01-13,https://github.com/davedumto/LancePay/issues/1821
+126,"forwarded, proxy, trust proxy, rpc url, port",390,380,438,530,173,663,2026-01-13,https://github.com/LabsCrypt/remitlend/issues/2269
+127,"eslint, eslint config, eslint errors, resolve eslint, eslintrc",389,374,773,188,69,242,2026-01-02,https://github.com/Rosemary-ux/soroban-explorer/commit/deb0ceffeeee2ffb3653e809c2145fc82572a078
+128,"clippy, clippy warnings, resolve clippy, warnings, too_many_arguments",385,367,1247,67,38,260,2026-01-07,https://github.com/StellarYield/StellarYield-Contracts/commit/e16c6269d471436ca3630917f608af92285b5cdc
+129,"lint, eslint, run lint, lints, npm run",385,371,386,556,156,514,2026-01-21,https://github.com/LumenTix-HQ/lumentix/issues/1573
+130,"leaderboard, event, out loading, statspanel, stats",384,368,641,17,44,237,2026-01-15,https://github.com/Dike-Protocol/dike-contracts/commit/e0cd566277c20716a1e3a872e32f0c85eaa9674c
+131,"wasm size, size, wasm, binary size, size budget",384,386,193,822,63,497,2026-01-30,https://github.com/Presago-Labs/presago-contracts/issues/44
+132,"react, react hooks, useeffect, hooks, component",382,368,316,800,92,311,2026-01-02,https://github.com/BrainTease/Brain-Storm/issues/1452
+133,"logging, structured, structured logging, pino, log",380,354,150,944,66,352,2026-01-19,https://github.com/ritik4ever/stellar-goal-vault/issues/578
+134,"cargo audit, deny, cargo deny, deny toml, cargo",376,375,369,585,131,537,2026-01-28,https://github.com/ToluLabs/StellarCred/issues/184
+135,"cfg, mod, crate, std, compile",376,380,457,1161,172,905,2026-01-18,https://github.com/RevoraOrg/Revora-Contracts/issues/1353
+136,"deployment, mainnet, deployment guide, checklist, mainnet deployment",373,363,139,626,36,340,2026-01-21,https://github.com/broda-spendy/privacy-shield-payments/issues/32
+137,"reject, reject invalid, restrict, reject empty, reject zero",372,362,709,4,15,387,2026-01-12,https://github.com/Sub-Rosa-Issue/sub-rosa-issue/commit/170a95a90b6772778aa64d973f46c83b6a597e7b
+138,"websocket, sse, real time, socket, reconnect",369,352,446,1559,216,882,2026-01-16,https://github.com/BrainTease/Brain-Storm/issues/591
+139,"authentication, user authentication, implement authentication, authentication flow, login",367,349,606,31,17,165,2026-01-06,https://github.com/OlaGreat/NovaSupport/commit/6f5bdd238487ecde1744023cbc1dd09524ac93f0
+140,"i18n, english, language, translation, locale",366,352,262,1014,89,619,2026-01-21,https://github.com/katecatherinaa/solarproof/issues/240
+141,"cors, origin, origins, cors configuration, cors origin",366,365,342,581,135,428,2026-01-07,https://github.com/Blue-Kollar/Blue-Collar/issues/515
+142,"rustdoc, comments, doc comments, doc, public functions",366,364,174,858,60,432,2026-02-15,https://github.com/Iris-IV/ProofOfHeart-stellar/issues/26
+143,"portfolio, earnings, total, portfolio analytics, totals",364,370,202,945,55,454,2026-01-19,https://github.com/StellarYield/StellarYield-Contracts/commit/f094af64fa79dbd7666acfc0ca82d37457d1765f
+144,"dependabot, dependabot yml, github dependabot, dependency updates, automated dependency",363,343,161,539,85,358,2026-02-18,https://github.com/Streampay-Org/StreamPay-Frontend/issues/1926
+145,"dispute, disputes, dispute resolution, resolve_dispute, arbiter",363,379,438,2132,192,1303,2026-01-17,https://github.com/Fidelis900/soroban-starter-kit/issues/203
+146,"package lock, lock json, lockfile, npm, package",362,338,550,177,92,338,2026-01-22,https://github.com/RAJIV81205/CrowdForge/commit/4c7db56c545913c86d69a78734485f5178143acf
+147,"router, hop, route, routing, multi hop",355,352,375,890,169,656,2026-01-15,https://github.com/Maki-Zeninn/stellar-router/commit/31b41918c3a7c2b3f0eafacd2feff5a97cd9aa6a
+148,"idempotency, idempotency key, idempotency keys, idempotent, key header",354,352,363,1169,206,922,2026-02-18,https://github.com/FaveTeamz/workload-governor/issues/838
+149,"search, full text, text search, filters, filter",352,345,168,1312,69,537,2026-01-12,https://github.com/Ethereal-Future/FuTuRe/issues/65
+150,"governance, voting, dao, proposal, vote",352,347,279,1312,113,625,2026-01-01,https://github.com/BrainTease/Brain-Storm/issues/597
+151,"alert, alerts, alerting, watcher, watch",350,349,268,1111,131,890,2026-01-18,https://github.com/Tx-wats/contracts/issues/394
+152,"dockerfile, multi stage, stage, docker, image",350,329,396,498,99,405,2026-01-08,https://github.com/Hexor-Hash/CargoSoroban/issues/116
+153,"gas, gas usage, gas optimization, optimization, gas cost",345,332,196,1110,57,452,2026-01-16,https://github.com/legend-esc/carbonchain/issues/553
+154,"rate, rate limit, rate limiting, limiting, limit",344,345,635,26,56,293,2026-01-23,https://github.com/soumen0818/ACREDIA-STELLAR/commit/c0e28391fb1af3d03fb38a44cf0de0a22ed26806
+155,"duplicate, remove duplicate, consolidate, duplicated, consolidate duplicate",344,334,390,827,161,581,2026-01-06,https://github.com/ANYTECHS/clips-frontend/pull/1010
+156,"notification, notifications, preferences, unread, notification preferences",342,333,334,1747,127,857,2026-01-18,https://github.com/Ethereal-Future/FuTuRe/commit/6a9e71a594fdb3f79f95706bb64399312ed27eb6
+157,"csv, export, csv export, export csv, csv json",340,333,111,991,44,429,2026-01-19,https://github.com/GalactiGuild/Stellar-Guilds/issues/367
+158,"timezone, utc, countdown, calendar, date",338,333,252,900,100,557,2026-01-02,https://github.com/priaaa29/strix-protocol/commit/81fc44feebb5ef1e82c1ca1ed75479c4efd2a4c7
+159,"api client, next_public_api_url, base url, api, endpoints",336,328,164,803,59,302,2026-01-02,https://github.com/nathydre21/nepa/issues/244
+160,"cursor, cursor persistence, startledger, cursors, ledger",334,327,361,482,116,513,2026-01-28,https://github.com/zintarh/stellar-wrap-contract/issues/849
+161,"schema, database schema, schema validation, schemas, database",333,328,151,627,61,387,2026-01-13,https://github.com/pugsley76/glassbox/issues/568
+162,"simulation, transaction simulation, simulate, simulatetransaction, transaction builder",333,324,150,580,24,275,2026-01-21,https://github.com/Xoulomon/Stellar-Save/issues/1017
+163,"typescript, strict mode, strict, tsconfig, typescript strict",333,326,345,613,116,315,2026-01-06,https://github.com/soumen0818/ACREDIA-STELLAR/issues/102
+164,"made some, mark james, james welcome, james, prepare",330,303,544,2,42,58,2026-01-01,https://github.com/INVERSEARENA/inversearena-frontend/commit/edd8082831e036dafc9ab5c436d8d4f9379d1b7a
+165,"formatting readme, readme, formatting, punctuation, readme formatting",330,320,392,38,35,99,2026-01-08,https://github.com/swapnilsantra2-bit/property/commit/871a4411e3e0cef3c5944e71e57c1a7d28307ae9
+166,"jwt, jwt_secret, jwt authentication, authentication, jwt secret",329,323,514,705,252,449,2026-01-18,https://github.com/Stellar-songifi/Lyricsflip_server/issues/464
+167,"cli, command, commands, cli command, cli commands",328,313,202,975,70,604,2026-01-04,https://github.com/davidtech2026-ops/stellar-did-credit/commit/b0e14de2ef6e81e99ca8fc60b2a535d7d0c45f92
+168,"smoke, testnet smoke, scripts smoke, deployment smoke, post deploy",327,325,218,599,63,470,2026-01-16,https://github.com/Rosemary-ux/lyricsflip/issues/203
+169,"value domain, days effort, effort estimate, estimate effort, metadata field",324,307,799,391,117,701,2026-01-19,https://github.com/Arena1X/InsightArena/commit/218b2bddb9ffb38d420f929da3b3f7634470b2c0
+170,"align, escrow semantics, alignment, align contract, align frontend",323,306,564,9,26,250,2026-01-23,https://github.com/Stellar-Global-Rails/StellarGlobalRails/commit/68f187681f5996072cb0635c54d6096383174329
+171,"xdr, base64, decoding, decode, xdr decoding",318,303,346,475,94,428,2026-01-14,https://github.com/Esbeevybz/skymoonscope/issues/510
+172,"accessibility, wcag, accessibility audit, keyboard, aria",318,310,192,722,88,339,2026-01-24,https://github.com/El-Chapo-Npm/Soroban-Identity/issues/643
+173,"metadata, uri, contract metadata, metadata uri, metadata_uri",316,312,100,635,32,250,2026-01-17,https://github.com/FinesseStudioLab/Trivela/issues/205
+174,"onboarding, onboarding flow, onboarding guide, guided, first time",313,305,95,671,14,219,2026-01-15,https://github.com/Blue-Kollar/Blue-Collar/issues/615
+175,"cargo lock, cargo, lock, locked, lockfile",310,304,362,161,39,222,2026-01-02,https://github.com/astera-hq/Astera/issues/806
+176,"vote, voting, delegation, voter, delegate",310,306,467,1518,187,1055,2026-01-18,https://github.com/Veritas-Vaults-Network/soroban-guard-contracts/issues/287
+177,"skeleton, loading, skeletons, skeleton loading, loading skeleton",310,299,112,749,51,257,2026-01-02,https://github.com/Health-watchers/health_watchers/issues/1612
+178,"asset, assets, issuer, asset code, asset registry",310,302,409,896,139,616,2026-01-17,https://github.com/Orbit-Wal/contract/issues/88
+179,"error boundary, errorboundary, error boundaries, error tsx, react error",304,303,112,787,78,353,2026-01-21,https://github.com/LumenTix-HQ/lumentix/issues/510
+180,"typecheck, tsc, noemit, tsc noemit, npm run",304,287,168,429,47,343,2026-02-02,https://github.com/obajecollinsmicheal-cmd/smile4money/issues/1491
+181,"toast, toast notification, toasts, notification system, dismiss",301,289,197,520,87,263,2026-01-12,https://github.com/ritik4ever/stellar-goal-vault/issues/613
+182,"template, pull_request_template, templates, github pull_request_template, checklist",301,294,88,526,42,263,2026-02-17,https://github.com/Blue-Kollar/Blue-Collar/issues/183
+183,"nonce, nonces, replay protection, replay, protection",300,305,304,636,121,454,2026-02-14,https://github.com/connect-boiz/soroban-security-scanner/issues/482
+184,"login, redirect, logout, login page, auth",300,295,352,596,147,349,2026-01-07,https://github.com/joekeyz8/Lumigift-lumigift/issues/50
+185,"playwright, e2e, playwright e2e, playwright config, end",299,302,267,877,62,475,2026-02-08,https://github.com/thisisouvik/trustlend-stellar/issues/109
+186,"empty state, empty, empty states, emptystate, illustrations",298,298,114,848,79,403,2026-01-23,https://github.com/Arena1X/InsightArena/issues/1423
+187,"storage ttl, ttl, extend, extend instance, ttl extension",296,291,511,7,24,233,2026-01-22,https://github.com/obajecollinsmicheal-cmd/smile4money/commit/2842565b5ad91997d455007b869650aa54cd4f2a
+188,"agent, agents, recommendation, recommendation engine, recommendations",296,282,286,822,55,448,2026-01-17,https://github.com/Epta-Node/ai-net/issues/27
+189,"mobile, mobile responsiveness, responsiveness, responsive, mobile layout",295,285,393,60,52,158,2026-01-18,https://github.com/youthisguy/kizuna-games/commit/18fe3f119f3680fcb82a6a3855264b69efb14f1d
+190,"deployment, deploy, deploy script, production deployment, contract deployment",292,281,384,16,12,142,2026-01-12,https://github.com/BlockHaven-Labs/esustellar/commit/89e91a8657fbab0b63070a5645e36374f43a98d8
+191,"lint errors, lint, resolve lint, lint error, linting",290,273,848,1,20,131,2026-01-07,https://github.com/Pulsefy/QiuckEx/commit/e1cc6ce99ab458c81a84226031c773f1168ce51c
+192,"breaker, circuit breaker, circuit, implement circuit, breaker pattern",289,282,243,763,112,487,2026-01-18,https://github.com/AtomicIP/AtomicIP-/commit/2b7319e7395509ea84ccd5ac6b0fa9ae8722b2a8
+193,"compose, docker compose, docker, compose yml, yml",288,271,87,589,39,301,2026-01-17,https://github.com/arflexx/Airflex/issues/91
+194,"rotation, key rotation, rotate, key, secrets",287,288,166,681,87,523,2026-02-18,https://github.com/OdyxeeeLabs/Perigee/issues/450
+195,"conflicts, conflict, upstream, resolve, conflict markers",286,269,654,9,16,99,2025-12-20,https://github.com/Creditra/Creditra-Contracts/commit/db947328b18d7038fd2d190c30cf744c1ec77b71
+196,"auction, market, bid, markets, marketplace",285,286,515,1351,178,950,2026-01-04,https://github.com/dultimateade/hermes/commit/68836ca7f7140b431435b76eca6be9278581f40c
+197,"subscription, recurring, billing, subscriptions, charge",284,274,332,1403,97,844,2026-01-18,https://github.com/Fidelis900/soroban-starter-kit/issues/624
+198,"prometheus, metrics, prometheus metrics, metrics endpoint, latency",283,278,145,748,53,404,2026-01-19,https://github.com/Hexor-Hash/CargoSoroban/issues/35
+199,"currency, usd, multi currency, xlm, fiat",282,276,219,656,63,392,2026-01-13,https://github.com/ShoeSafari-Org/ShoeSafari/issues/338
+200,"badge, badges, status badges, status badge, badge component",281,270,138,476,38,202,2026-01-18,https://github.com/Centurylong/sanctifier/issues/498
+201,"connection, connection pool, database connection, pooling, connection pooling",279,280,180,706,109,444,2026-01-20,https://github.com/Hexor-Hash/CargoSoroban/issues/32
+202,"revocation, revoke, revoked, deactivated, deactivate",279,283,207,658,116,508,2026-01-27,https://github.com/TrusTrove/TrusTrove-contract/issues/176
+203,"bigint, nan, number, numeric, parsefloat",276,268,247,429,113,421,2026-01-13,https://github.com/prism-explorer/prism/issues/81
+204,"reputation, reputation score, decay, score, reputation system",276,266,216,1064,93,554,2026-01-18,https://github.com/julianajohn7202-stack/Linkora-social/issues/92
+205,"sql, sql injection, injection, parameterized, query",275,268,293,406,107,339,2026-01-21,https://github.com/joekeyz8/Lumigift-lumigift/issues/504
+206,"provenance, publish, npm publish, artifact, npm",275,271,142,457,54,416,2026-01-29,https://github.com/Haroldwonder/AnchorKit/issues/1546
+207,"proposal, proposals, multisig, executed, proposer",274,278,291,901,179,723,2026-02-18,https://github.com/Shelterflex/monorepo/issues/1129
+208,"fraud, fraud detection, detection, anomaly, anomaly detection",273,259,134,731,35,361,2026-01-17,https://github.com/Xoulomon/Stellar-Save/issues/1077
+209,"stellar_network, mainnet, network, testnet, testnet mainnet",272,260,117,356,41,209,2026-01-05,https://github.com/ANYTECHS/clips-backend/issues/765
+210,"found tsx, found, page, tsx, notfound",272,270,128,489,66,277,2026-01-18,https://github.com/obajecollinsmicheal-cmd/smile4money/issues/1475
+211,"bullmq, cron, jobs, scheduler, queue",271,267,160,679,65,392,2026-01-18,https://github.com/Health-watchers/health_watchers/issues/1433
+212,"issue_template, github issue_template, templates, bug_report, bug reports",268,256,116,291,55,153,2026-01-02,https://github.com/Iris-IV/ProofOfHeart-stellar/issues/25
+213,"privacy, gdpr, data export, export, gdpr data",267,261,135,660,56,374,2026-01-17,https://github.com/Jonniclux2618/ArenaX/issues/90
+214,"loan, repayment, collateral, liquidation, borrower",267,265,513,2042,269,1107,2026-01-09,https://github.com/ThinkLikeAFounder/pulsartrack/issues/455
+215,"edge case, edge, case, edge cases, boundary edge",267,258,173,515,36,189,2026-01-18,https://github.com/Gatheraa/Gatherraa/commit/d887dae47019b2ebb6cc3eb5a1f706cc32b95c65
+216,"pool, pools, create_pool, pool_id, pool creation",263,266,563,1054,209,672,2026-01-05,https://github.com/Web3Novalabs/predifi/pull/2138
+217,"refresh token, refresh, jwt, token rotation, refresh tokens",262,264,318,795,175,564,2026-01-03,https://github.com/GalactiGuild/Stellar-Guilds/issues/294
+218,"swagger, openapi, openapi swagger, api documentation, swagger documentation",262,249,114,667,49,259,2026-01-19,https://github.com/soroventures/EventHorizon/issues/71
+219,"freighter, freighter api, freighter connection, freighter wallet, resolve freighter",262,242,403,7,9,64,2026-01-05,https://github.com/Junirezz/YieldVault-RWA/commit/52f88b2fab4785aba2a29036f827356c58631cba
+220,"csp, content security, security policy, headers, content",259,254,244,443,181,409,2026-02-16,https://github.com/Xconfess/Xconfess/issues/1285
+221,"fixture, fixtures, fixture_scans, factories, shared fixtures",259,251,173,565,47,471,2026-01-27,https://github.com/Genghis-codes/Stellar-Global-Wallet/issues/230
+222,"helmet, security headers, headers, hsts, frame options",257,251,260,283,142,249,2026-01-18,https://github.com/Blue-Kollar/Blue-Collar/issues/502
+223,"email, email verification, emails, smtp, email notification",256,256,242,751,106,432,2026-01-18,https://github.com/stellar-alerts-labs/stellar-alerts/issues/263
+224,"runbook, incident, incident response, runbooks, response runbook",256,255,75,467,33,308,2026-02-19,https://github.com/Lex-Studios/Stellar-Spend/issues/661
+225,"indexes, queries, slow, query, query performance",254,250,101,703,39,259,2026-01-21,https://github.com/Carbon-Ledger-stellar/carbonledger/issues/972
+226,"load, load testing, stress, concurrent, performance",253,246,40,560,20,235,2026-02-18,https://github.com/Xoulomon/Stellar-Save/issues/879
+227,"keyboard, shortcuts, keyboard shortcuts, shortcut, keyboard navigation",253,246,92,620,57,317,2026-01-19,https://github.com/Ethereal-Future/FuTuRe/issues/17
+228,"jest, jest config, testpathignorepatterns, vitest, jest setup",253,246,359,285,63,286,2026-01-18,https://github.com/ExcelDsigN-tech/Amana/commit/0c253d9af5d8051ec4884401bbe7db5e1ff4b0d5
+229,"scanning, dependency vulnerability, vulnerability scanning, vulnerability, npm audit",251,239,137,315,84,168,2026-01-03,https://github.com/Xoulomon/Stellar-Save/issues/892
+230,"shutdown, graceful shutdown, sigterm, graceful, sigint",250,248,130,541,75,371,2026-02-18,https://github.com/obajecollinsmicheal-cmd/smile4money/issues/1719
+231,"openapi, openapi spec, openapi yaml, spec, openapi json",249,255,242,641,51,506,2026-02-21,https://github.com/StellarRoute/StellarRoute/issues/271
+232,"wasm32v1, wasm32v1 none, unknown unknown, wasm32 unknown, wasm32",247,245,252,112,48,156,2026-01-22,https://github.com/Predictify-org/predictify-contracts/commit/305dc553f95472418e11919bff83e690fbb7cabf
+233,"regression, regression coverage, handling managed, contains throw, security regression",244,247,248,496,118,478,2026-01-02,https://github.com/Blue-Kollar/Blue-Collar/issues/1271
+234,"focus, modal, trap, focus trap, dialog",244,242,203,462,111,383,2026-01-13,https://github.com/SiLioLabs/PayFlow/issues/446
+235,"xlm, xlm balance, balance, wallet balance, balance display",243,232,126,330,41,190,2026-01-19,https://github.com/Rosemary-ux/lyricsflip/issues/36
+236,"gitignore, test_snapshots, build artifacts, committed, git",243,236,167,176,39,144,2026-01-02,https://github.com/DistinctCodes/ManageHub/issues/2029
+237,"resolve issues, resolve, issues closes, issues, closes closes",241,240,475,1,91,259,2026-01-22,https://github.com/yazeed11011/Xconfess/commit/10036feb24a350ad3b57443b2e5f8e7edc350b65
+238,"backup, backups, database backup, restore, backup verification",240,238,96,599,35,349,2026-01-23,https://github.com/Xoulomon/Stellar-Save/issues/1090
+239,"circuit breaker, breaker, circuit, emergency, pause",240,242,74,356,24,158,2026-01-21,https://github.com/Obiajulu-gif/Prompt-Hash-Stellar/issues/107
+240,"recovery, social recovery, account recovery, backup codes, guardian",238,248,148,481,52,345,2026-01-15,https://github.com/NovaGrids/VaultDAO/issues/1702
+241,"monorepo, workspaces, workspace, root package, root",236,228,184,238,37,212,2026-01-07,https://github.com/Calebux/SYNCRO/issues/596
+242,"keypair, key, keys, key generation, datakey variants",235,235,324,5,11,124,2026-01-07,https://github.com/salch-cred/zero-sense/commit/e51c2ed811e8038f2748137a08f5232bfe271235
+243,"cargo fmt, fmt, apply cargo, fmt formatting, formatting",234,218,628,15,13,81,2026-01-05,https://github.com/QuickLendX/quicklendx-protocol/commit/5612edc33e71439328d870238221eb0776bac2bb
+244,"milestone, milestones, milestone based, per milestone, approve_milestone",234,236,401,1394,206,822,2026-01-13,https://github.com/Goldii-locks/escrow-contract/issues/673
+245,"wave, stellar wave, wave program, drips wave, drips",229,216,141,651,226,538,2026-01-26,https://github.com/Sorobo-Gate/soroban-anchor-gate-app/pull/39
+246,"rustfmt, rustfmt formatting, rustfmt toml, apply rustfmt, formatting",227,222,434,58,11,113,2026-01-27,https://github.com/Tollcraft/soroban-budget-assert/commit/dc8cb2bcaac72d9509abb1a742efd247d0d7d0d1
+247,"progress, progress bar, quest, bar, completion",227,220,89,534,28,192,2026-01-18,https://github.com/Fund-My-Cause/Fund-My-Cause/issues/654
+248,"api versioning, deprecation, versioning, sunset, versioning strategy",226,224,74,513,30,220,2026-01-19,https://github.com/AetherEdu/AetherMint/issues/255
+249,"prettier formatting, formatting, prettier, formatting issues, code formatting",221,205,515,1,11,79,2026-01-11,https://github.com/MettaChain/PropChain-contract/commit/f69b7cdb8ce6541ef3d5c84f9ba5f0f9dfd52a88
+250,"xss, sanitize, sanitization, html, dompurify",220,217,184,226,106,245,2026-01-05,https://github.com/Agri-fund/agri-fi/issues/414
+251,"read only, only view, read, view, view requirements",219,215,51,419,25,167,2026-01-17,https://github.com/Agentpay-Org/Agentpay-contracts/issues/383
+252,"zod, schemas, zod schemas, validation middleware, zod schema",219,212,152,484,55,220,2026-01-21,https://github.com/ScholarMarket/scholarmarket/issues/27
+253,"reviews, rating, feedback, review, ratings",216,214,186,359,19,256,2026-01-05,https://github.com/chioma-housing-protocol-I/chioma/commit/6a6eab24e5a1d9533fdba1d1250f895747d1bc74
+254,"troubleshooting, troubleshooting guide, common, common issues, guide",215,209,61,388,14,150,2026-01-19,https://github.com/Health-watchers/health_watchers/issues/1025
+255,"cache, cargo registry, caching, every run, actions cache",215,213,71,257,27,182,2026-02-11,https://github.com/Happybello365/innov8/issues/101
+256,"pnpm, pnpm lock, lock yaml, lockfile, yaml",214,202,511,90,70,206,2026-01-19,https://github.com/Blue-Kollar/Blue-Collar/commit/622a0d0d40e1da157d74ac6c7c1ced4b78c88dbb
+257,"correlation, correlation ids, tracing, propagate, logs",214,215,71,463,39,236,2026-02-19,https://github.com/stellarmarket-labs/stellar-market/issues/399
+258,"clipboard, copy, copy clipboard, copy button, copied",214,216,91,385,57,200,2026-02-16,https://github.com/Agri-fund/agri-fi/issues/282
+259,"horizon, stellar horizon, horizon api, horizon server, backoff",214,202,93,316,40,169,2026-01-20,https://github.com/Stellar-legit-escrow/stellar-legit-escrow/issues/864
+260,"profile, user profile, username, bio, api users",214,212,143,400,43,108,2026-01-18,https://github.com/Rosemary-ux/lyricsflip/issues/63
+261,"aria, aria label, label, icon only, screen readers",214,211,196,374,88,281,2026-01-22,https://github.com/Blue-Kollar/Blue-Collar/issues/1790
+262,"testnet, testnet contract, correct testnet, hardcoded testnet, real testnet",213,202,264,10,3,104,2026-01-21,https://github.com/Attribution-Graph/XoXoPay/commit/d85942d45284bb9fb4b7104e177bc88082acfe03
+263,"readme, readme reflect, updated readme, instructions, readme clarify",210,199,238,24,6,71,2026-01-15,https://github.com/Blackdavid1/Lokin-app/pull/1
+264,"sort, sorting, sortable, datatable, column",210,207,93,357,28,198,2026-02-18,https://github.com/sorolens/sorolens/issues/175
+265,"merkle, merkle tree, leaf, merkle root, merkle proof",209,208,198,561,87,385,2026-01-19,https://github.com/Stellar-IndigoPay/Stellar-IndigoPay/issues/670
+266,"split, splits, recipients, splitter, recipient",208,207,135,556,38,292,2026-01-18,https://github.com/GalactiGuild/Stellar-Guilds/issues/390
+267,"mint, minting, minter, nft, batch mint",207,196,196,421,62,225,2026-01-02,https://github.com/KeyLease-Security/keylease-core/issues/12
+268,"abi, contract abi, contract spec, abis, contract interface",206,204,49,352,19,216,2026-01-26,https://github.com/Obiajulu-gif/Prompt-Hash-Stellar/issues/433
+269,"treasury, treasury contract, treasury address, treasury balance, contracts treasury",206,214,122,490,56,281,2026-01-20,https://github.com/Devsol-01/Nestera/issues/339
+270,"console, logger, console log, console error, log",205,201,129,359,81,282,2026-02-16,https://github.com/Xoulomon/Scavenger/issues/1409
+271,"leaderboard, rank, leaderboard page, rankings, ranking",204,199,152,771,85,366,2026-01-04,https://github.com/Rosemary-ux/lyricsflip/issues/38
+272,"open graph, twitter, seo, meta tags, opengraph",204,198,52,356,31,176,2026-01-18,https://github.com/Shackole/NeuroWealth-Smartcontract/issues/20
+273,"seed, seed script, seeding, scripts seed, seed data",203,201,88,282,32,188,2026-02-18,https://github.com/dupdab/dupdapp_stellar/issues/746
+274,"pwa, service worker, offline, progressive web, worker",203,198,63,418,13,180,2026-01-21,https://github.com/Blue-Kollar/Blue-Collar/issues/743
+275,"tsx, components, src components, __tests__, testing library",203,193,67,915,26,595,2026-02-20,https://github.com/zintarh/stellar-wrap-contract/issues/838
+276,"bulk, csv, import, csv import, bulk import",202,195,78,475,19,210,2026-01-22,https://github.com/MentorsMind/MentorsMind-Backend/issues/437
+277,"dry run, dry, run mode, run, run flag",202,197,67,311,23,229,2026-01-28,https://github.com/Flamki/setu-stellar-zk/issues/34
+278,"motion, reduced motion, reduced, animations, prefers reduced",202,206,130,375,42,180,2026-02-16,https://github.com/Remitwise-Org/Remitwise-Frontend/issues/377
+279,"mutation testing, mutation, mutants, cargo mutants, stryker",201,200,87,413,29,316,2026-01-27,https://github.com/Lafiya-xyz/Lafiya-contract/issues/372
+280,"dashboard, loading dashboard, error while, session error, while loading",201,195,290,12,14,80,2026-01-10,https://github.com/AdityaKumar41/Aethera/commit/c2f3764e167dfc615c58547535ceba7c72a685a8
+281,"adr, architecture decision, adrs, decision records, decision",200,196,22,343,12,164,2026-01-27,https://github.com/Haroldwonder/TrustLink/issues/31
+282,"opentelemetry, tracing, distributed tracing, distributed, trace",200,198,66,399,26,192,2026-01-23,https://github.com/ritik4ever/stellar-stream/issues/771
+283,"datakey, datakey enum, enum, variants, datakey variants",199,206,118,362,42,199,2026-02-13,https://github.com/stellar-vortex-protocol/vortex-contracts/issues/204
+284,"ledger, ledger sequence, sequence, sequence cursor, start_ledger",199,198,225,50,31,158,2026-01-19,https://github.com/Bigg770/stellar-sentinel/commit/6abfb4c7b0727cb39c2e66c65ff791c7fe556303
+285,"vite, vite config, import meta, vite_, meta env",197,189,275,127,50,146,2026-02-15,https://github.com/Dev-AdeTutu/Stellar-Solar-Grid/issues/511
+286,"npm audit, audit level, npm, high severity, level high",195,194,236,146,74,242,2026-01-07,https://github.com/Cylo-Traders/Agrocylo-PIP/issues/100
+287,"upload, uploads, file upload, mime, drag",195,202,139,611,58,306,2026-01-16,https://github.com/Rentars/Rentars/issues/587
+288,"disclosure policy, disclosure, vulnerability disclosure, security policy, vulnerability",194,184,197,9,13,77,2026-01-28,https://github.com/TegoLabs/sorokeep/commit/b44c763703881380b184a726cb623ca43c0eb226
+289,"freeze, unfreeze, frozen, freeze unfreeze, freezing",193,195,131,347,46,246,2026-02-17,https://github.com/DistinctCodes/AssetsUp/issues/1335
+290,"localstorage, httponly, cookie, cookies, getitem",192,190,130,256,43,186,2026-01-15,https://github.com/Servora/StellarCert/issues/302
+291,"testing library, react testing, library, vitest, react",191,187,39,334,10,126,2026-01-24,https://github.com/VERITOKEN-xx/Veritoken/issues/233
+292,"quote, quotes, firm, quote expiry, firm quote",189,188,236,487,93,430,2026-02-19,https://github.com/abore9769/SorobanAnchor/pull/146
+293,"anchor, anchors, stellar toml, sep, toml",188,184,246,549,92,476,2026-01-25,https://github.com/PugarHuda/tukar/commit/4574104e55ec45878e73892b0bd2eb57ef80850c
+294,"yield, harvest, apy, yield distribution, implement yield",188,181,227,855,63,356,2026-01-23,https://github.com/Devsol-01/Nestera/issues/404
+295,"categories, tags, category, tag, filter",188,181,65,389,17,174,2026-01-02,https://github.com/Crowdfunding-DApp/stellar-raise-contracts/issues/47
+296,"friendbot, faucet, friendbot funding, funding, testnet faucet",187,177,101,201,16,155,2026-01-24,https://github.com/ANYTECHS/clips-frontend/issues/805
+297,"codeowners, codeowners file, github codeowners, sensitive paths, there codeowners",187,175,40,221,14,157,2026-03-22,https://github.com/Stellar-home/stellar-weave/issues/2
+298,"kyc, kyc status, kyc verification, aml, implement kyc",187,176,154,490,49,223,2026-01-20,https://github.com/Xoulomon/Stellar-Save/issues/1073
+299,"admin dashboard, user management, build admin, create admin, admin panel",186,189,55,362,10,85,2026-01-14,https://github.com/BrainTease/Brain-Storm/issues/238
+300,"ssrf, dns, ipv6, urls, link local",185,178,151,264,101,321,2026-01-31,https://github.com/StellarLock/StellarLock/issues/633
+301,"license, license file, mit, apache, mit license",185,179,71,191,27,117,2026-01-29,https://github.com/Haroldwonder/AnchorKit/issues/169
+302,"triage, label, labels, labeler, label taxonomy",185,186,55,314,29,188,2026-01-15,https://github.com/StellarSettle/stellarsettle/issues/126
+303,"closes closes, close close, issues closes, closes, close",185,173,22,0,501,251,2026-01-27,https://github.com/Rickyy1017/Stellar-Defi-Vault/pull/446
+304,"screenshot, screenshots, image, png, image paths",185,169,227,10,4,35,2026-01-08,https://github.com/PHONNIXBA/stellar-chapter-pay/commit/b8b60a4ccfad9c958067faaa9dd34c2364358682
+305,"chat, conversation, bot, telegram, discord",185,185,185,544,42,285,2026-01-15,https://github.com/leojay-net/Stellar-Dex-Chat/issues/991
+306,"explorer, stellar expert, expert, explorer links, stellar explorer",185,183,70,217,22,119,2026-01-18,https://github.com/FinesseStudioLab/Trivela/issues/230
+307,"confirmation, dialog, confirmation dialog, destructive, confirmation modal",185,187,89,263,34,163,2026-02-18,https://github.com/GalactiGuild/Stellar-Guilds/issues/244
+308,"makefile, targets, justfile, makefile targets, target",184,192,34,327,13,185,2026-02-07,https://github.com/sonoflawal-1/Bazaar/issues/225
+309,"focused production, expanding beyond, readiness work, work without, documented scope",184,172,38,1041,15,788,2026-02-11,https://github.com/mind-vault-1/mindvault/issues/1165
+310,"camera, qrcode, scanner, code generation, scan",183,186,95,331,28,206,2026-01-17,https://github.com/broda-spendy/privacy-shield-payments/issues/66
+311,"pre commit, commit, commit hook, commitlint, pre",183,178,67,237,23,154,2026-01-24,https://github.com/CoralSwap-Finance/coralswap-core/issues/257
+312,"hooks, hook, src hooks, hooks __tests__, app src",183,181,107,643,22,356,2026-02-18,https://github.com/Feyisara2108/stellargive/issues/388
+313,"resolver, subdomain, resolution, section foundation, operator surface",181,177,114,299,53,218,2026-01-29,https://github.com/drydocs/tholos/issues/165
+314,"dead letter, letter, letter queue, dlq, dead",181,180,73,450,43,284,2026-02-06,https://github.com/SoroLabs/soroscope/issues/1399
+315,"lockfile, regenerate lockfile, lockfiles, lock file, frontend lockfile",180,177,271,2,3,78,2026-01-21,https://github.com/sublime247/mobile-money/commit/b652c3d150d89533a5aa63464abd0fd75e750ccf
+316,"prisma, prisma schema, schema prisma, prisma client, prisma migrate",180,182,579,508,115,431,2026-01-21,https://github.com/Vatix-Protocol/Swyft/issues/79
+317,"node, nvmrc, node version, engines, engines field",180,160,91,171,37,164,2026-01-29,https://github.com/Movalabs-crew/mova-store/issues/109
+318,"workflow, revert workflow, workflow error, workflow errors, issues workflow",179,172,291,4,13,53,2026-01-03,https://github.com/3K1-Labs/latch-contracts/commit/9e880de1d50c237271a5cac3378108d37ace37c0
+319,"breaking change, non breaking, type change, change which, breaking",177,177,14,0,622,308,2026-01-23,https://github.com/Ac0rdP/AccordProtocol/pull/714
+320,"session, sessions, session expiry, session management, session timeout",177,178,114,317,57,227,2026-01-19,https://github.com/Epta-Node/ai-net/issues/828
+321,"challenge, authentication, web authentication, stellar wallet, challenge response",176,167,116,201,58,100,2026-01-15,https://github.com/Deen-Bridge/dnb-backend/issues/25
+322,"order, orders, book, order book, ordering",176,179,82,354,33,253,2026-01-20,https://github.com/Akazajan/Oraculum/issues/96
+323,"stream, streams, create_stream, sender, streaming",173,178,389,1759,196,1115,2026-02-13,https://github.com/LabsCrypt/flowfi/issues/462
+324,"prettier, prettier formatting, prettierrc, format check, formatting",173,171,289,185,19,130,2026-01-20,https://github.com/scout-off/scout-off-backend/issues/545
+325,"bundle, bundle size, size, bundle analyzer, frontend bundle",171,168,56,290,17,169,2026-02-20,https://github.com/Health-watchers/health_watchers/issues/1478
+326,"sanitization, input sanitization, sanitize, xss, input",171,156,73,255,33,66,2026-01-18,https://github.com/augustina-jpg/scoopdope/issues/125
+327,"vesting, cliff, vesting schedule, schedule, vested",170,166,149,851,84,436,2026-01-20,https://github.com/xqcxx/stellarguard/issues/18
+328,"nft, nfts, nft contract, marketplace, implement nft",170,164,122,549,34,274,2026-01-17,https://github.com/Stellar-songifi/lyricsflip/issues/437
+329,"issues, four issues, assigned issues, identified issues, resolved",170,161,448,0,3,150,2026-01-23,https://github.com/OlaGreat/NovaSupport/commit/7ac7db2ceaf06b85c809250cb15bdbb6e7901efc
+330,"body size, body, size limit, express json, size",167,173,76,273,51,199,2026-01-23,https://github.com/Rentars/Rentars/issues/282
+331,"glossary, terms, docs glossary, specific terms, terminology",167,169,44,257,9,161,2026-02-25,https://github.com/Trea-Hub/trea-contract/issues/40
+332,"swap, body category, swaps, initiate_swap, atomic_swap",166,164,146,622,49,252,2026-01-01,https://github.com/MerkleMint/Atomic-IP-Marketplace/issues/248
+333,"links, broken, link checker, broken links, link check",165,161,106,170,48,219,2026-02-03,https://github.com/SorobanForge/stellar-streams/issues/145
+334,"tooltip, tip, tooltips, hover, tooltip component",164,166,80,277,22,113,2026-01-27,https://github.com/soroban-loyalty/Soroban-loyalty/issues/344
+335,"gitleaks, secret scanning, scanning, secret, pre commit",164,163,106,218,51,202,2026-03-25,https://github.com/ritik4ever/stellar-goal-vault/issues/629
+336,"offline, connectivity, online, banner, offlinebanner",164,177,54,316,32,165,2026-02-23,https://github.com/legend-esc/carbonchain/issues/1333
+337,"webhook, webhook delivery, delivery, webhook retry, backoff",164,165,66,428,44,240,2026-02-24,https://github.com/davedumto/LancePay/issues/264
+338,"constants, magic numbers, magic, named constants, ttl constants",164,166,97,225,44,133,2026-01-13,https://github.com/TwinTrustMainstay/Mainstay/issues/534
+339,"async, await, promise, asynchandler, rejections",163,162,164,118,45,129,2026-02-04,https://github.com/LabsCrypt/remitlend/pull/2337
+340,"que, del, con, los, por",161,133,1285,862,275,1482,2026-01-02,https://github.com/Micopay/micopay-protocol/issues/244
+341,"referral, referrer, referrals, implement referral, referral system",159,155,48,409,16,144,2026-01-21,https://github.com/SiLioLabs/PayFlow/issues/490
+342,"activity, activity feed, feed, activity timeline, recent",159,153,79,251,21,91,2026-01-14,https://github.com/Xoulomon/Stellar-Save/issues/491
+343,"redis, redis connection, distributed, distributed lock, redlock",159,159,184,276,57,239,2026-01-19,https://github.com/StellaBridge/Bridge-Watch/commit/baeb6b6a86f0ea1b6b2dc1065c6f1659a50da26c
+344,"moderation, moderation queue, discussion, discussions, content moderation",159,160,52,442,16,195,2026-01-18,https://github.com/BrainTease/Brain-Storm/issues/606
+345,"quickstart, stellar quickstart, local stellar, local, local network",158,154,32,180,12,137,2026-02-23,https://github.com/Data-Block1010/soroban-contract/issues/25
+346,"tailwind, css, tailwind css, tailwind config, classes",157,151,126,196,23,86,2026-01-20,https://github.com/Cylo-Traders/Agrocylo-PIP/issues/38
+347,"shas, commit shas, mutable, actions, commit sha",157,156,39,182,30,200,2026-02-13,https://github.com/veracindarella/paystream-contracts/issues/76
+348,"trustline, trustlines, usdc trustline, usdc, changetrust",157,158,138,234,38,202,2026-01-19,https://github.com/ScholarMarket/scholarmarket/issues/172
+349,"burn, burn_from, token burn, burning, burn function",157,151,98,307,46,164,2026-01-20,https://github.com/Fidelis900/soroban-starter-kit/issues/208
+350,"next image, image, images, lazy loading, lazy",157,151,49,272,35,129,2026-01-08,https://github.com/BrainTease/Brain-Storm/issues/1460
+351,"unwrap, unwrap calls, replace unwrap, unwrap expect, expect",153,154,141,302,87,229,2026-02-24,https://github.com/StellarYield/StellarYield-Contracts/issues/1421
+352,"score, credit, credit score, scoring, get_collateral_score",153,156,238,556,90,281,2026-01-20,https://github.com/TwinTrustMainstay/Mainstay/issues/332
+353,"tier, loyalty, tiers, tiered, silver",153,143,56,300,12,141,2026-01-20,https://github.com/Crowdfunding-DApp/stellar-raise-contracts/issues/42
+354,"lazy, code splitting, splitting, bundle, lazy loading",152,144,32,271,14,123,2026-02-18,https://github.com/Blue-Kollar/Blue-Collar/issues/1191
+355,"audit findings, nemesis audit, audit, nemesis, agent audit",151,144,197,5,28,98,2026-01-07,https://github.com/Ibinola/soroban-dev-console/commit/14cfab73e4f664b166c6c95bb5c16599b31b27b5
+356,"grafana, grafana dashboard, grafana dashboards, prometheus, dashboards",149,150,41,316,15,150,2026-01-20,https://github.com/veracindarella/votechain-contracts/issues/66
+357,"biometric, fingerprint, biometric authentication, device, fingerprinting",147,152,131,219,54,155,2026-01-15,https://github.com/Xoulomon/Stellar-Save/issues/999
+358,"policy, policies, policy contract, policy engine, contracts policy",147,146,133,329,39,274,2026-01-18,https://github.com/Stellar-Agent-Guard/stellar-agent-guard-contracts/issues/38
+359,"feature flag, feature flags, flags, flag, rollout",146,142,45,300,8,125,2026-01-20,https://github.com/El-Chapo-Npm/Soroban-Identity/issues/723
+360,"unused, unused variable, variable, unused variables, variable warnings",142,136,189,19,6,37,2026-01-21,https://github.com/MerkleMint/Atomic-IP-Marketplace/commit/fdda3ad495c89a5cfdfbd7a3237f71658b61ba90
+361,"math random, random, randomness, crypto, randomuuid",140,139,87,153,41,136,2026-02-17,https://github.com/LabsCrypt/flowfi/issues/1534
+362,"group, member, circle, members, groups",140,144,112,528,52,222,2026-01-02,https://github.com/BlockHaven-Labs/esustellar/issues/659
+363,"graphql, graphql api, resolvers, implement graphql, graphql schema",139,133,123,525,52,296,2026-02-17,https://github.com/Haroldwonder/SwiftRemit/issues/1120
+364,"comment, comments, commented, comment remaining, comment formatting",138,140,174,34,19,83,2026-01-22,https://github.com/OpenZeppelin/stellar-contracts/commit/9dd85c3094321353e112a5be0e15ff44804da236
+365,"contrast, wcag, color contrast, wcag contrast, color",138,138,74,191,46,169,2026-01-27,https://github.com/Fund-My-Cause/Fund-My-Cause/issues/1202
+366,"axe, axe core, accessibility, automated accessibility, accessibility testing",138,135,55,242,13,155,2026-02-25,https://github.com/EF-CHAIN/SendAm/issues/833
+367,"pdf, receipt, print, receipts, download",138,137,41,253,21,127,2026-01-22,https://github.com/Haroldwonder/SwiftRemit/issues/948
+368,"locale, formatting, locale aware, intl, dates",137,138,38,198,16,120,2026-01-21,https://github.com/chioma-housing-protocol-I/chioma/issues/1268
+369,"visual regression, visual, regression testing, regression, chromatic",137,140,39,281,2,149,2026-03-20,https://github.com/Xoulomon/Stellar-Save/issues/1555
+370,"secrets, secrets manager, secrets management, hashicorp, hashicorp vault",136,134,58,214,19,96,2026-01-18,https://github.com/soterika/aura-vault-protocol/issues/138
+371,"dalek, env host, soroban env, rand_core, pin dalek",136,134,186,22,18,78,2026-03-18,https://github.com/SweetieBirdX/ramp402/commit/ae4341ce1eb165e4b8248d001c352252e58bcec1
+372,"infinite scroll, scroll, infinite, scrolling, virtual",134,130,26,266,12,121,2026-01-20,https://github.com/Ethereal-Future/FuTuRe/issues/67
+373,"chaos, chaos engineering, engineering, implement chaos, resilience",132,124,37,281,9,144,2026-02-25,https://github.com/Stellar-IndigoPay/Stellar-IndigoPay/issues/1093
+374,"share, sharing, share button, copy link, shareable",131,124,33,237,7,96,2026-01-18,https://github.com/ritik4ever/stellar-goal-vault/issues/604
+375,"clarity quick, simplify logic, quick, logic quick, structure quick",130,126,183,9,12,14,2026-01-07,https://github.com/SentinelFi/sentinel_soroban_v3/pull/130
+376,"sla, slo, slos, error budget, service level",130,127,40,276,12,149,2026-01-20,https://github.com/Chrisland58/SorobanPay/issues/706
+377,"sentry, error tracking, integrate sentry, sentry error, source maps",129,125,32,212,14,71,2026-02-18,https://github.com/HyperSafeD/Sanctifier/issues/1148
+378,"memo, memos, stellar memo, memo field, transaction memo",129,124,77,219,43,159,2026-01-26,https://github.com/ancore-org/ancore/issues/1257
+379,"storybook, stories, stories tsx, storybook stories, storybook story",129,126,37,363,9,184,2026-01-16,https://github.com/joekeyz8/Lumigift-lumigift/issues/643
+380,"credential, credentials, implement credential, credential metadata, credential type",128,124,141,439,34,243,2026-01-24,https://github.com/Kevin737866/stellar-identity-credentials-sdk/issues/398
+381,"insurance, insurance pool, premium, insurance fund, parametric",128,131,77,412,24,145,2026-01-19,https://github.com/Blue-Kollar/Blue-Collar/issues/1436
+382,"slippage, slippage protection, slippage tolerance, tolerance, max_slippage_bps",128,131,96,251,45,215,2026-01-20,https://github.com/SETTLIX/settlix-contracts/issues/99
+383,"package lock, lock json, sync package, package, lock",127,116,192,0,4,28,2026-01-24,https://github.com/princesshittu/Nova-reward/commit/613cdd6f018d5e0e0d722d68c313d45e9e6e2282
+384,"bug report, report template, template, bug reports, templates",126,117,118,24,11,56,2026-02-03,https://github.com/lncekent/perapin/commit/c6435c945a34f5b48609d69d6bfec164244fc27c
+385,"matrix, authorization matrix, auth matrix, authorization, auth_matrix",126,126,103,208,79,199,2026-02-20,https://github.com/HubDApp/Dongle-Smartcontract/pull/287
+386,"player, players, game, tournament, arena",126,126,315,1395,135,939,2026-01-06,https://github.com/Stellar-songifi/Lyricsflip_server/issues/480
+387,"code_of_conduct, contributor covenant, covenant, code conduct, conduct",126,120,47,105,9,60,2026-02-18,https://github.com/Web3Novalabs/Nevo/issues/965
+388,"dispute evidence, evidence, dispute, evidence hash, evidence upload",126,136,60,263,12,174,2026-01-23,https://github.com/mergemint-mint/mergemint-contracts/issues/1019
+389,"simple, issues authored, authored simple, agent simple, simple agent",125,123,990,0,0,990,2026-10-06,https://github.com/stellar-vortex-protocol/vortex-contracts/commit/900213ec81fc8ad8173408f6bc3ed954f4744a1b
+390,"permissions, permissions block, least privilege, privilege, contents read",125,124,46,122,18,122,2026-01-23,https://github.com/Perenna-Labs/perenna-contracts/issues/105
+391,"sbom, cyclonedx, sbom generation, sboms, bill materials",124,118,48,140,23,127,2026-03-03,https://github.com/Elcare-care/elcare-care-app/issues/538
+392,"counting vulner, vote double, vulner, governance vote, double counting",124,120,403,1,10,28,2026-01-18,https://github.com/Timi16/soroban-debugger/commit/b6891bb2f91a0b84a63cf349920a8c6d6a4a8473
+393,"response, api response, standardize api, envelope, response envelope",123,115,32,191,15,95,2026-01-21,https://github.com/AetherEdu/AetherMint/issues/254
+394,"supabase, supabase client, rls, service role, supabase setup",123,120,241,81,48,114,2026-01-22,https://github.com/SnigdhaMandal/SettleX/issues/7
+395,"ipfs, pinata, cid, pinning, upload",123,124,103,348,36,152,2026-01-19,https://github.com/Tybravo/StellarProof/issues/674
+396,"drift, drift detection, drift check, terraform, detection",122,121,43,168,16,130,2026-01-23,https://github.com/stellar-vortex-protocol/vortex-contracts/issues/285
+397,"adversarial, adversarial regression, extend adversarial, regression cases, contracts admin",122,123,94,171,39,198,2026-01-20,https://github.com/CredenceOrg/Credence-Contracts/commit/ab44e2dd7c904e376d0da3c9019d12049c329dec
+398,"healthcheck, compose, docker compose, docker, compose yml",121,118,59,178,18,112,2026-03-26,https://github.com/soroban-loyalty/Soroban-loyalty/issues/378
+399,"disaster, disaster recovery, procedures, recovery, recovery procedures",121,117,22,218,8,92,2026-02-16,https://github.com/Health-watchers/health_watchers/issues/1259
+400,"contractevent, events publish, deprecated, env events, contractevent macro",118,117,62,115,15,105,2026-01-23,https://github.com/MentorsMind/MentorsMind-Contract/issues/1014
+401,"deadline, extend_deadline, deadline extension, new_deadline, extension",118,119,41,201,20,108,2026-01-23,https://github.com/EziAgric/EziAgric/issues/673
+402,"roadmap, roadmap sprint, sprint, sprint roadmap, sprint sprint",117,117,32,245,8,91,2026-01-22,https://github.com/0xLizTech/stellarforge/issues/532
+403,"lighthouse, web vitals, vitals, lcp, core web",117,115,27,207,10,105,2026-02-18,https://github.com/ritik4ever/stellar-goal-vault/issues/614
+404,"compression, gzip, response compression, brotli, compression middleware",117,115,19,188,7,43,2026-02-18,https://github.com/Devsol-01/Nestera/issues/940
+405,"webhook, webhook delivery, webhooks, internal webhook, webhooks closes",116,113,194,2,32,138,2026-01-29,https://github.com/MetroLogic/fluxapay_contract/commit/1c920280f65177188218221bf72b98c671e51d2e
+406,"slashing, slash, slashed, stake, bond",116,115,83,324,32,160,2026-01-21,https://github.com/NovaGrids/VaultDAO/issues/1268
+407,"amm, liquidity, tick, constant product, automated market",115,111,63,318,27,131,2026-01-03,https://github.com/A4-Stellar/Tessera/issues/361
+408,"memory leak, memory, leak, memory leaks, memory usage",115,109,47,174,31,83,2026-02-18,https://github.com/ToluLabs/StellarCred/issues/1083
+409,"husky, staged, lint staged, pre commit, commit hooks",115,110,47,152,18,54,2026-01-17,https://github.com/arflexx/Airflex/issues/98
+410,"resoled, failing, remaining error, issues, client failure",114,112,317,0,5,40,2026-01-23,https://github.com/salazarsebas/Cougr/commit/4e00b67005fb6d1e5895d837e88c78762a256952
+411,"crates cli, paths crates, affected paths, cli src, src commands",114,109,100,478,45,444,2026-01-06,https://github.com/SorobanGuard/Guard-CLI/pull/544
+412,"lint, linting, lint issues, linting errors, linting issues",113,109,168,1,3,21,2026-01-17,https://github.com/Ndifreke000/stellar-insights/commit/5ab499c5e871942ea135c4a8c343e38f4028b40a
+413,"address book, contacts, book, contact, recipient",113,114,55,178,9,58,2026-01-30,https://github.com/StellarStream-HQ/StellarStream/issues/795
+414,"protection rules, protection, status checks, required status, required checks",112,112,24,146,12,92,2026-03-23,https://github.com/Carbon-Ledger-stellar/carbonledger/issues/401
+415,"smart contract, smart, implement smart, contract enhancements, enhancements",112,111,109,24,21,46,2026-01-30,https://github.com/kike-alt/DeWordle/pull/1413
+416,"vercel json, vercel, rootdirectory, root directory, remove vercel",112,102,155,0,0,15,2026-01-13,https://github.com/rylsherdamz-rgb/dMessage/commit/3f464ee0e9351f4ab2645a7dc3fb34e873bfce34
+417,"markdown, markdownlint, markdown rendering, editor, markdown table",111,109,47,136,28,110,2026-01-22,https://github.com/StellarCanary/Protocol-Canary/pull/810
+418,"draft, drafts, autosave, save, draft autosave",110,120,64,180,33,142,2026-01-21,https://github.com/Junirezz/YieldVault-RWA/issues/141
+419,"react query, tanstack, react, tanstack query, query",110,113,54,186,19,101,2026-01-27,https://github.com/floxxih/ChainBridge/issues/143
+420,"getevents, get_events, limit, max_page, pagination",110,107,47,145,27,111,2026-02-18,https://github.com/Soumen1080/stellar-star/issues/104
+421,"gasless, relayer, sponsorship, gas, meta transactions",110,106,42,150,5,87,2026-01-20,https://github.com/amankoli09/LynxX/issues/46
+422,"settings, settings page, preferences, user settings, user preferences",109,107,24,169,7,37,2026-01-18,https://github.com/SoroScan/soroscan/issues/138
+423,"ttl bump, bump, ttl, ttl bumping, bumping",109,112,142,2,33,73,2026-01-31,https://github.com/Creditra/Creditra-Contracts/commit/40a5c39b542d24d0824894e1eb774d14f6dbd40c
+424,"deployment script, contract deployment, deployment, script, scripts",109,106,19,132,2,49,2026-01-16,https://github.com/BrainTease/Brain-Storm/issues/482
+425,"ethnum, transmute, e0512, tryfrominterror, bump ethnum",108,109,177,3,8,27,2026-04-21,https://github.com/thisisouvik/kredex/commit/64deb8695b53a02f913546558a871265f2a1ab1b
+426,"kubernetes, helm, k8s, helm chart, yaml",108,111,80,395,51,225,2026-02-18,https://github.com/BrainTease/Brain-Storm/issues/671
+427,"security closes, security, security security, docs security, symlink",108,107,119,10,36,73,2026-01-27,https://github.com/AgentPayEscrow/agent-escrow-contract/commit/9372bd3d766a281af0d3da62d11523b3f8b11e51
+428,"hours, hours labels, time hours, hours hours, estimated",107,102,15,554,5,212,2026-01-19,https://github.com/Fidelis900/soroban-starter-kit/issues/60
+429,"compliance, regulatory, compliance reporting, reporting, automated compliance",106,101,35,249,7,75,2026-01-23,https://github.com/Chrisland58/SorobanPay/issues/715
+430,"stroops, stroop, stroopstoxlm, xlm, xlmtostroops",105,109,65,138,49,125,2026-02-20,https://github.com/Netwalls/BOXMEOUT_STELLA/commit/e593cc8644c516e8bc8268b6851c3fed2b91e90c
+431,"according review, corrected code, code according, level six, google login",105,100,165,0,4,10,2026-01-12,https://github.com/BCPathway/bc-forge/commit/4640dd0968c4a3fa491bf3cf792f1d51245e0e16
+432,"tenant, multi tenant, isolation, tenant isolation, tenant data",104,107,63,211,19,115,2026-01-27,https://github.com/MentorsMind/MentorsMind-Backend/issues/985
+433,"pipeline, cicd pipeline, cicd, resolve pipeline, pipeline failures",103,97,165,5,8,3,2026-01-22,https://github.com/Fluxora-Org/Fluxora-Contracts/commit/8a434741a62f83b0da996426b5426c8c194237f4
+434,"sep, sep token, token interface, name symbol, sep compliance",103,99,44,122,6,70,2026-01-20,https://github.com/stellar-impact/aidflow/issues/12
+435,"aria live, live region, aria, region, polite",102,99,45,158,27,97,2026-03-26,https://github.com/Agora-Events/agora/issues/1224
+436,"csrf, csrf protection, csrf token, cookie, double submit",102,106,85,175,44,112,2026-01-22,https://github.com/Agora-Events/agora/issues/951
+437,"bounty, bounties, bug bounty, complete_bounty, bounty program",102,100,96,373,78,208,2026-01-20,https://github.com/mergemint-mint/mergemint-contracts/issues/836
+438,"invoice, invoices, invoice_id, invoice status, due date",101,102,269,706,110,450,2026-01-27,https://github.com/StellarState/SS-contracts/issues/32
+439,"symbol_short, symbol, characters, soroban symbol, chars",101,102,69,102,17,67,2026-01-22,https://github.com/StellarLend/stellarlend-contracts/issues/1450
+440,"terraform, infra terraform, infrastructure, terraform modules, infra",101,99,84,462,37,317,2026-03-09,https://github.com/Rosemary-ux/lyricsflip/issues/193
+441,"hydration, hydration mismatch, mismatch, ssr, react hydration",101,101,91,50,32,51,2026-01-30,https://github.com/soterika/aura-vault-protocol/pull/1045
+442,"dynamic, dynamic fee, implement dynamic, dynamic pricing, pricing",99,95,25,191,2,71,2026-02-14,https://github.com/Arenax-gaming/ArenaX/issues/502
+443,"avatar, avatar upload, avatars, initials, profile avatar",99,98,57,130,18,51,2026-01-26,https://github.com/samieazubike/stellar-wave-hub/issues/537
+444,"totp, factor authentication, two factor, factor, mfa",98,98,73,211,40,94,2026-02-19,https://github.com/Devsol-01/Nestera/issues/464
+445,"npm, npm cache, remove npm, node_modules, npm install",98,96,118,0,3,34,2026-01-25,https://github.com/Just-Bamford/Stellar-Royalty-Splitter/commit/f67a8d325c7da94aff35766131cdd1df449fe98c
+446,"discriminant, discriminants, duplicate discriminant, contracterror, error discriminants",98,100,107,118,45,122,2026-03-23,https://github.com/Chrisland58/SorobanPay/issues/772
+447,"operator, set_operator, operator role, operator address, operators",98,97,49,191,19,126,2026-02-23,https://github.com/ApexChainx/ApexChainx-Contracts/issues/469
+448,"debounce, keystroke, usedebounce, debounced, every keystroke",98,103,46,148,22,97,2026-02-20,https://github.com/OdyxeeeLabs/Perigee/issues/461
+449,"staging, staging environment, environment, environment parity, create staging",97,95,13,133,3,66,2026-02-24,https://github.com/Blue-Kollar/Blue-Collar/issues/575
+450,"app router, next app, structure, next, scaffold",97,94,12,120,1,24,2026-01-18,https://github.com/arflexx/Airflex/issues/123
+451,"jsdoc, jsdoc comments, exported, jsdoc exported, exported api",96,94,27,151,9,45,2026-02-20,https://github.com/Hexor-Hash/CargoSoroban/issues/141
+452,"preview, preview url, preview deployments, preview environments, preview deployment",96,96,32,127,19,85,2026-02-18,https://github.com/ToluLabs/StellarCred/issues/141
+453,"password, password reset, reset, forgot, forgot password",96,96,88,250,36,134,2026-01-22,https://github.com/DistinctCodes/AssetsUp/issues/1255
+454,"scroll, scroll position, sticky, position, scrolls",95,99,90,51,29,75,2026-02-04,https://github.com/dev-kiki0/kikis-app/issues/263
+455,"readme, readme contributing, security policy, section readme, examples security",94,90,96,4,2,38,2026-01-25,https://github.com/SplitStream-Labs/splitstream-core/commit/dc79ebafbe1f84a7f05a732bef74e5375ed1bf26
+456,"blue green, blue, green deployment, green, canary",94,92,13,190,6,70,2026-02-19,https://github.com/Lex-Studios/Stellar-Spend/issues/513
+457,"compilation errors, compilation, rust compilation, compile errors, resolve compilation",93,90,139,0,7,15,2026-01-21,https://github.com/OpenPeerX/Peerx-Contracts/commit/9779d1fff826b84d975fbd123c7bcc0929bb4168
+458,"pin, checkout solidity, solidity dependencies, starlette, pin toolchains",93,91,168,9,3,104,2026-01-08,https://github.com/Pi-Defi-world/acbu-smart-contract/commit/00853d6056f1ded39468fc4de2359a42b92ba189
+459,"failing checks, failing, failinf, checks, passing checks",93,89,162,1,3,17,2026-01-25,https://github.com/StellarRoute/StellarRoute/commit/b7d64f2644fa1e42bc2a120df7e3700e0fe1acab
+460,"video, clip, clips, ffmpeg, create video",92,89,44,219,2,70,2026-02-05,https://github.com/ANYTECHS/clips-backend/issues/215
+461,"executable verification, normal failure, cover normal, verification document, criteria cover",91,88,11,1151,4,1055,2026-01-21,https://github.com/Obiajulu-gif/vaultquest-archive/issues/1041
+462,"comparison, side side, compare, side, comparison view",91,89,16,151,2,54,2026-02-18,https://github.com/ritik4ever/stellar-portfolio-rebalancer/issues/1239
+463,"bet, bets, bettor, outcome, place_bet",90,91,191,549,92,337,2026-01-18,https://github.com/Presago-Labs/presago-contracts/issues/59
+464,"sequence number, sequence, account sequence, number, tx_bad_seq",89,88,37,97,18,71,2026-02-21,https://github.com/Emmyt24/nova-launch/issues/1155
+465,"zustand, state management, global state, store, zustand store",89,87,40,149,8,39,2026-01-19,https://github.com/soroventures/SoroMint/issues/88
+466,"diff, diff view, side side, diff viewer, compare",89,84,36,196,8,122,2026-01-19,https://github.com/Ibinola/soroban-dev-console/issues/129
+467,"geolocation, coordinates, geo, gps, geographic",88,87,39,185,10,69,2026-01-19,https://github.com/Rentars/Rentars/issues/590
+468,"ghcr, multi arch, arm64, amd64, arch",88,82,28,108,9,66,2026-02-12,https://github.com/katecatherinaa/solarproof/issues/703
+469,"brace, closing brace, closing, missing closing, closing braces",88,88,138,1,3,34,2026-01-26,https://github.com/zintarh/stellar-wrap-contract/commit/01f5592433a90c231ada175065ec49ecd660fb0c
+470,"replica, read replica, read replicas, replicas, replication",88,85,18,138,5,73,2026-01-23,https://github.com/OdyxeeeLabs/Perigee/issues/603
+471,"deep, deep link, deep linking, deep links, links",87,91,30,126,12,67,2026-01-24,https://github.com/Rosemary-ux/lyricsflip/issues/201
+472,"trivy, scanning, container, container image, images",87,82,55,105,22,93,2026-01-30,https://github.com/Blue-Kollar/Blue-Collar/issues/577
+473,"twap, weighted average, time weighted, average price, twap oracle",86,87,47,226,26,125,2026-01-12,https://github.com/Galaxy-KJ/Galaxy-DevKit/issues/371
+474,"csv, formula injection, formula, spreadsheet, csv export",86,89,54,119,41,120,2026-02-19,https://github.com/LabsCrypt/remitlend/issues/1893
+475,"workflows deploy, deploy, deploy yml, deploy workflow, staging",86,90,26,102,7,61,2026-02-18,https://github.com/BigNathan1/CoopLumen/issues/419
+476,"formatting, prettier, formatting pass, format, format code",86,84,154,2,2,25,2026-01-22,https://github.com/ASTROIDX556/astroid-contract/commit/10bc6956c4ef3f7f7f9dc27ed297047686fb7bfc
+477,"robots, sitemap, robots txt, txt, sitemap xml",85,84,22,100,13,64,2026-01-29,https://github.com/ANYTECHS/clips-frontend/issues/531
+478,"sandbox, sandbox environment, sandbox mode, sandboxed, implement sandbox",85,78,26,123,7,50,2026-01-17,https://github.com/Smartdevs17/agenticpay/issues/237
+479,"import statement, statement formatting, import, imports, import order",85,82,125,1,4,19,2026-01-24,https://github.com/Fundable-Protocol/stellar_client_os/commit/25a2a74e64123cc9d67f724095e34f71d9d25a2d
+480,"technical documentation, adds technical, solutions implemented, description adds, comprehensive summary",84,84,93,1,9,25,2026-01-13,https://github.com/OlaGreat/NovaSupport/commit/d8917a8ff3439e320abfe4d2c3e77172b4888783
+481,"nestjs, module overview, endpoints method, method path, path description",83,82,55,433,15,60,2026-01-16,https://github.com/tosirano/thelighted/issues/235
+482,"soroban sdk, upgrade soroban, downgrade soroban, sdk resolve, sdk",83,81,97,3,4,23,2026-01-22,https://github.com/orsar-rita/healthy-lab/commit/812583d2ce9d39789d3312ff4104f82239aa7ba5
+483,"libdbus, libudev, libudev dev, libdbus dev, hidapi",81,80,108,5,2,27,2026-01-21,https://github.com/sohumvenkatadri7/SoroHub-Bounty/commit/8c2fe7bdea977698eeec784be2b9292ba2059217
+484,"etag, none match, etags, cache control, conditional",81,80,22,115,7,66,2026-03-21,https://github.com/El-Chapo-Npm/Soroban-Identity/issues/745
+485,"constant time, timing, timingsafeequal, comparison, time comparison",80,81,59,93,35,88,2026-02-22,https://github.com/StellarYield/StellarYield-Contracts/issues/1240
+486,"codeql, javascript typescript, codeql yml, codeql analysis, codeql security",80,75,41,76,15,68,2026-03-26,https://github.com/CoralSwap-Finance/coralswap-sdk/issues/321
+487,"i18n, locales, translation, translation keys, locale",79,78,36,134,25,120,2026-02-23,https://github.com/Savitura/crowdpay/issues/865
+488,"security checklist, checklist, audit checklist, review checklist, security review",78,75,96,12,7,21,2026-01-28,https://github.com/ANTAPEX/Soroban-Registry/commit/c82c420e1bd0d0fe88ac7bb259cd7a22d0edfc50
+489,"flaky, quarantine, flake, flakiness, remove flaky",78,78,52,107,38,122,2026-02-12,https://github.com/Blue-Kollar/Blue-Collar/issues/1454
+490,"partitioning, partition, sharding, vacuum, partitions",77,79,20,134,15,77,2026-02-25,https://github.com/pendulum-max/Veritag/issues/82
+491,"conflicts, conflict, resolve conflicts, resolving conflicts, resolve conflict",77,77,100,0,2,5,2026-01-22,https://github.com/CarbonScribe/carbon-scribe/commit/b82db270b9c61b9bc559ae114fb39b40df902b2e
+492,"devcontainer, devcontainer json, devcontainer devcontainer, codespaces, devcontainer configuration",76,74,14,92,7,61,2026-01-17,https://github.com/mergemint-mint/mergemint-contracts/issues/209
+493,"shared helper, extract, helper ghit, extracts shared, helper requirements",75,75,36,184,20,44,2026-02-07,https://github.com/StableRoute-Org/Stableroute-contracts/issues/309
+494,"react native, mobile app, mobile, native, ios",75,74,25,259,12,65,2026-01-24,https://github.com/soterika/aura-vault-protocol/issues/108
+495,"build error, build errors, build, errors onboarding, build fail",74,71,111,0,3,4,2026-01-18,https://github.com/Adwaitbytes/StellaRay/commit/f6608d0f14913a933b345df0676193ead24fe1e1
+496,"lockout, account lockout, brute force, brute, attempts",74,76,45,115,27,81,2026-03-19,https://github.com/Xconfess/Xconfess/issues/1286
+497,"certificate, certificates, pdf, issue_certificate, course",73,75,69,300,38,175,2026-01-21,https://github.com/augustina-jpg/scoopdope/issues/1294
+498,"username, usernames, username validation, characters, alphanumeric",73,75,82,173,35,115,2026-01-22,https://github.com/Fracverse/zaps/issues/518
+499,"non root, root user, dockerfile, runs root, root",72,72,28,84,15,71,2026-04-04,https://github.com/augustina-jpg/scoopdope/issues/1183
+500,"review feedback, address review, address coderabbit, coderabbit review, review comments",71,66,158,1,1,52,2026-01-22,https://github.com/ancore-org/ancore/commit/5bfebded23989abf8910851435b1683fd2b2811f
+501,"editorconfig, editors, indentation, endings, line endings",71,65,2,77,2,28,2026-03-22,https://github.com/ShippedLabs/soroban-upgrade-safeguard/issues/184
+502,"dex, stellar dex, dex integration, order book, liquidity",70,68,17,99,3,30,2026-01-20,https://github.com/zeekman/Cross-Border-Payment-App-for-Africa/issues/78
+503,"audit log, date range, date, admin audit, log",70,72,19,96,4,59,2026-02-26,https://github.com/OphirPay/OphirPay/issues/193
+504,"commit reversing, reversing changes, reversing, squashed, reverts commit",70,69,112,3,25,54,2026-01-16,https://github.com/Highrable/Highrable-Stellar/pull/178
+505,"rates, exchange, exchange rate, exchange rates, rate",69,71,48,126,15,76,2026-01-20,https://github.com/joekeyz8/Lumigift-lumigift/issues/317
+506,"donation, donor, donations, donate, donors",69,70,81,290,22,107,2026-01-19,https://github.com/Feyisara2108/stellargive/issues/1316
+507,"conflict markers, markers, conflict, conflict marker, marker",68,66,75,11,8,30,2026-02-20,https://github.com/mind-vault-1/mindvault/commit/59b4f22cfb048dcb8c3c75a84831d9b21ec9ae18
+508,"poseidon, poseidon2, poseidon hash, commitment, sponge",68,63,65,61,8,35,2026-01-20,https://github.com/Pi-Defi-world/acbu-backend/issues/1355
+509,"overflow checks, checks true, release profile, profile release, overflow",68,67,37,47,14,53,2026-01-16,https://github.com/cocor-tech/moistello-contracts/issues/575
+510,"muxed, muxed account, muxed accounts, muxed addresses, muxed address",68,60,43,69,21,85,2026-02-20,https://github.com/stellar/stellar-cli/issues/2645
+511,"touch, touch target, touch targets, swipe, gesture",67,65,34,52,13,42,2026-02-07,https://github.com/soroban-loyalty/Soroban-loyalty/issues/346
+512,"log aggregation, elk, loki, elk stack, aggregation",67,65,12,97,0,31,2026-02-24,https://github.com/Fund-My-Cause/Fund-My-Cause/issues/340
+513,"campaign, campaigns, cancel_campaign, campaign status, creator",66,63,135,350,116,238,2026-01-22,https://github.com/Iris-IV/ProofOfHeart-stellar/pull/422
+514,"content link, skip link, skip, skip content, keyboard users",66,66,14,73,14,47,2026-03-26,https://github.com/zeekman/FarmersMarketplace/pull/1115
+515,"badge, badge url, badge urls, badge link, scout off",66,65,74,0,11,25,2026-03-08,https://github.com/elenajoyce/astrobridge-core/commit/54d12dcc944bbd132f7fe3fca63f35fef8afe5ea
+516,"cost, cost optimization, cost monitoring, implement cost, budget alerts",66,63,9,137,1,49,2026-02-18,https://github.com/Xoulomon/Stellar-Save/issues/1092
+517,"breadcrumb, breadcrumbs, breadcrumb navigation, navigation, breadcrumb component",65,70,16,109,9,49,2026-02-19,https://github.com/HyperSafeD/Sanctifier/issues/1677
+518,"carbon, farmer, farmers, carbon credit, credit",65,71,51,508,29,343,2026-01-19,https://github.com/Farm-credit/stellar-app-os/issues/1818
+519,"gamification, achievement, achievements, badges, engagement",65,65,12,153,4,37,2026-01-19,https://github.com/AgesEmpire/StellarSwipe-Backends/issues/101
+520,"cdn, cloudfront, static assets, edge caching, static",65,65,24,106,4,43,2026-02-23,https://github.com/Health-watchers/health_watchers/issues/1261
+521,"region, multi region, failover, region failover, replication",64,65,13,117,1,54,2026-03-21,https://github.com/Xoulomon/Stellar-Save/issues/1138
+522,"royalty, royalties, royalty recipient, royalty configuration, contract royalties",64,62,64,396,28,178,2026-01-17,https://github.com/mind-vault-1/mindvault/issues/810
+523,"guardian, guardians, guardian list, votes, guardian_trigger",64,69,98,190,52,230,2026-03-01,https://github.com/SoroWill/sorowill-contracts/pull/449
+524,"register_contract, env register_contract, deprecated, env register, deprecated register_contract",64,62,80,24,5,25,2026-01-01,https://github.com/suplex-deal/Trustchain-contracts/commit/bd5848ab92482c4fe33bc12215ac7eff953bf3e6
+525,"sqlite, postgresql, postgres, sqlite postgresql, sqlite postgres",63,62,42,106,14,70,2026-01-27,https://github.com/Abdulazeem-code/stellar-tags/pull/580
+526,"proposals, get_proposal, proposal, list_proposals, get_proposal_count",63,63,21,136,7,83,2026-02-18,https://github.com/Stellopay/stellopay-core/issues/601
+527,"sanctions, screening, ofac, sanctions screening, sanctions list",61,58,25,127,7,71,2026-02-19,https://github.com/MettaChain/PropChain-contract/issues/528
+528,"implementation summary, comprehensive implementation, next steps, considerations, comprehensive",60,60,76,1,1,10,2026-02-07,https://github.com/soroventures/SoroMint/commit/7d55ee6834cc00e57ea06a110ef7a9efc6afe196
+529,"failing, resolve failing, resolve, failure, cases",60,59,102,1,1,3,2026-01-02,https://github.com/Fluxora-Org/Fluxora-Contracts/commit/6a2375780a23bcf0c83a35412519740929d5ff4b
+530,"outbox, transactional outbox, transactional, outbox pattern, outbox table",60,62,16,103,2,61,2026-03-09,https://github.com/Health-watchers/health_watchers/issues/1432
+531,"contracts receipt, refund vault, receipt anchor, contracts refund, src services",59,56,451,0,5,158,2026-02-26,https://github.com/BigNathan1/CoopLumen/commit/70bb3b3a0b15edc06c2b08a9ac1a46b454accaae
+532,"aria describedby, describedby, aria, aria invalid, via aria",58,57,25,51,12,44,2026-04-20,https://github.com/lernza/lernza/issues/945
+533,"demo link, demo video, video link, link readme, live demo",58,52,63,2,0,10,2026-02-07,https://github.com/purvai12/Clarix/commit/4326fba4276cfe94eff5b30fd3685cffa7604898
+534,"format code, format, assertions, formatting, format codebase",58,56,107,3,0,15,2026-02-19,https://github.com/theblockcade/stellarcade/commit/c9ce3cb072199945b7347e1a4af57e2ba245b06c
+535,"command palette, palette, ctrl, command, cmd",58,56,13,109,3,56,2026-02-18,https://github.com/Lex-Studios/Stellar-Spend/issues/708
+536,"stale, stale yml, stale bot, exempt, after days",57,56,14,64,12,46,2026-02-22,https://github.com/mercyJJ/cosmosvote/issues/479
+537,"tvl, value locked, total value, locked tvl, vault tvl",57,56,25,106,12,59,2026-01-05,https://github.com/AgesEmpire/StellarSwipe-Contract/issues/673
+538,"content type, application json, type application, content, json content",57,59,23,69,13,47,2026-03-23,https://github.com/Hexor-Hash/CargoSoroban/issues/69
+539,"hook form, react hook, form, zod, form validation",57,54,14,66,3,22,2026-01-21,https://github.com/SudiptaPaul-31/Codely/issues/24
+540,"fork prs, fork, pull_request_target, prs, pull_request",56,56,71,12,24,38,2026-02-21,https://github.com/AetherEdu/AetherMint/pull/335
+541,"mermaid, diagrams, mermaid diagrams, mermaid diagram, diagram",54,52,60,5,8,25,2026-03-19,https://github.com/nishant-uxs/krydo-next/commit/47164b5658659801a787829cd1401cd9add1266f
+542,"build issues, build, attempt, issues, final",54,54,96,0,2,1,2026-01-21,https://github.com/Talenttrust/Talenttrust-Contracts/commit/9a90cb07014e40af83b8693519b789afb537b452
+543,"hpa, scaling, autoscaling, auto scaling, horizontal pod",54,57,4,111,4,40,2026-02-19,https://github.com/Axionvera/axionvera-network/issues/64
+544,"streak, streaks, streak tracking, consecutive, daily",53,52,28,134,15,54,2026-01-12,https://github.com/Arenax-gaming/ArenaX/issues/899
+545,"local soroban, against local, local sandbox, sandbox, local",53,51,3,58,1,15,2026-03-24,https://github.com/VERITOKEN-xx/Veritoken/issues/271
+546,"crypto bigint, rustsec, bigint, crypto, elliptic curve",51,49,41,14,11,66,2026-10-24,https://github.com/OGRoute/openajo-contract/commit/4372613fc0aec479811880da4f707748cd615ffa
+547,"typedoc, api reference, tsdoc, typedoc json, generated api",51,49,6,68,1,28,2026-02-21,https://github.com/mergemint-mint/mergemint-contracts/issues/1093
+548,"refactor, better maintainability, refactor improve, replay script, maintainability",50,50,41,17,8,7,2026-01-09,https://github.com/Flipa-reps/Flipa-Contract/commit/e1ec54ae73cc71d677e2fa6ecd11f505642fb3de
+549,"hmac, signing, hmac sha256, signature, sha256",50,51,33,57,9,45,2026-02-21,https://github.com/El-Chapo-Npm/Soroban-Identity/issues/752
+550,"cidr, admin endpoints, cidr ranges, whitelist, whitelisting",50,51,30,73,10,44,2026-02-18,https://github.com/dupdab/dupdapp_stellar/issues/729
+551,"address issues, address assigned, issues through, address, issues",49,48,61,0,10,52,2026-01-13,https://github.com/Auctra-palace/Auctra-contracts/commit/8188a55e665ff52d829ae2661ba95f52cb783372
+552,"confetti, animation, confetti animation, canvas confetti, celebration",49,49,13,65,2,29,2026-02-20,https://github.com/joekeyz8/Lumigift-lumigift/issues/726
+553,"consent, consent banner, cookie consent, banner, cookie",49,50,23,73,6,45,2026-02-19,https://github.com/LumenTix-HQ/lumentix/issues/1048
+554,"pub initialize, initialize env, initialize, rust pub, env admin",49,48,0,92,5,43,2026-03-23,https://github.com/soropad/launchpad/issues/359
+555,"formatting, contract formatting, formatting contracts, contract_access, formatting issues",49,48,66,0,1,12,2026-01-21,https://github.com/PhasoraLabs/StellarGrantProtocol/commit/b1a06bb67de717ca81e3ef35f658c21e87b4995d
+556,"pipeline, pipeline errors, pipeline checks, pipeline error, pipeline issues",48,48,111,1,3,9,2026-01-23,https://github.com/OtowoOrg/Stellar-K8s/commit/4877735a3e24c800bd31608f16408978f5a97112
+557,"drag, drop, reordering, widgets, widget",48,51,8,74,1,18,2026-02-18,https://github.com/El-Chapo-Npm/Soroban-Identity/issues/1108
+558,"cid, cidv0, ipfs cid, cidv1, ipfs",48,51,40,94,17,55,2026-02-18,https://github.com/Happybello365/innov8/issues/7
+559,"mpp, mpp session, mcp, session, mpp charge",48,51,94,134,67,216,2026-02-25,https://github.com/dev-kiki0/kikis-app/commit/6e538611449ca85fa3eaab40400c6e77408105fa
+560,"state effect, setstate, effect, react hooks, effect lint",47,47,72,9,6,18,2026-02-20,https://github.com/Neziahtech/streampay/commit/0a719cea2115a01cc26a2bc91bed829765a718c5
+561,"zsh, completions, bash zsh, fish, shell completion",47,45,3,67,1,31,2026-01-28,https://github.com/Timothy2025-20/stellar-dev-cli/issues/5
+562,"explicit any, eslint explicit, eslint, typescript eslint, unused vars",47,50,32,92,12,89,2026-03-27,https://github.com/Xoulomon/Stellar-Save/issues/1560
+563,"shellcheck, shell scripts, scripts, shell, run shellcheck",46,47,10,53,4,53,2026-01-30,https://github.com/WHEELBACK/COMEBACKHERE/issues/482
+564,"broken workflow, workflow, workflow actions, steps closes, repair broken",46,45,45,0,15,3,2026-01-21,https://github.com/Arena1X/InsightArena/commit/c703102332fea1f124215d089d16aeb1ade6660d
+565,"stellar signed, signmessage, freighter, freighter signmessage, signed message",46,46,49,10,6,26,2026-02-23,https://github.com/thatminh095-crypto/Receh/commit/a8b66dbf80793dcea661f8f79e1c5380eacaf758
+566,"embed, widget, embeddable, iframe, embed widget",46,45,13,83,12,62,2026-03-01,https://github.com/ritik4ever/stellar-goal-vault/issues/599
+567,"simple, authored simple, agent simple, simple agent, simple dev",45,43,155,0,0,155,2026-10-15,https://github.com/SoroStream/sorostream-contracts/commit/2f4c4b9e61e31bed8defcc90d4d8b08a249b4898
+568,"path aliases, tsconfig, aliases, typescript path, path alias",44,42,32,26,3,18,2026-02-18,https://github.com/Blue-Kollar/Blue-Collar/issues/1481
+569,"cli error, cli errors, cli, cli build, revert",44,44,60,1,4,12,2026-01-26,https://github.com/EarnQuestOne/stellar_Earn/commit/5d61abb520483226f8773c5f708e08caeae690da
+570,"matrix, toolchain, toolchain matrix, matrix testing, rust toolchain",44,44,9,46,1,30,2026-03-23,https://github.com/ogenyialice120/soroban-upgrade-manager/issues/146
+571,"sarif, code scanning, sarif output, github code, format sarif",44,42,23,71,12,62,2026-03-19,https://github.com/Centurylong/sanctifier/issues/129
+572,"document storage, document soroban, storage ttl, storage layout, ttl",44,44,51,1,2,20,2026-03-24,https://github.com/soroban-forge-labs/soroban-forge/commit/e8e87f316b839015941f06f38ab5ad766766f977
+573,"",43,41,91,0,0,83,2026-03-30,https://github.com/Pi-Defi-world/acbu-backend/commit/8e1a971fcff1927f5e91ede765bed2e825b56e8f
+574,"footer, footer component, footer tsx, copyright, links",43,45,6,47,1,12,2026-02-19,https://github.com/Stellar-Veriphy/Stellar-Veriphy/issues/65
+575,"passes cargo, warnings passes, cargo clippy, what changed, passes",43,43,6,0,96,53,2026-02-21,https://github.com/cybermax4200/stellar-did-credit/pull/93
+576,"savings, goals, savings goals, savings goal, goal",43,41,34,318,15,123,2026-01-18,https://github.com/stowp/Stow/issues/518
+577,"create security, security, codeowners, contributing, create",43,41,44,1,1,11,2026-03-27,https://github.com/AureumDCA/dca-vault-contract/commit/f95671ae0295afd49f9c5c83232d83ce8738a390
+578,"build error, builf error, builf, migeration, migeration error",42,43,71,0,0,2,2026-01-21,https://github.com/Alien-Protocol/Alien-Protocol/commit/377d49ddfda55eec70d7f67e0759716b5063f583
+579,"google, oauth2, oauth, social login, oauth2 social",42,41,12,56,4,8,2026-01-23,https://github.com/akordavid373/sealed-auction-platform/commit/a38776450e46956d4dd84e08cf90b4979c809269
+580,"timeout minutes, minutes, timeout, hung, github default",42,44,7,70,10,55,2026-05-31,https://github.com/EziAgric/EziAgric/issues/685
+581,"pipefail, euo pipefail, euo, fast error, handling scripts",41,40,23,38,13,51,2026-03-26,https://github.com/HyperSafeD/Sanctifier/issues/1923
+582,"profile page, profile, app profile, public profile, user profile",40,39,4,84,0,7,2026-01-18,https://github.com/ognla-payeasy/payeasy/issues/64
+583,"owasp, owasp top, penetration, security testing, owasp zap",40,38,19,42,15,6,2026-01-27,https://github.com/ritik4ever/stellar-portfolio-rebalancer/issues/1029
+584,"rtl, arabic, rtl layout, right left, hebrew",39,38,7,52,1,30,2026-03-25,https://github.com/chioma-housing-protocol-I/chioma/issues/1269
+585,"hsm, kms, hardware security, aws kms, module hsm",39,39,8,60,4,33,2026-01-23,https://github.com/Abdulazeem-code/stellar-tags/issues/771
+586,"postmortem, postmortem template, incident, post mortem, mortem",39,39,12,56,4,32,2026-02-22,https://github.com/stellar-vortex-protocol/vortex-contracts/issues/301
+587,"autocomplete, suggestions, search suggestions, search, search autocomplete",39,39,8,50,1,16,2026-01-18,https://github.com/Carbon-Ledger-stellar/carbonledger/issues/969
+588,"loading tsx, loading, skeleton, skeletons, level loading",39,38,0,59,0,22,2026-02-16,https://github.com/Agora-Events/agora/issues/1380
+589,"booking, bookings, src bookings, availability, workspace_booking",39,38,47,257,36,200,2026-01-20,https://github.com/chioma-housing-protocol-I/chioma/issues/1324
+590,"performance regression, performance, performance regressions, automated performance, regression detection",38,39,0,51,1,12,2026-03-27,https://github.com/BrainTease/Brain-Storm/issues/340
+591,"credential, engineer, credential expiry, renewal, renew_credential",38,37,131,147,43,46,2026-03-23,https://github.com/TwinTrustMainstay/Mainstay/issues/1041
+592,"trace context, trace, traceparent, tracing, w3c",38,39,14,45,5,38,2026-03-28,https://github.com/abore9769/SorobanAnchor/issues/610
+593,"closes closes, security closes, closes, security testing, issues closes",38,38,1,0,41,14,2026-02-19,https://github.com/Smartdevs17/stellarlend/commit/6e9756bdf130dac20f86d21c3af6f95609e39b88
+594,"performance monitoring, performance, monitoring, performance metrics, web vitals",37,34,1,54,0,3,2026-01-20,https://github.com/Xoulomon/Scavenger/issues/590
+595,"epic, epic overview, scope requirements, technical design, overview straightforward",37,34,19,614,8,401,2026-02-19,https://github.com/OtowoOrg/Stellar-K8s/issues/1797
+596,"menu, mobile menu, route change, close mobile, mobile nav",37,37,20,28,15,26,2026-01-24,https://github.com/DevQwinB/Verity/issues/337
+597,"design system, component library, design, typography, library",37,35,5,49,1,16,2026-02-18,https://github.com/soterika/aura-vault-protocol/issues/96
+598,"resolve failing, failing checks, failing, resolve, checks",37,35,292,0,1,276,2026-02-23,https://github.com/Johnpii1/SolarBond/commit/5b1c9bb5bd5e2927053783e91728d311dd784cbf
+599,"exception filter, exception, global exception, common filters, allexceptionsfilter",37,38,22,86,11,44,2026-01-19,https://github.com/Vatix-Protocol/Swyft/commit/3f44a84ebd81aa25b44c8f975ca4d044cf0234bc
+600,"scmap, scmap keys, sorted, sort, sorted key",37,34,27,14,3,23,2026-01-15,https://github.com/C-Address-Onboarding-Bridge/C-Address-Onboarding-Bridge--Contract/commit/ff344e347eb8a57d89e916b031d8b922b0ab8db7
+601,"vscode, vscode extension, code extension, extension, extensions",37,37,7,143,5,33,2026-01-19,https://github.com/Timi16/soroban-debugger/issues/538
+602,"cors, cors configuration, configuration hardening, implement cors, origins",36,35,48,2,0,14,2026-01-31,https://github.com/hous3-digital/vesta-aws-app-ecs-backend/commit/139633499ec8e6fafdf285541145186445574f34
+603,"web stellar, uri, stellar pay, sep uri, sep payment",36,36,13,39,2,25,2026-02-21,https://github.com/Genghis-codes/Stellar-Global-Wallet/issues/66
+604,"formatting, formatting lib, formatting issues, issues lib, comment formatting",36,35,54,0,2,11,2026-01-31,https://github.com/NovaGrids/VaultDAO/commit/f6c57d8bca43f3a93ac92ea498c65153f11831f4
+605,"collaboration, collaborative, time collaboration, collaboration features, real time",35,34,3,61,1,22,2026-01-19,https://github.com/Health-watchers/health_watchers/commit/f4a4a34af729e90e2944a5f7454477a933f87395
+606,"haptic, haptic feedback, haptics, feedback, tactile",35,37,9,52,2,32,2026-03-21,https://github.com/Rosemary-ux/lyricsflip/issues/200
+607,"unmount, abortcontroller, after unmount, usefetch, cancel flight",35,35,8,33,5,9,2026-02-20,https://github.com/ritik4ever/stellar-bounty-board/issues/70
+608,"conventional, conventional commits, titles, commits, title lint",35,34,9,33,11,22,2026-02-18,https://github.com/Fidelis900/soroban-starter-kit/issues/658
+609,"based pagination, offset, cursor based, keyset, pagination",35,37,4,41,1,19,2026-02-23,https://github.com/smokeylenz1-commits/stellar-nintendo-crest/issues/234
+610,"ticket, tickets, resale, ticketing, seat",35,35,66,400,25,250,2026-02-18,https://github.com/DistinctCodes/ManageHub/issues/778
+611,"role expiry, role, role grants, has_role, grant_role",35,35,37,77,26,68,2026-02-22,https://github.com/Healthy-Stellar/contracts/issues/490
+612,"gitattributes, endings, line endings, crlf, autocrlf",34,32,21,19,2,21,2026-01-30,https://github.com/chizzy0011/sorobugs/issues/1
+613,"twilio, sms, sms notification, twilio sms, implement sms",34,35,3,54,2,13,2026-02-22,https://github.com/soroventures/EventHorizon/issues/121
+614,"timelock implement, unlock_time, timelock, fails assert, timelockdata",34,34,32,98,3,23,2026-01-23,https://github.com/Tekinvest/Techpay-contract-/issues/133
+615,"zod, variable validation, startup, vars, environment variable",33,33,4,34,1,11,2026-02-22,https://github.com/Smartdevs17/SubTrackr/issues/57
+616,"pact, consumer, consumer driven, contract testing, driven contract",33,34,5,85,1,41,2026-03-20,https://github.com/AlienScroll78/vesting-cliff-drip-stream/issues/791
+617,"pool size, connection pool, connection, postgresql connection, pool",33,34,9,38,4,20,2026-03-24,https://github.com/arflexx/Airflex/issues/680
+618,"unsaved, unsaved changes, dirty, beforeunload, changes guard",33,32,4,37,6,22,2026-02-19,https://github.com/Arenax-gaming/ArenaX/issues/1488
+619,"unfollow, follow, follower, followers, follow unfollow",32,33,21,96,9,36,2026-01-18,https://github.com/HubDApp/Dongle-Smartcontract/issues/190
+620,"apostrophe, unescaped, escape apostrophe, apostrophes, react unescaped",32,32,43,4,3,14,2026-01-10,https://github.com/Elcare-care/elcare-care-app/commit/a18d346afc533ba6fd698d7a29095e30a4719f04
+621,"mvp, testnet mvp, mvp completion, mvp gate, mvp scope",32,33,16,31,3,17,2026-03-23,https://github.com/Calebux/SYNCRO/issues/714
+622,"automatically autosolve, autosolve cli, autosolve, opened automatically, opened",32,31,3,3,477,481,2026-07-27,https://github.com/OtowoOrg/Stellar-K8s/pull/2022
+623,"risks time, integer overflow, implemeneted, arithmetic, duration arithmetic",32,33,40,0,0,12,2026-01-13,https://github.com/QuickLendX/quicklendx-protocol/commit/58ad22742c30618b1ab7c5022b37b0996571de00
+624,"requestaccess, setallowed, getaddress, freighter, popup",32,31,33,1,1,2,2026-03-17,https://github.com/Saber1Y/Zk-Access-Passport/commit/3063cfd87a955d139c656291abc59c1ccbd83259
+625,"spell, typos, spell check, spellcheck, spell checking",32,31,6,35,2,33,2026-01-28,https://github.com/Junirezz/YieldVault-RWA/issues/1664
+626,"compounding, auto compounding, compound, auto compound, reinvest",32,30,4,64,1,23,2026-03-27,https://github.com/INVERSEARENA/inversearena-frontend/issues/459
+627,"fcm, apns, push notifications, push, cloud messaging",31,30,6,50,1,6,2026-02-23,https://github.com/whisper-stellar/whspr_stellar/issues/312
+628,"import order, import ordering, import, eslint plugin, plugin import",31,28,34,27,4,28,2026-01-25,https://github.com/Xoulomon/Scavenger/issues/1315
+629,"quick, skip",31,29,85,0,0,7,2026-04-25,https://github.com/Agentpay-Org/Agentpay-contracts/commit/12dbc66b3c4a709233866cb26a93013ad7a9d3dd
+630,"prettier formatting, formatting some, some files, prettier, formatting",31,30,47,0,1,17,2026-02-23,https://github.com/LabsCrypt/remitlend/commit/6d7791543acad6afa5a23121660e316fde3de1e5
+631,"cardinality, label cardinality, metric, label, high cardinality",30,30,5,31,5,25,2026-04-26,https://github.com/Onipinsaiye/predifi/issues/115
+632,"dockerfile, docker file, docker npm, docker, npm",30,30,29,0,6,3,2026-01-07,https://github.com/Abdulazeem-code/stellar-tags/commit/188d70a5405f1f48850d67217781f2d653ecb18a
+633,"course, enrollment, courses, enroll, instructor",30,32,73,422,63,316,2026-01-22,https://github.com/Hamplard-Hub/Hamplard--contracts/issues/182
+634,"turborepo, turbo, turbo json, remote caching, monorepo",29,28,7,45,0,18,2026-03-23,https://github.com/Invoice-Liquidity-Network/Invoice-Liquidity-Network/issues/245
+635,"linting, linting errors, frontend linting, resolve frontend, frontend lint",29,27,31,1,1,3,2026-02-21,https://github.com/LabsCrypt/flowfi/commit/72e18c2dae2017afe96862c2d0cab6b678e42b0c
+636,"bool_assert_comparison, clippy bool_assert_comparison, bool_assert_comparison warnings, replace assert_eq, assert_eq",29,27,45,1,0,10,2026-01-23,https://github.com/theblockcade/stellarcade/commit/23ffd035f56602d965c0e7eca80db1c771712351
+637,"repository pattern, repositories, repository, data access, baserepository",29,27,9,66,3,26,2026-01-19,https://github.com/Blue-Kollar/Blue-Collar/issues/1014
+638,"delete, delete api, routes delete, api routes, methods delete",29,28,13,90,2,31,2026-02-19,https://github.com/davedumto/LancePay/issues/987
+639,"patch, patch agents, patch api, patch competitions, api encounters",29,29,29,12,10,20,2026-01-24,https://github.com/naninu123/4evergent/pull/486
+640,"resource limits, cpu, compose, memory limits, docker compose",29,30,5,35,4,23,2026-04-19,https://github.com/mercyJJ/cosmosvote/issues/207
+641,"object url, object, url revokeobjecturl, revokeobjecturl, url",28,30,13,25,17,34,2026-04-25,https://github.com/stellarmarket-labs/stellar-market/pull/1485
+642,"gemini, gemini flash, flash, gemini model, flash lite",28,26,41,4,2,10,2026-01-17,https://github.com/Klorenn/CeroChamuyo/commit/b75cd538722f347809c92b5705cb4a7cc08f556a
+643,"signtransaction, networkpassphrase, passphrase, freighter signtransaction, network passphrase",28,28,30,1,1,11,2026-02-20,https://github.com/StellarVhibes/FluxID/commit/6b06ac081e5e75f9edd05e05485725103abcdb3d
+644,"observability, observability stack, opentelemetry, prometheus, tracing",28,28,5,30,0,7,2026-01-18,https://github.com/BrainTease/Brain-Storm/issues/673
+645,"tab hidden, hidden, tab, polling, visibilitychange",28,27,11,23,11,22,2026-03-27,https://github.com/Haroldwonder/AnchorKit/issues/1502
+646,"synchronize, typeorm, synchronize true, typeorm synchronize, typeorm config",28,30,15,46,7,18,2026-01-23,https://github.com/LumenTix-HQ/lumentix/issues/744
+647,"soroban cli, cli install, install soroban, cli installation, installation",27,25,38,0,2,6,2026-02-18,https://github.com/jizoof/splitpay/commit/ea6bd224cb1fe03ef5559a18f612e34d0489f06d
+648,"expire_match, match, player1, player2, match_id",27,30,118,182,39,77,2026-02-23,https://github.com/StellarCheckMate/Checkmate-Escrow/issues/323
+649,"tickets, ticket, ticket system, replies, captcha",27,27,4,59,4,30,2026-02-19,https://github.com/joekeyz8/ajosave/issues/575
+650,"scanning, security scanning, sast, scanning pipeline, automated security",27,26,7,38,6,6,2026-02-20,https://github.com/Health-watchers/health_watchers/issues/1296
+651,"record, claude bot, claude claude, unreleased, bot users",27,25,44,0,0,37,2026-07-06,https://github.com/rumblefishdev/soroban-block-explorer/commit/44d4ac247f6fe73a8c5d36f04aa40837a9d061f6
+652,"stampede, cache stampede, stampede protection, single flight, stampedes",26,28,7,32,5,24,2026-03-26,https://github.com/john2ydep2-gt/PERO-J/issues/1145
+653,"duplicate dev, remove duplicate, dev dependencies, cargo toml, section cargo",26,27,32,3,3,10,2026-01-28,https://github.com/Abdulazeem-code/stellar-tags/pull/440
+654,"patient, patients, clinical, medical, prescription",26,26,74,332,15,102,2026-01-17,https://github.com/Healthy-Stellar/contracts/issues/113
+655,"adding, adding debugger, debugger server, debugger, adding code",25,25,85,0,2,7,2026-01-27,https://github.com/Soroban-Ens/xlm-ens/commit/3af69d07873d2aec366284d81b8d99fe2e61f70b
+656,"fractional, tokenized fractional, tokenized, fractional asset, deterministic fractional",25,24,5,79,2,19,2026-01-19,https://github.com/Sahara-Pay/Very-Prince/issues/519
+657,"hsts, includesubdomains, preload, max age, strict transport",25,25,16,15,10,23,2026-03-19,https://github.com/katecatherinaa/solarproof/issues/769
+658,"upgrade stellar, stellar sdk, sdk v14, v14, testnet protocol",25,25,22,4,0,6,2026-01-31,https://github.com/Stellar-Ecosystem/lodestar/commit/3617c5cb5780194b210081381f094ea5c943a624
+659,"copilot autofix, autofix powered, finding authored, powered copilot, autofix",25,25,70,0,0,6,2026-03-18,https://github.com/0xreru/Pijin/commit/bbbbbd1d8667db01fc4949499617eb60968f47f1
+660,"minor tweaks, tweaks, minor, tweaks progress, tweaks improvement",25,25,184,0,6,0,2026-01-10,https://github.com/FundX-Grid/FundX-Stellar/commit/00c874baa9746d750684f73337a06e335f3b051d
+661,"next config, security headers, headers next, headers, referrer policy",25,24,9,22,3,17,2026-02-22,https://github.com/Stellar-Veriphy/Stellar-Veriphy/issues/127
+662,"payroll, suggested files, employee, salary, contract layer",25,26,50,463,31,382,2026-01-20,https://github.com/zkpayroll/zk-payroll-contracts/issues/1063
+663,"dark mode, dark, light, mode, light mode",24,24,26,0,1,1,2026-01-23,https://github.com/Quid-proquo/Quid/commit/f89b76bc2883f684609ce74f972b994df267d01f
+664,"sri, subresource integrity, subresource, integrity sri, cdn",24,22,6,32,4,22,2026-04-20,https://github.com/mercyJJ/cosmosvote/issues/247
+665,"season, seasons, seasonal, src seasons, rollover",24,26,17,73,4,44,2026-02-23,https://github.com/Akanimoh12/Stellar-iPredict/issues/801
+666,"defi, makers liquidity, financial primitives, rust handle, defi related",24,24,1,45,0,20,2026-01-19,https://github.com/Kevin737866/stellar-web3-toolkit/issues/37
+667,"predictify, org predictify, predictify org, predictify contracts, change predictify",23,24,6,133,3,12,2026-01-21,https://github.com/Predictify-org/predictify-contracts/issues/1390
+668,"partialeq, derives, derive partialeq, derive, debug partialeq",23,24,13,17,4,18,2026-04-17,https://github.com/softnationz/switch-vault-contracts/commit/02606d95a3b171ada473a6853b965e302891455a
+669,"shipment, shipments, carrier, shipper, shipment src",23,25,36,282,16,165,2026-02-18,https://github.com/Navin-xmr/navin-contracts/issues/520
+670,"gitignore, updated, files",23,22,26,0,0,0,2026-01-25,https://github.com/BuilderOSS/stellar-dao/commit/2c288109088e7ef3daebda624a21ebd992ad9b85
+671,"newline, missing newline, newline end, end file, trailing newline",23,23,33,0,0,8,2026-02-20,https://github.com/Floyce/SMS-DeFi-Assistant---PesaText/commit/4a4b175e10fcdbb069a9bbe477887d4b746620ae
+672,"node v22, node version, upgrade node, v22, node",22,21,22,0,1,4,2026-01-27,https://github.com/Stanley471/castle-black/commit/2e10722b0dffb17c498e7757e3b878460a5a91bb
+673,"tsx lines, frontend split, presentational sections, lines mixing, mixing data",22,22,1,54,1,49,2026-03-30,https://github.com/Xoulomon/Scavenger/issues/1206
+674,"resolve edge, exceptions during, unexpected exceptions, case error, causing unexpected",22,21,29,40,8,50,2026-03-22,https://github.com/WHEELBACK/COMEBACKHERE/issues/1122
+675,"security best, practices, best practices, practices guide, best",22,22,6,30,4,9,2026-02-20,https://github.com/Xoulomon/Scavenger/issues/540
+676,"contract monitoring, monitoring, alerting, event monitoring, monitor",22,22,1,25,1,3,2026-01-27,https://github.com/Blue-Kollar/Blue-Collar/issues/379
+677,"malware, malware guard, automated malware, guard workflow, maintainer pre",22,20,23,0,0,23,2026-10-19,https://github.com/daddygokings-art/Decentralized-Audit-Transparency-Ledger/commit/43d06216f275b4abd87453ec592933454934a6b6
+678,"json syntax, package json, syntax, resolve json, errors package",22,22,23,1,0,5,2026-01-24,https://github.com/Zyntarivoid/Veillend/commit/ef636062d068f97e71c7f4976d01e26aa731f0a8
+679,"usesearchparams, suspense, suspense boundary, usesearchparams suspense, wrap usesearchparams",22,22,26,6,3,5,2026-02-23,https://github.com/Tybravo/StellarProof/commit/dfdfd2548d7e4390293d9fcc4014c978736ef3e2
+680,"idempotency protection, protection write, idempotency, write property, protection implement",22,21,52,0,6,42,2026-03-25,https://github.com/Haroldwonder/SwiftRemit/commit/dd60d4723d225b58868a264e233468fb7ce7878f
+681,"full address, copy, truncated, clipboard, copy clipboard",22,22,3,21,2,6,2026-03-25,https://github.com/Ac0rdP/AccordProtocol/issues/30
+682,"system architecture, architecture documentation, diagrams, document system, data flow",21,20,5,23,0,4,2026-02-18,https://github.com/Health-watchers/health_watchers/issues/1017
+683,"config yml, issue_template, github issue_template, issue_template config, blank issues",21,22,10,12,7,15,2026-06-26,https://github.com/FlowwStar/FlowStar/issues/1048
+684,"pdb, poddisruptionbudget, disruption, pod disruption, pod",21,22,6,36,3,26,2026-04-28,https://github.com/Carbon-Ledger-stellar/carbonledger/pull/1833
+685,"docs readme, readme index, docs contains, docs index, markdown files",21,21,2,20,0,15,2026-06-29,https://github.com/scout-off/scout-off-backend/issues/1159
+686,"dynamodb, terraform, state locking, locking, terraform state",21,21,6,27,2,21,2026-05-25,https://github.com/FaveTeamz/workload-governor/issues/396
+687,"autosave, auto save, form autosave, save, implement form",20,22,2,25,1,5,2026-02-19,https://github.com/Fund-My-Cause/Fund-My-Cause/issues/494
+688,"upgrade next, cve, next resolve, resolve cve, next patch",20,19,25,0,0,1,2026-01-13,https://github.com/JointSave-org/Joint_Save/commit/f0e9151b0d3d294a831b9f3466a22beae2843fd0
+689,"prefetch, prefetching, hover, route prefetching, route prefetch",20,19,1,32,2,11,2026-02-20,https://github.com/Sahara-Pay/Very-Prince/issues/312
+690,"get_escrow_balance, get_escrow_balance returns, returns after, stake_amount, assert get_escrow_balance",20,20,11,47,4,21,2026-03-18,https://github.com/StellarCheckMate/Checkmate-Escrow/issues/430
+691,"back top, top button, scroll top, scroll, after scrolling",20,20,9,19,0,1,2026-02-22,https://github.com/Crowdfunding-DApp/stellar-raise-contracts/issues/148
+692,"language, languageswitcher, locale, language switcher, localeswitcher",20,20,1,22,1,11,2026-04-09,https://github.com/FaveTeamz/workload-governor/issues/817
+693,"validate_anchor_domain, domain_validator, domain validation, src domain_validator, https",20,20,14,52,6,26,2026-02-19,https://github.com/abore9769/SorobanAnchor/issues/253
+694,"certificate expiry, tls, tls certificate, certificate, expiry monitoring",20,20,14,20,7,25,2026-02-19,https://github.com/Akanimoh12/Stellar-iPredict/commit/d1f63d2fa402b76a8f3c7d02c7823ac1aba25ec5
